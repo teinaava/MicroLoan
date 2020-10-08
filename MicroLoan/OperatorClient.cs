@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ClientOP;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,5 +19,17 @@ namespace MicroLoan
             InitializeComponent();
         }
 
+        private void OperatorClient_Load(object sender, EventArgs e)
+        {
+            BaseDataLite bd = new BaseDataLite();
+            if (bd.connection.State == ConnectionState.Open)
+            {
+                this.Text += "БАЗА ДАННЫХ ПОДКЛЮЧЕНА";
+                DataTable table = bd.ShowAll(bd);
+                dataGridView1.DataSource = table;
+            }
+            else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; }
+            
+        }
     }
 }
