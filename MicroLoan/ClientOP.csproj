@@ -11,4 +11,10 @@
     <PackageReference Include="System.Data.SQLite" Version="1.0.113.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ClientUser">
+      <HintPath>..\ClientUser\bin\Debug\netcoreapp3.1\ClientUser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
