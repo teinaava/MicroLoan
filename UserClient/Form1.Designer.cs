@@ -1,6 +1,6 @@
-﻿namespace ClientUser
+﻿namespace UserClient
 {
-    partial class UserCleint
+    partial class Form1
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // UserCleint
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "UserCleint";
             this.Text = "Form1";
-            this.ResumeLayout(false);
-
         }
 
         #endregion

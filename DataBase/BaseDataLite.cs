@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SQLite;
 using System.IO;
-using System.Windows.Forms;
 using System.Data;
-using System.Drawing.Text;
-using System.Data.Entity;
-using System.Data.SqlClient;
 
-namespace ClientOP
+namespace BaseData
 {
     public class BaseDataLite
     {
-        
         public SQLiteConnection connection;
         SQLiteDataAdapter adapter = null;
         private DataTable table = null;
@@ -79,24 +74,58 @@ namespace ClientOP
             return table;
         }
         #endregion
-        #region UserQuery
+        #region UserQuery 
+        //for test 5518473851156466 cn
 
-        public bool CheckID(int id)
+        public void SendClaim(int sl, int days, int cardnumber, int sump, DateTime fd, DateTime ld)
         {
-            string query = $"SELECT * FROM Loan where id = {id}";
-            SQLiteCommand cmd = new SQLiteCommand(query, connection);
-            SQLiteDataAdapter  adapter = new SQLiteDataAdapter(query, connection);
+            SQLiteConnection conn = new SQLiteConnection("Data Source = DataBase.db");
+            conn.Open();
+            string query = $"";
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public static bool CheckUsersID(int id)
+        {
+            SQLiteConnection conn = new SQLiteConnection("Data Source = DataBase.db");
+            conn.Open();
+            string query = $"SELECT * FROM Users where id = {id}";
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
             DataTable dt = new DataTable();
             adapter.SelectCommand = cmd;
-            adapter.Fill(dt);
-            bool res;
+            adapter.Fill(dt); ;
+            conn.Close();
             if (dt.Rows.Count > 0)
             {
-                res = true;
+                return true;
             }
-            else { res = false; }
-            return res;
+            else { return false; }
         }
+        public static bool CheckID(int id)
+        {
+            SQLiteConnection conn = new SQLiteConnection("Data Source = DataBase.db");
+            conn.Open();
+            string query = $"SELECT * FROM Loan where id = {id}";
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(dt); ;
+            conn.Close();
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+        //public static bool CheckUserExist(User)
+        //{
+        //    SQLiteConnection conn = new SQLiteConnection("Data Source = DataBase.db");
+        //    conn.Open();
+        //    string query = $"SELECT * FROM Loan where id = {id}";
+        //}
         #endregion
     }
 }

@@ -7,15 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClientOP;
-using MicroLoan;
 
-
-namespace ClientUser
+namespace UserClient
 {
-    public partial class UserCleint : Form
+    public partial class Form1 : Form
     {
-        public UserCleint()
+        public Form1()
         {
             InitializeComponent();
         }

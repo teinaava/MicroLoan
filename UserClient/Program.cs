@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClientUser
+namespace UserClient
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace ClientUser
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserCleint());
+            Application.Run(new Form1());
         }
     }
 }
