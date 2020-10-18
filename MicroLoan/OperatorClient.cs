@@ -28,12 +28,11 @@ namespace MicroLoan
             BaseDataLite bd = new BaseDataLite();
             if (bd.connection.State == ConnectionState.Open)
             {
-                this.Text += "БАЗА ДАННЫХ ПОДКЛЮЧЕНА";
-                DataTable table = bd.ShowAll(bd,"Loan");
+                this.Text += " БАЗА ДАННЫХ ПОДКЛЮЧЕНА";
+                DataTable table = bd.ShowAll(bd,"Users");
                 dataGridView1.DataSource = table;
             }
             else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; }
-          
         }
     }
 }

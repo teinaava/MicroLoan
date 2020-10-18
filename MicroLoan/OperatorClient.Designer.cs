@@ -49,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Name = "OperatorClient";
-            this.Text = "Form1";
+            this.Text = "Панель оператора";
             this.Load += new System.EventHandler(this.OperatorClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -21,23 +21,19 @@ namespace ClientUser
         {
 
         }
-        public BClaim(int sl,int days,int cardnumber,int sump,DateTime fd,DateTime ld)
-        {
-            SumLoan = sl;
-            Days = days;
-            CardNumber = cardnumber;
-            SumPaid = sump;
-            FirstDate = fd;
-            LastDate = ld;
-        }
         BaseDataLite bd = new BaseDataLite();
         private int id; //id заявки
         private int sumLoan; //сумма заzвки
         private int days; // Days
         private DateTime fdate; //дата заявки.
-        private int cardnumber;
-        private int sumpaid;
-        private DateTime ldate;
+        private int cardnumber; //номер карты
+        private int sumpaid; //сумма к выплате
+        private DateTime ldate; //посл. дата выплаты
+        private int fineday; // дней штрафа
+        private int paidout; // уже выплачено
+        private Type type;
+        private Status status;
+
         #region Porps
         public int Id
         {
@@ -51,7 +47,7 @@ namespace ClientUser
                 {
                    
                     id = GenerateID(6);
-                    if (!BaseDataLite.CheckID(id)) { break; }
+                    if (!BaseDataLite.CheckLoanID(id)) { break; }
                     
                 }
             }
@@ -62,6 +58,8 @@ namespace ClientUser
         public int SumLoan { get { return sumLoan; } set { sumLoan = value; } }
         public DateTime FirstDate { get { return fdate; } set { fdate = value; } }
         public int Days{ get { return days; } set { days = value; } }
+        public int Fine { get { return days; } set { fineday = value; } }
+        public int PaidOut { get { return days; } set { paidout = value; } }
         #endregion
         #region Methods
         public static int GenerateID(int ln)
@@ -74,21 +72,6 @@ namespace ClientUser
             }
             return Convert.ToInt32(id);
         }   //claim id.lenght = 6   user id.lenght = 4
-        public static void SendEmail(string sendEmail,DateTime LastDate, DateTime FirstDate ) //послать имейл
-        {
-            MailAddress from = new MailAddress("aurel1us.mar@yandex.ru", "MoneyMota");
-            MailAddress to = new MailAddress(sendEmail);
-            string message = "";
-            MailMessage m = new MailMessage(from, to);
-            m.Attachments.Add(new Attachment(@"C:\gg\PS\EWryYElXsAsIOSA.jpg"));
-            m.Subject = "Информация о вашем займе";
-            m.Body = "";
-            m.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 25);
-            smtp.Credentials = new NetworkCredential("aurel1us.mar@yandex.ru", "qwrnvtxewxwdckco");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
-        }
         public static double DailyPaid(int s,double i,int n) // s – сумма кредита, i – ежедневная ставка, n – срок на который берется кредит.
         {
             double v = (((s / n) / 100) * n) + (s / n);
