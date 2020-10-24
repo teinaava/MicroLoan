@@ -9,7 +9,7 @@ namespace ClientUser
 {
     enum Status
     {
-        open, apply, closed
+        open, apply, closed, rejected
     }
     enum Type
     {
@@ -31,8 +31,8 @@ namespace ClientUser
         private DateTime ldate; //посл. дата выплаты
         private int fineday; // дней штрафа
         private int paidout; // уже выплачено
-        private Type type;
-        private Status status;
+        private Type type; //Тип выплаты
+        private Status status; //Статус заявки
 
         #region Porps
         public int Id
