@@ -30,14 +30,8 @@ namespace MicroLoan
                 //MessageBox.Show(BaseDataLite.GetUserID("347389089"));
             }
             else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; }
-
-
-
-           
-
         }
         #region Gradient
-
         #endregion
 
         private void Meunu_Paint(object sender, PaintEventArgs e)
@@ -45,23 +39,20 @@ namespace MicroLoan
             Graphics graph = e.Graphics;
             Pen pen = new Pen(Color.FromArgb(233, 83, 83), 1);
             Rectangle area = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
-            LinearGradientBrush lgb = new LinearGradientBrush(area, Color.FromArgb(233, 83, 83), Color.FromArgb(255, 239, 132), LinearGradientMode.Horizontal);
+            LinearGradientBrush lgb = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(233, 83, 83), Color.FromArgb(255, 239, 132), 90F);
             graph.FillRectangle(lgb, area);
             graph.DrawRectangle(pen, area);
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void TableLable_Click(object sender, EventArgs e)
         {
             WorkSpaceClaim.Visible = false;
             WorkSpaceTable.Visible = true;
         }
-
         private void ClaimLable_Click(object sender, EventArgs e)
         {
             WorkSpaceClaim.Visible = true;
