@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
 using System.Drawing;
-using System.Linq;
+using System.Drawing.Drawing2D;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +16,8 @@ namespace MicroLoan
         public OperatorClient()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            shadow.BackColor = Color.FromArgb(175, Color.Black);
         }
         private void OperatorClient_Load(object sender, EventArgs e)
         {
@@ -29,6 +30,42 @@ namespace MicroLoan
                 //MessageBox.Show(BaseDataLite.GetUserID("347389089"));
             }
             else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; }
+
+
+
+           
+
+        }
+        #region Gradient
+
+        #endregion
+
+        private void Meunu_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics graph = e.Graphics;
+            Pen pen = new Pen(Color.FromArgb(233, 83, 83), 1);
+            Rectangle area = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
+            LinearGradientBrush lgb = new LinearGradientBrush(area, Color.FromArgb(233, 83, 83), Color.FromArgb(255, 239, 132), LinearGradientMode.Horizontal);
+            graph.FillRectangle(lgb, area);
+            graph.DrawRectangle(pen, area);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TableLable_Click(object sender, EventArgs e)
+        {
+            WorkSpaceClaim.Visible = false;
+            WorkSpaceTable.Visible = true;
+        }
+
+        private void ClaimLable_Click(object sender, EventArgs e)
+        {
+            WorkSpaceClaim.Visible = true;
+            WorkSpaceTable.Visible = false;
         }
     }
 }
