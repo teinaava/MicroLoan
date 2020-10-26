@@ -33,13 +33,13 @@
             this.listBoxTypeVision = new System.Windows.Forms.ListBox();
             this.buttonShowAll = new System.Windows.Forms.Button();
             this.shadow = new System.Windows.Forms.Panel();
-            this.Meunu = new System.Windows.Forms.Panel();
+            this.Menu = new System.Windows.Forms.Panel();
             this.ClaimLable = new System.Windows.Forms.Label();
             this.TableLable = new System.Windows.Forms.Label();
             this.WorkSpaceClaim = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.WorkSpaceTable.SuspendLayout();
-            this.Meunu.SuspendLayout();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -93,16 +93,16 @@
             this.shadow.Size = new System.Drawing.Size(3, 569);
             this.shadow.TabIndex = 1;
             // 
-            // Meunu
+            // Menu
             // 
-            this.Meunu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Meunu.Controls.Add(this.ClaimLable);
-            this.Meunu.Controls.Add(this.TableLable);
-            this.Meunu.Location = new System.Drawing.Point(0, 0);
-            this.Meunu.Name = "Meunu";
-            this.Meunu.Size = new System.Drawing.Size(196, 569);
-            this.Meunu.TabIndex = 2;
-            this.Meunu.Paint += new System.Windows.Forms.PaintEventHandler(this.Meunu_Paint);
+            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Menu.Controls.Add(this.ClaimLable);
+            this.Menu.Controls.Add(this.TableLable);
+            this.Menu.Location = new System.Drawing.Point(0, 0);
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(196, 569);
+            this.Menu.TabIndex = 2;
+            this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Meunu_Paint);
             // 
             // ClaimLable
             // 
@@ -141,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1104, 569);
-            this.Controls.Add(this.Meunu);
+            this.Controls.Add(this.Menu);
             this.Controls.Add(this.WorkSpaceTable);
             this.Controls.Add(this.WorkSpaceClaim);
             this.MaximizeBox = false;
@@ -150,8 +150,8 @@
             this.Load += new System.EventHandler(this.OperatorClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.WorkSpaceTable.ResumeLayout(false);
-            this.Meunu.ResumeLayout(false);
-            this.Meunu.PerformLayout();
+            this.Menu.ResumeLayout(false);
+            this.Menu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -160,7 +160,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel WorkSpaceTable;
-        private System.Windows.Forms.Panel Meunu;
+        private System.Windows.Forms.Panel Menu;
         private System.Windows.Forms.Panel shadow;
         private System.Windows.Forms.Button buttonShowAll;
         private System.Windows.Forms.Label TableLable;
