@@ -30,12 +30,18 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.WorkSpaceTable = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonDeleateOLD = new System.Windows.Forms.Button();
+            this.listBoxSearchType = new System.Windows.Forms.ListBox();
+            this.SearchtextBox = new System.Windows.Forms.TextBox();
+            this.buttonSendUpdate = new System.Windows.Forms.Button();
+            this.buttonShowNew = new System.Windows.Forms.Button();
             this.listBoxTypeVision = new System.Windows.Forms.ListBox();
             this.buttonShowAll = new System.Windows.Forms.Button();
             this.shadow = new System.Windows.Forms.Panel();
             this.Menu = new System.Windows.Forms.Panel();
-            this.ClaimLable = new System.Windows.Forms.Label();
-            this.TableLable = new System.Windows.Forms.Label();
+            this.buttonClaim = new System.Windows.Forms.Button();
+            this.buttonTable = new System.Windows.Forms.Button();
             this.WorkSpaceClaim = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.WorkSpaceTable.SuspendLayout();
@@ -54,6 +60,12 @@
             // WorkSpaceTable
             // 
             this.WorkSpaceTable.BackColor = System.Drawing.SystemColors.Control;
+            this.WorkSpaceTable.Controls.Add(this.label1);
+            this.WorkSpaceTable.Controls.Add(this.buttonDeleateOLD);
+            this.WorkSpaceTable.Controls.Add(this.listBoxSearchType);
+            this.WorkSpaceTable.Controls.Add(this.SearchtextBox);
+            this.WorkSpaceTable.Controls.Add(this.buttonSendUpdate);
+            this.WorkSpaceTable.Controls.Add(this.buttonShowNew);
             this.WorkSpaceTable.Controls.Add(this.listBoxTypeVision);
             this.WorkSpaceTable.Controls.Add(this.buttonShowAll);
             this.WorkSpaceTable.Controls.Add(this.shadow);
@@ -62,6 +74,62 @@
             this.WorkSpaceTable.Name = "WorkSpaceTable";
             this.WorkSpaceTable.Size = new System.Drawing.Size(910, 569);
             this.WorkSpaceTable.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(8, 502);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(205, 36);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Удалить все старые завяки,\r\nотклоненные более 7 дней назад.\r\n\r\n";
+            // 
+            // buttonDeleateOLD
+            // 
+            this.buttonDeleateOLD.Location = new System.Drawing.Point(216, 502);
+            this.buttonDeleateOLD.Name = "buttonDeleateOLD";
+            this.buttonDeleateOLD.Size = new System.Drawing.Size(143, 55);
+            this.buttonDeleateOLD.TabIndex = 8;
+            this.buttonDeleateOLD.Text = "Удалить";
+            this.buttonDeleateOLD.UseVisualStyleBackColor = true;
+            // 
+            // listBoxSearchType
+            // 
+            this.listBoxSearchType.FormattingEnabled = true;
+            this.listBoxSearchType.ItemHeight = 12;
+            this.listBoxSearchType.Items.AddRange(new object[] {
+            "По фамилии",
+            "По номеру"});
+            this.listBoxSearchType.Location = new System.Drawing.Point(216, 381);
+            this.listBoxSearchType.Name = "listBoxSearchType";
+            this.listBoxSearchType.Size = new System.Drawing.Size(120, 28);
+            this.listBoxSearchType.TabIndex = 7;
+            // 
+            // SearchtextBox
+            // 
+            this.SearchtextBox.Location = new System.Drawing.Point(53, 381);
+            this.SearchtextBox.Name = "SearchtextBox";
+            this.SearchtextBox.Size = new System.Drawing.Size(145, 23);
+            this.SearchtextBox.TabIndex = 6;
+            // 
+            // buttonSendUpdate
+            // 
+            this.buttonSendUpdate.Location = new System.Drawing.Point(744, 323);
+            this.buttonSendUpdate.Name = "buttonSendUpdate";
+            this.buttonSendUpdate.Size = new System.Drawing.Size(143, 52);
+            this.buttonSendUpdate.TabIndex = 5;
+            this.buttonSendUpdate.Text = "Отправить и обновить";
+            this.buttonSendUpdate.UseVisualStyleBackColor = true;
+            // 
+            // buttonShowNew
+            // 
+            this.buttonShowNew.Location = new System.Drawing.Point(744, 66);
+            this.buttonShowNew.Name = "buttonShowNew";
+            this.buttonShowNew.Size = new System.Drawing.Size(86, 37);
+            this.buttonShowNew.TabIndex = 4;
+            this.buttonShowNew.Text = "Новые заявки";
+            this.buttonShowNew.UseVisualStyleBackColor = true;
             // 
             // listBoxTypeVision
             // 
@@ -83,7 +151,6 @@
             this.buttonShowAll.TabIndex = 2;
             this.buttonShowAll.Text = "Отобразить все";
             this.buttonShowAll.UseVisualStyleBackColor = true;
-            this.buttonShowAll.Click += new System.EventHandler(this.button1_Click);
             // 
             // shadow
             // 
@@ -96,35 +163,41 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Menu.Controls.Add(this.ClaimLable);
-            this.Menu.Controls.Add(this.TableLable);
+            this.Menu.Controls.Add(this.buttonClaim);
+            this.Menu.Controls.Add(this.buttonTable);
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(196, 569);
             this.Menu.TabIndex = 2;
             this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Meunu_Paint);
             // 
-            // ClaimLable
+            // buttonClaim
             // 
-            this.ClaimLable.AutoSize = true;
-            this.ClaimLable.BackColor = System.Drawing.Color.Transparent;
-            this.ClaimLable.Location = new System.Drawing.Point(68, 124);
-            this.ClaimLable.Name = "ClaimLable";
-            this.ClaimLable.Size = new System.Drawing.Size(47, 12);
-            this.ClaimLable.TabIndex = 1;
-            this.ClaimLable.Text = "Заявка";
-            this.ClaimLable.Click += new System.EventHandler(this.ClaimLable_Click);
+            this.buttonClaim.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClaim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonClaim.FlatAppearance.BorderSize = 0;
+            this.buttonClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClaim.Location = new System.Drawing.Point(0, 149);
+            this.buttonClaim.Name = "buttonClaim";
+            this.buttonClaim.Size = new System.Drawing.Size(196, 93);
+            this.buttonClaim.TabIndex = 1;
+            this.buttonClaim.Text = "Заявка";
+            this.buttonClaim.UseVisualStyleBackColor = false;
+            this.buttonClaim.Click += new System.EventHandler(this.buttonClaim_Click);
             // 
-            // TableLable
+            // buttonTable
             // 
-            this.TableLable.AutoSize = true;
-            this.TableLable.BackColor = System.Drawing.Color.Transparent;
-            this.TableLable.Location = new System.Drawing.Point(68, 48);
-            this.TableLable.Name = "TableLable";
-            this.TableLable.Size = new System.Drawing.Size(56, 12);
-            this.TableLable.TabIndex = 0;
-            this.TableLable.Text = "Таблица";
-            this.TableLable.Click += new System.EventHandler(this.TableLable_Click);
+            this.buttonTable.BackColor = System.Drawing.Color.Transparent;
+            this.buttonTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonTable.FlatAppearance.BorderSize = 0;
+            this.buttonTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTable.Location = new System.Drawing.Point(0, 40);
+            this.buttonTable.Name = "buttonTable";
+            this.buttonTable.Size = new System.Drawing.Size(197, 90);
+            this.buttonTable.TabIndex = 0;
+            this.buttonTable.Text = "Таблица";
+            this.buttonTable.UseVisualStyleBackColor = false;
+            this.buttonTable.Click += new System.EventHandler(this.buttonTable_Click);
             // 
             // WorkSpaceClaim
             // 
@@ -150,8 +223,8 @@
             this.Load += new System.EventHandler(this.OperatorClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.WorkSpaceTable.ResumeLayout(false);
+            this.WorkSpaceTable.PerformLayout();
             this.Menu.ResumeLayout(false);
-            this.Menu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -163,10 +236,16 @@
         private System.Windows.Forms.Panel Menu;
         private System.Windows.Forms.Panel shadow;
         private System.Windows.Forms.Button buttonShowAll;
-        private System.Windows.Forms.Label TableLable;
         private System.Windows.Forms.ListBox listBoxTypeVision;
-        private System.Windows.Forms.Label ClaimLable;
         private System.Windows.Forms.Panel WorkSpaceClaim;
+        private System.Windows.Forms.TextBox SearchtextBox;
+        private System.Windows.Forms.Button buttonSendUpdate;
+        private System.Windows.Forms.Button buttonShowNew;
+        private System.Windows.Forms.ListBox listBoxSearchType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonDeleateOLD;
+        private System.Windows.Forms.Button buttonClaim;
+        private System.Windows.Forms.Button buttonTable;
     }
 }
 

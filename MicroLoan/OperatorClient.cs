@@ -25,15 +25,15 @@ namespace MicroLoan
             if (bd.connection.State == ConnectionState.Open)
             {
                 this.Text += " БАЗА ДАННЫХ ПОДКЛЮЧЕНА";
-                DataTable table = bd.ShowAll(bd,"Loan");
+                DataTable table = bd.ShowAll(bd, "Loan");
                 dataGridView1.DataSource = table;
                 //MessageBox.Show(BaseDataLite.GetUserID("347389089"));
             }
             else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; }
+            listBoxSearchType.SetSelected(0, true);
+            listBoxTypeVision.SetSelected(0, true);
+            dataGridView1.AllowUserToAddRows = false;
         }
-        #region Gradient
-        #endregion
-
         private void Meunu_Paint(object sender, PaintEventArgs e)
         {
             Graphics graph = e.Graphics;
@@ -44,19 +44,20 @@ namespace MicroLoan
             graph.DrawRectangle(pen, area);
 
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-        }
-        private void TableLable_Click(object sender, EventArgs e)
+        #region Buttons
+        private void buttonTable_Click(object sender, EventArgs e)
         {
             WorkSpaceClaim.Visible = false;
             WorkSpaceTable.Visible = true;
         }
-        private void ClaimLable_Click(object sender, EventArgs e)
+
+        private void buttonClaim_Click(object sender, EventArgs e)
         {
             WorkSpaceClaim.Visible = true;
             WorkSpaceTable.Visible = false;
+
+            #endregion
         }
     }
 }
