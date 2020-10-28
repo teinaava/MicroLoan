@@ -17,7 +17,6 @@ namespace MicroLoan
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            shadow.BackColor = Color.FromArgb(175, Color.Black);
         }
         private void OperatorClient_Load(object sender, EventArgs e)
         {
@@ -59,5 +58,6 @@ namespace MicroLoan
 
             #endregion
         }
+
     }
 }
