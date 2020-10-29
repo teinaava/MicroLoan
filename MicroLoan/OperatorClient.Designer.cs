@@ -204,6 +204,8 @@
             this.buttonClaim.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClaim.FlatAppearance.BorderSize = 0;
             this.buttonClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClaim.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonClaim.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonClaim.Location = new System.Drawing.Point(0, 146);
             this.buttonClaim.Name = "buttonClaim";
             this.buttonClaim.Size = new System.Drawing.Size(196, 93);
@@ -218,6 +220,8 @@
             this.buttonTable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonTable.FlatAppearance.BorderSize = 0;
             this.buttonTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTable.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonTable.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonTable.Location = new System.Drawing.Point(0, 40);
             this.buttonTable.Name = "buttonTable";
             this.buttonTable.Size = new System.Drawing.Size(197, 90);
@@ -558,7 +562,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(341, 19);
+            this.button1.Location = new System.Drawing.Point(341, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 23);
             this.button1.TabIndex = 2;
@@ -568,7 +572,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 24);
+            this.label2.Location = new System.Drawing.Point(31, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 12);
             this.label2.TabIndex = 1;
@@ -592,7 +596,7 @@
             this.Controls.Add(this.WorkSpaceTable);
             this.MaximizeBox = false;
             this.Name = "OperatorClient";
-            this.Text = " ";
+            this.Text = " Панель Оператора -";
             this.Load += new System.EventHandler(this.OperatorClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.WorkSpaceTable.ResumeLayout(false);
