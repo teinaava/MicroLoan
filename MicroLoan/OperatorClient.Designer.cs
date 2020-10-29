@@ -30,6 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.WorkSpaceTable = new System.Windows.Forms.Panel();
+            this.buttonFind = new System.Windows.Forms.Button();
+            this.labelClaimSearchType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonDeleateOLD = new System.Windows.Forms.Button();
             this.listBoxSearchType = new System.Windows.Forms.ListBox();
@@ -77,11 +79,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxIDClaim = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.WorkSpaceTable.SuspendLayout();
             this.Menu.SuspendLayout();
             this.WorkSpaceClaim.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -96,10 +100,9 @@
             // WorkSpaceTable
             // 
             this.WorkSpaceTable.BackColor = System.Drawing.SystemColors.Control;
+            this.WorkSpaceTable.Controls.Add(this.groupBox2);
             this.WorkSpaceTable.Controls.Add(this.label1);
             this.WorkSpaceTable.Controls.Add(this.buttonDeleateOLD);
-            this.WorkSpaceTable.Controls.Add(this.listBoxSearchType);
-            this.WorkSpaceTable.Controls.Add(this.SearchtextBox);
             this.WorkSpaceTable.Controls.Add(this.buttonSendUpdate);
             this.WorkSpaceTable.Controls.Add(this.buttonShowNew);
             this.WorkSpaceTable.Controls.Add(this.listBoxTypeVision);
@@ -110,11 +113,30 @@
             this.WorkSpaceTable.Size = new System.Drawing.Size(910, 569);
             this.WorkSpaceTable.TabIndex = 1;
             // 
+            // buttonFind
+            // 
+            this.buttonFind.Location = new System.Drawing.Point(41, 57);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(75, 25);
+            this.buttonFind.TabIndex = 11;
+            this.buttonFind.Text = "Найти";
+            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+            // 
+            // labelClaimSearchType
+            // 
+            this.labelClaimSearchType.AutoSize = true;
+            this.labelClaimSearchType.Location = new System.Drawing.Point(6, 97);
+            this.labelClaimSearchType.Name = "labelClaimSearchType";
+            this.labelClaimSearchType.Size = new System.Drawing.Size(106, 12);
+            this.labelClaimSearchType.TabIndex = 10;
+            this.labelClaimSearchType.Text = "По номеру заявки";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(8, 502);
+            this.label1.Location = new System.Drawing.Point(23, 432);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 36);
             this.label1.TabIndex = 9;
@@ -122,7 +144,7 @@
             // 
             // buttonDeleateOLD
             // 
-            this.buttonDeleateOLD.Location = new System.Drawing.Point(216, 502);
+            this.buttonDeleateOLD.Location = new System.Drawing.Point(234, 432);
             this.buttonDeleateOLD.Name = "buttonDeleateOLD";
             this.buttonDeleateOLD.Size = new System.Drawing.Size(143, 55);
             this.buttonDeleateOLD.TabIndex = 8;
@@ -131,22 +153,25 @@
             // 
             // listBoxSearchType
             // 
+            this.listBoxSearchType.Enabled = false;
             this.listBoxSearchType.FormattingEnabled = true;
             this.listBoxSearchType.ItemHeight = 12;
             this.listBoxSearchType.Items.AddRange(new object[] {
             "По фамилии",
             "По номеру"});
-            this.listBoxSearchType.Location = new System.Drawing.Point(216, 381);
+            this.listBoxSearchType.Location = new System.Drawing.Point(6, 112);
             this.listBoxSearchType.Name = "listBoxSearchType";
             this.listBoxSearchType.Size = new System.Drawing.Size(120, 28);
             this.listBoxSearchType.TabIndex = 7;
+            this.listBoxSearchType.Click += new System.EventHandler(this.listBoxSearchType_Click);
             // 
             // SearchtextBox
             // 
-            this.SearchtextBox.Location = new System.Drawing.Point(53, 381);
+            this.SearchtextBox.Location = new System.Drawing.Point(6, 28);
             this.SearchtextBox.Name = "SearchtextBox";
-            this.SearchtextBox.Size = new System.Drawing.Size(145, 23);
+            this.SearchtextBox.Size = new System.Drawing.Size(110, 23);
             this.SearchtextBox.TabIndex = 6;
+            this.SearchtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchtextBox_KeyPress);
             // 
             // buttonSendUpdate
             // 
@@ -165,6 +190,7 @@
             this.buttonShowNew.TabIndex = 4;
             this.buttonShowNew.Text = "Новые заявки";
             this.buttonShowNew.UseVisualStyleBackColor = true;
+            this.buttonShowNew.Click += new System.EventHandler(this.buttonShowNew_Click);
             // 
             // listBoxTypeVision
             // 
@@ -177,6 +203,7 @@
             this.listBoxTypeVision.Name = "listBoxTypeVision";
             this.listBoxTypeVision.Size = new System.Drawing.Size(74, 40);
             this.listBoxTypeVision.TabIndex = 3;
+            this.listBoxTypeVision.Click += new System.EventHandler(this.listBoxTypeVision_Click);
             // 
             // buttonShowAll
             // 
@@ -186,6 +213,7 @@
             this.buttonShowAll.TabIndex = 2;
             this.buttonShowAll.Text = "Отобразить все";
             this.buttonShowAll.UseVisualStyleBackColor = true;
+            this.buttonShowAll.Click += new System.EventHandler(this.buttonShowAll_Click);
             // 
             // Menu
             // 
@@ -585,6 +613,19 @@
             this.textBoxIDClaim.Size = new System.Drawing.Size(238, 23);
             this.textBoxIDClaim.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.SearchtextBox);
+            this.groupBox2.Controls.Add(this.labelClaimSearchType);
+            this.groupBox2.Controls.Add(this.buttonFind);
+            this.groupBox2.Controls.Add(this.listBoxSearchType);
+            this.groupBox2.Location = new System.Drawing.Point(744, 130);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(154, 159);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
             // OperatorClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -592,11 +633,12 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1104, 569);
             this.Controls.Add(this.Menu);
-            this.Controls.Add(this.WorkSpaceClaim);
             this.Controls.Add(this.WorkSpaceTable);
+            this.Controls.Add(this.WorkSpaceClaim);
             this.MaximizeBox = false;
             this.Name = "OperatorClient";
             this.Text = " Панель Оператора -";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OperatorClient_FormClosed);
             this.Load += new System.EventHandler(this.OperatorClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.WorkSpaceTable.ResumeLayout(false);
@@ -606,6 +648,8 @@
             this.WorkSpaceClaim.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -661,6 +705,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxFineDays;
         private System.Windows.Forms.Label labelType;
+        private System.Windows.Forms.Label labelClaimSearchType;
+        private System.Windows.Forms.Button buttonFind;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
