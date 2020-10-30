@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data.SQLite;
 using System.IO;
+using System.Text;
 using System.Data;
 
 namespace BaseData
 {
-
     public class BaseDataLite
     {
         public SQLiteConnection connection;
@@ -28,7 +26,7 @@ namespace BaseData
         }
         private static string FindDataBase()
         {
-            string str = "";
+            string str; 
             try
             {
                 using (StreamReader file = new StreamReader("./ConnPath.txt"))
@@ -55,7 +53,7 @@ namespace BaseData
         }
         public DataTable GetUserbyName(BaseDataLite bd, string sname)  //Получить все записи по фамилии
         {
-            string query = $"";
+            string query = $"SELECT * FROM Users where secound_name = '{sname}'";
             command = new SQLiteCommand(query, bd.connection);
             command.ExecuteNonQuery();
             adapter = new SQLiteDataAdapter(query, connection);
@@ -65,7 +63,7 @@ namespace BaseData
         }
         public DataTable GetUserbyID(BaseDataLite bd, string id)  //Получить все записи по id заявки
         {
-            string query = $"";
+            string query = $"SELECT * FROM Users where id = '{id}'";
             command = new SQLiteCommand(query, bd.connection);
             command.ExecuteNonQuery();
             adapter = new SQLiteDataAdapter(query, connection);
@@ -75,7 +73,7 @@ namespace BaseData
         }
         public DataTable GetLoanbyStatus(BaseDataLite bd, string status) //Получить все записи опр. статуса заявки
         {
-            string query = $"";
+            string query = $"SELECT * FROM Loan where status = '{status}'";
             command.ExecuteNonQuery();
             adapter = new SQLiteDataAdapter(query, connection);
             table = new DataTable();
@@ -102,7 +100,7 @@ namespace BaseData
             }
         }
         //for test 5518473851156466 cn
-        public void SendClaim(int id,int paid, int sumLoan, int days, DateTime fdate,int clientid, int cardnumber, int sumpaid, 
+        public void SendClaim(int id,int paid, int sumLoan, int days, DateTime fdate,int clientid,int docs,int cardnumber, int sumpaid, 
             DateTime ldate, int fineday, int paidout, string type,string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
@@ -110,7 +108,7 @@ namespace BaseData
                 string lastdate = ldate.ToString("d");
                 string firstday = fdate.ToString("d");
                 conn.Open();
-                string query = $"INSERT INTO Loan(id,paid,sum_loan,days,fdate,clientid,cardnumber,status,type,sum_paid,fineday,paidout)" +
+                string query = $"INSERT INTO Loan(id,paid,sum_loan,days,fdate,clientid,docs,cardnumber,status,type,sum_paid,fineday,paidout)" +
                     $" VALUES({id},{paid},{sumLoan},{days},{firstday},{clientid},{cardnumber},{status},{type},{sumpaid},{fineday},{paidout})";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 cmd.ExecuteNonQuery();
@@ -179,6 +177,29 @@ namespace BaseData
                     conn.Close();
                 }
             }
+        }
+        public static void SendFile(string filename,int id)     // Загружает файл в Базу данных.                   
+        {                                                       //docs id генерируется для отправки в таблицы зайвок и документов
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"INSERT INTO Docs(id,File) VALUES({id},@File)";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                byte[] export;
+                using (FileStream fs = new FileStream(filename, FileMode.Open))
+                {
+                    export = new byte[fs.Length];
+                    fs.Read(export, 0, export.Length);
+                }
+                cmd.Parameters.Add("@File", DbType.Binary).Value = export;
+                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQueryAsync();
+                conn.Close();
+            }
+        }
+        public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
+        {
+
         }
     }
 }
