@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data.SQLite;
 using System.IO;
 using System.Data;
+using System.Text;
 
 namespace BaseData
 {
@@ -14,7 +13,13 @@ namespace BaseData
         SQLiteDataAdapter adapter = null;
         private DataTable table = null;
         SQLiteCommand command = null;
-
+        /*
+         * статусы
+         * new - новый
+         * apply - принятый
+         * closed - закрытый
+         * rejected - отклоненный
+         */
 
         private static string connstr = "data source=" + FindDataBase(); //строка подключения 
         public BaseDataLite()
@@ -28,7 +33,7 @@ namespace BaseData
         }
         private static string FindDataBase()
         {
-            string str = "";
+            string str;
             try
             {
                 using (StreamReader file = new StreamReader("./ConnPath.txt"))
@@ -41,7 +46,6 @@ namespace BaseData
             {
                 return "";
             }                
-            
         }
         public DataTable ShowAll(BaseDataLite bd, string tablename) //Вывести всю таблицу
         {
@@ -55,7 +59,7 @@ namespace BaseData
         }
         public DataTable GetUserbyName(BaseDataLite bd, string sname)  //Получить все записи по фамилии
         {
-            string query = $"";
+            string query = $"SELECT * FROM Users where secound_name = '{sname}'";
             command = new SQLiteCommand(query, bd.connection);
             command.ExecuteNonQuery();
             adapter = new SQLiteDataAdapter(query, connection);
@@ -65,22 +69,52 @@ namespace BaseData
         }
         public DataTable GetUserbyID(BaseDataLite bd, string id)  //Получить все записи по id заявки
         {
-            string query = $"";
-            command = new SQLiteCommand(query, bd.connection);
-            command.ExecuteNonQuery();
-            adapter = new SQLiteDataAdapter(query, connection);
-            table = new DataTable();
-            adapter.Fill(table);
-            return table;
+            try
+            {
+                string query = $"SELECT * FROM Users where id = '{id}";
+                command = new SQLiteCommand(query, bd.connection);
+                command.ExecuteNonQuery();
+                adapter = new SQLiteDataAdapter(query, connection);
+                table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         public DataTable GetLoanbyStatus(BaseDataLite bd, string status) //Получить все записи опр. статуса заявки
         {
-            string query = $"";
-            command.ExecuteNonQuery();
-            adapter = new SQLiteDataAdapter(query, connection);
-            table = new DataTable();
-            adapter.Fill(table);
-            return table;
+            try
+            {
+                string query = $"SELECT * FROM Loan where status ={status} ";
+                command.ExecuteNonQuery();
+                adapter = new SQLiteDataAdapter(query, connection);
+                table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public DataTable GetLoanbyID(BaseDataLite bd, string id) //Получить зайвку по id 
+        {
+            try
+            {
+                string query = $"SELECT * FROM Loan where id ={id} ";
+                command.ExecuteNonQuery();
+                adapter = new SQLiteDataAdapter(query, connection);
+                table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         public static bool CheckLoanID(int id)  //проверить существование id займа
         {
@@ -102,15 +136,15 @@ namespace BaseData
             }
         }
         //for test 5518473851156466 cn
-        public void SendClaim(int id,int paid, int sumLoan, int days, DateTime fdate,int clientid, int cardnumber, int sumpaid, 
-            DateTime ldate, int fineday, int paidout, string type,string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
+        public void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, int cardnumber, int sumpaid,
+            DateTime ldate, int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
                 string lastdate = ldate.ToString("d");
                 string firstday = fdate.ToString("d");
                 conn.Open();
-                string query = $"INSERT INTO Loan(id,paid,sum_loan,days,fdate,clientid,cardnumber,status,type,sum_paid,fineday,paidout)" +
+                string query = $"INSERT INTO Loan(id,paid,sum_loan,days,fdate,clientid,docs,cardnumber,status,type,sum_paid,fineday,paidout)" +
                     $" VALUES({id},{paid},{sumLoan},{days},{firstday},{clientid},{cardnumber},{status},{type},{sumpaid},{fineday},{paidout})";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 cmd.ExecuteNonQuery();
@@ -180,6 +214,29 @@ namespace BaseData
                 }
             }
         }
+        public static void SendFile(string filename, int id)     // Загружает файл в Базу данных.                   
+        {                                                       //docs id генерируется для отправки в таблицы зайвок и документов
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"INSERT INTO Docs(id,File) VALUES({id},@File)";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                byte[] export;
+                using (FileStream fs = new FileStream(filename, FileMode.Open))
+                {
+                    export = new byte[fs.Length];
+                    fs.Read(export, 0, export.Length);
+                }
+                cmd.Parameters.Add("@File", DbType.Binary).Value = export;
+                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQueryAsync();
+                conn.Close();
+            }
+        }
+        //public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
+        //{
+            
+        //}
     }
 }
 
