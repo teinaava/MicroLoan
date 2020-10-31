@@ -34,11 +34,7 @@ namespace BaseData
         }
         private static string FindDataBase()
         {
-<<<<<<< HEAD
-            string str; 
-=======
             string str;
->>>>>>> UI
             try
             {
                 using (StreamReader file = new StreamReader("./ConnPath.txt"))
@@ -75,7 +71,7 @@ namespace BaseData
         
         public DataTable GetUserbyID(BaseDataLite bd, string id)  //Получить все записи по id заявки
         {
-<<<<<<< HEAD
+
             string query = $"SELECT * FROM Users where id = '{id}'";
             command = new SQLiteCommand(query, bd.connection);
             command.ExecuteNonQuery();
@@ -86,33 +82,10 @@ namespace BaseData
         }
         public DataTable GetLoanbyStatus(BaseDataLite bd, string status) //Получить все записи опр. статуса заявки
         {
-            string query = $"SELECT * FROM Loan where status = '{status}'";
-            command.ExecuteNonQuery();
-            adapter = new SQLiteDataAdapter(query, connection);
-            table = new DataTable();
-            adapter.Fill(table);
-            return table;
-=======
             try
             {
-                string query = $"SELECT * FROM Users where id = {id}";
+                string query = $"SELECT * FROM Users where id = {status}";
                 command = new SQLiteCommand(query, bd.connection);
-                command.ExecuteNonQuery();
-                adapter = new SQLiteDataAdapter(query, connection);
-                table = new DataTable();
-                adapter.Fill(table);
-                return table;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-        public DataTable GetLoanbyStatus(BaseDataLite bd, string status) //Получить все записи опр. статуса заявки
-        {
-            try
-            {
-                string query = $"SELECT * FROM Loan where status ={status} ";
                 command.ExecuteNonQuery();
                 adapter = new SQLiteDataAdapter(query, connection);
                 table = new DataTable();
@@ -143,7 +116,6 @@ namespace BaseData
             {
                 return null;
             }
->>>>>>> UI
         }
         public static bool CheckLoanID(int id)  //проверить существование id займа
         {
@@ -165,13 +137,9 @@ namespace BaseData
             }
         }
         //for test 5518473851156466 cn
-<<<<<<< HEAD
-        public void SendClaim(int id,int paid, int sumLoan, int days, DateTime fdate,int clientid,int docs,int cardnumber, int sumpaid, 
-            DateTime ldate, int fineday, int paidout, string type,string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
-=======
+
         public void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, int cardnumber, int sumpaid,
             int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
->>>>>>> UI
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
@@ -261,11 +229,7 @@ namespace BaseData
                 }
             }
         }
-<<<<<<< HEAD
-        public static void SendFile(string filename,int id)     // Загружает файл в Базу данных.                   
-=======
         public static void SendFile(string filename, int id)     // Загружает файл в Базу данных.                   
->>>>>>> UI
         {                                                       //docs id генерируется для отправки в таблицы зайвок и документов
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
@@ -284,17 +248,12 @@ namespace BaseData
                 conn.Close();
             }
         }
-<<<<<<< HEAD
-        public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
-        {
 
-        }
-=======
         //public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
         //{
             
         //}
->>>>>>> UI
+
     }
 }
 
