@@ -7,19 +7,25 @@ using BaseData;
 
 namespace ClientUser
 {
-    enum Status
-    {
-        open, apply, closed, rejected
-    }
-    enum Type
-    {
-        card,cash
-    }
+    //public enum Status
+    //{
+    //    opened, accepted, closed, rejected //открыто,принято,закрыто,отклонено
+    //}
+    //public enum Type
+    //{
+    //    card,cash
+    //}
     public class BClaim
-    {
+    {//dd
         public BClaim()
         {
+            while (true)
+            {
 
+                id = GenerateID(6);
+                if (!BaseDataLite.CheckLoanID(id)) { break; }
+
+            }
         }
         BaseDataLite bd = new BaseDataLite();
         private int id; //id заявки
@@ -31,8 +37,8 @@ namespace ClientUser
         private DateTime ldate; //посл. дата выплаты
         private int fineday; // дней штрафа
         private int paidout; // уже выплачено
-        private Type type; //Тип выплаты
-        private Status status; //Статус заявки
+        public string type; //Тип выплаты
+        public string status; //Статус заявки
 
         #region Porps
         public int Id
@@ -43,13 +49,7 @@ namespace ClientUser
             }
             set
             {
-                while (true)
-                {
-                   
-                    id = GenerateID(6);
-                    if (!BaseDataLite.CheckLoanID(id)) { break; }
-                    
-                }
+                id = value;
             }
         }
         public DateTime LastDate { get { return ldate; } set { ldate = value; } }
@@ -71,10 +71,14 @@ namespace ClientUser
                 id += Convert.ToString(rnd.Next(0, 9));
             }
             return Convert.ToInt32(id);
+<<<<<<< HEAD:UserClient/BClaim.cs
         }   //claim id.lenght = 6   user id.lenght = 4   doc id.Length = 5
+=======
+        }   //claim id.lenght = 6   user id.lenght = 4 doc id.Length = 5
+>>>>>>> UI:DataBase/BClaim.cs
         public static double DailyPaid(int s,double i,int n) // s – сумма кредита, i – ежедневная ставка, n – срок на который берется кредит.
         {
-            double v = (((s / n) / 100) * n) + (s / n);
+            double v = (((s / n) / 100) * n) * i + (s / n);
             return Math.Round(v);
         }
         // Сумму выплаты = DailyPaid() * кол-во дней

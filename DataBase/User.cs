@@ -24,14 +24,18 @@ namespace ClientUser
           
             get { return id;}
             set
-            { 
-                while (true)
-                {
-                    id = BClaim.GenerateID(4);
-                    if (BaseDataLite.CheckUsersID(id)){ break; }
-                }
+            {
+                id = value;
             }
             
+        }
+        public User()
+        {
+            while (true)
+            {
+                id = BClaim.GenerateID(4);
+                if (BaseDataLite.CheckUsersID(id)) { break; }
+            }
         }
         public string Name{ get { return name; } set { name = value; } }
         public string SecoundName { get { return sname; } set { sname = value; } }

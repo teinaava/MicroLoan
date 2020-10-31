@@ -3,6 +3,8 @@ using System.Data.SQLite;
 using System.IO;
 using System.Text;
 using System.Data;
+using System.Text;
+using ClientUser;
 
 namespace BaseData
 {
@@ -12,7 +14,13 @@ namespace BaseData
         SQLiteDataAdapter adapter = null;
         private DataTable table = null;
         SQLiteCommand command = null;
-
+        /*
+         * статусы
+         * new - новый
+         * apply - принятый
+         * closed - закрытый
+         * rejected - отклоненный
+         */
 
         private static string connstr = "data source=" + FindDataBase(); //строка подключения 
         public BaseDataLite()
@@ -26,7 +34,11 @@ namespace BaseData
         }
         private static string FindDataBase()
         {
+<<<<<<< HEAD
             string str; 
+=======
+            string str;
+>>>>>>> UI
             try
             {
                 using (StreamReader file = new StreamReader("./ConnPath.txt"))
@@ -39,7 +51,6 @@ namespace BaseData
             {
                 return "";
             }                
-            
         }
         public DataTable ShowAll(BaseDataLite bd, string tablename) //Вывести всю таблицу
         {
@@ -61,8 +72,10 @@ namespace BaseData
             adapter.Fill(table);
             return table;
         }
+        
         public DataTable GetUserbyID(BaseDataLite bd, string id)  //Получить все записи по id заявки
         {
+<<<<<<< HEAD
             string query = $"SELECT * FROM Users where id = '{id}'";
             command = new SQLiteCommand(query, bd.connection);
             command.ExecuteNonQuery();
@@ -79,6 +92,58 @@ namespace BaseData
             table = new DataTable();
             adapter.Fill(table);
             return table;
+=======
+            try
+            {
+                string query = $"SELECT * FROM Users where id = {id}";
+                command = new SQLiteCommand(query, bd.connection);
+                command.ExecuteNonQuery();
+                adapter = new SQLiteDataAdapter(query, connection);
+                table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public DataTable GetLoanbyStatus(BaseDataLite bd, string status) //Получить все записи опр. статуса заявки
+        {
+            try
+            {
+                string query = $"SELECT * FROM Loan where status ={status} ";
+                command.ExecuteNonQuery();
+                adapter = new SQLiteDataAdapter(query, connection);
+                table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public DataTable GetLoanbyID(BaseDataLite bd, string id) //Получить зайвку по id 
+        {
+            try
+            {
+                string query = $"SELECT * FROM Loan where id ={id} ";
+                command.ExecuteNonQuery();
+                adapter = new SQLiteDataAdapter(query, connection);
+                table = new DataTable();
+                adapter.Fill(table);
+                if(table.Rows[0][0] == DBNull.Value)
+                {
+                    return null;
+                }
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+>>>>>>> UI
         }
         public static bool CheckLoanID(int id)  //проверить существование id займа
         {
@@ -100,12 +165,16 @@ namespace BaseData
             }
         }
         //for test 5518473851156466 cn
+<<<<<<< HEAD
         public void SendClaim(int id,int paid, int sumLoan, int days, DateTime fdate,int clientid,int docs,int cardnumber, int sumpaid, 
             DateTime ldate, int fineday, int paidout, string type,string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
+=======
+        public void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, int cardnumber, int sumpaid,
+            int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
+>>>>>>> UI
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
-                string lastdate = ldate.ToString("d");
                 string firstday = fdate.ToString("d");
                 conn.Open();
                 string query = $"INSERT INTO Loan(id,paid,sum_loan,days,fdate,clientid,docs,cardnumber,status,type,sum_paid,fineday,paidout)" +
@@ -132,6 +201,20 @@ namespace BaseData
                     return true;
                 }
                 else { return false; }
+            }
+        }
+        public void DeleateOld() //УДАЛИТЬ СТАРЫЕ
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"DELETE FROM Loan where (status = 'rejected')";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(dt); ;
+                conn.Close();
             }
         }
         public static bool CheckUserExist(string passport)       // Проверить сущестование пользователя по паспорту 
@@ -178,7 +261,11 @@ namespace BaseData
                 }
             }
         }
+<<<<<<< HEAD
         public static void SendFile(string filename,int id)     // Загружает файл в Базу данных.                   
+=======
+        public static void SendFile(string filename, int id)     // Загружает файл в Базу данных.                   
+>>>>>>> UI
         {                                                       //docs id генерируется для отправки в таблицы зайвок и документов
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
@@ -197,10 +284,17 @@ namespace BaseData
                 conn.Close();
             }
         }
+<<<<<<< HEAD
         public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
         {
 
         }
+=======
+        //public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
+        //{
+            
+        //}
+>>>>>>> UI
     }
 }
 
