@@ -7,19 +7,25 @@ using BaseData;
 
 namespace ClientUser
 {
-    enum Status
-    {
-        open, apply, closed, rejected
-    }
-    enum Type
-    {
-        card,cash
-    }
+    //public enum Status
+    //{
+    //    opened, accepted, closed, rejected //открыто,принято,закрыто,отклонено
+    //}
+    //public enum Type
+    //{
+    //    card,cash
+    //}
     public class BClaim
-    {
+    {//dd
         public BClaim()
         {
+            while (true)
+            {
 
+                id = GenerateID(6);
+                if (!BaseDataLite.CheckLoanID(id)) { break; }
+
+            }
         }
         BaseDataLite bd = new BaseDataLite();
         private int id; //id заявки
@@ -31,8 +37,8 @@ namespace ClientUser
         private DateTime ldate; //посл. дата выплаты
         private int fineday; // дней штрафа
         private int paidout; // уже выплачено
-        private Type type; //Тип выплаты
-        private Status status; //Статус заявки
+        public string type; //Тип выплаты
+        public string status; //Статус заявки
 
         #region Porps
         public int Id
@@ -43,13 +49,7 @@ namespace ClientUser
             }
             set
             {
-                while (true)
-                {
-                   
-                    id = GenerateID(6);
-                    if (!BaseDataLite.CheckLoanID(id)) { break; }
-                    
-                }
+                id = value;
             }
         }
         public DateTime LastDate { get { return ldate; } set { ldate = value; } }

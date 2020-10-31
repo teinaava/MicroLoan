@@ -3,6 +3,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Data;
 using System.Text;
+using ClientUser;
 
 namespace BaseData
 {
@@ -67,11 +68,12 @@ namespace BaseData
             adapter.Fill(table);
             return table;
         }
+        
         public DataTable GetUserbyID(BaseDataLite bd, string id)  //Получить все записи по id заявки
         {
             try
             {
-                string query = $"SELECT * FROM Users where id = '{id}";
+                string query = $"SELECT * FROM Users where id = {id}";
                 command = new SQLiteCommand(query, bd.connection);
                 command.ExecuteNonQuery();
                 adapter = new SQLiteDataAdapter(query, connection);
@@ -109,6 +111,10 @@ namespace BaseData
                 adapter = new SQLiteDataAdapter(query, connection);
                 table = new DataTable();
                 adapter.Fill(table);
+                if(table.Rows[0][0] == DBNull.Value)
+                {
+                    return null;
+                }
                 return table;
             }
             catch (Exception)
@@ -137,11 +143,10 @@ namespace BaseData
         }
         //for test 5518473851156466 cn
         public void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, int cardnumber, int sumpaid,
-            DateTime ldate, int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
+            int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
-                string lastdate = ldate.ToString("d");
                 string firstday = fdate.ToString("d");
                 conn.Open();
                 string query = $"INSERT INTO Loan(id,paid,sum_loan,days,fdate,clientid,docs,cardnumber,status,type,sum_paid,fineday,paidout)" +
@@ -168,6 +173,20 @@ namespace BaseData
                     return true;
                 }
                 else { return false; }
+            }
+        }
+        public void DeleateOld() //УДАЛИТЬ СТАРЫЕ
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"DELETE FROM Loan where (status = 'rejected')";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(dt); ;
+                conn.Close();
             }
         }
         public static bool CheckUserExist(string passport)       // Проверить сущестование пользователя по паспорту 

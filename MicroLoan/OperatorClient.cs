@@ -1,4 +1,5 @@
 ﻿using BaseData;
+using ClientUser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,7 +99,6 @@ namespace MicroLoan
             table = bd.GetLoanbyStatus(bd, "new");
             dataGridView1.DataSource = table;
         }
-
         private void buttonFind_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(SearchtextBox.Text))
@@ -124,7 +124,7 @@ namespace MicroLoan
             }
             else
             {
-                MessageBox.Show("Строка поиска пуста!","Пустая строка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Строка поиска пуста!","Пустая строка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -158,5 +158,69 @@ namespace MicroLoan
         {
             return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1) : "");
         }
+
+        private void textBoxIDClaim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && e.KeyChar != 8) { e.Handled = true; }
+        }
+
+        private void textBoxFineDays_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && e.KeyChar != 8) { e.Handled = true; }
+        }
+        #region LaonObject
+        BClaim claim = new BClaim();
+        #endregion
+        #region UserObject
+        User user = new User();
+        #endregion
+
+        private void buttonOpenClaim_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(textBoxIDClaim.Text))
+            {
+                DataTable loantb = bd.GetLoanbyID(bd, $"{textBoxIDClaim.Text}");
+                if (loantb != null)
+                {
+                    try
+                    {
+                        groupBox1.Enabled = true;
+                        #region claimdata
+                        //GetDataFromBD
+                        claim.Id = Convert.ToInt32(textBoxIDClaim.Text);
+                        claim.SumLoan = Convert.ToInt32(loantb.Rows[0][2]);
+                        claim.Days = Convert.ToInt32(loantb.Rows[0][3]);
+                        claim.Fine = Convert.ToInt32(loantb.Rows[0][11]);
+                        claim.CardNumber = Convert.ToInt32(loantb.Rows[0][7]);
+                        claim.type = Convert.ToString(loantb.Rows[0][9]);
+                        claim.status = Convert.ToString(loantb.Rows[0][8]);
+                        //Write data to claim interface
+                        labelLoanID.Text = $"№{claim.Id}";
+                        lableLoanSum.Text = $"{claim.SumLoan}";
+                        labelDays.Text = $"{claim.Days}";
+                        lableFineDays.Text = $"{claim.Fine}";
+                        labelCardNumber.Text = $"{claim.CardNumber}";
+                        labelType.Text = claim.type.ToLower(); ;
+                        labelStatus.Text = claim.status.ToLower();
+                        #endregion
+                        //DataTable usertb = bd.GetUserbyID(bd, $"{textBoxIDClaim.Text}"); }
+                    }
+                    catch (Exception)
+                    {
+                        groupBox1.Enabled = false;
+                        MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Займ не найден!", "Займ не найден", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else { MessageBox.Show("Строка пуста!", "Пустая строка", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+
+        } // Отрисовка заявки
     }
 }
