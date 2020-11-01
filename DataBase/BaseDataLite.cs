@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.IO;
-using System.Text;
 using System.Data;
-using ClientUser;
 
 namespace BaseData
 {
@@ -83,7 +81,7 @@ namespace BaseData
         {
             try
             {
-                string query = $"SELECT * FROM Users where id = {status}";
+                string query = $"SELECT * FROM Loan where status = '{status}'";
                 command = new SQLiteCommand(query, bd.connection);
                 command.ExecuteNonQuery();
                 adapter = new SQLiteDataAdapter(query, connection);
@@ -136,7 +134,6 @@ namespace BaseData
             }
         }
         //for test 5518473851156466 cn
-
         public void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, int cardnumber, int sumpaid,
             int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
         {
@@ -283,6 +280,18 @@ namespace BaseData
             {
 
             }
+            
+        }
+        public static void SetNewStatus(int idclaim, string status)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"UPDATE Loan SET status = '{status}' WHERE (id = {idclaim})";
+                SQLiteCommand cmd2 = new SQLiteCommand(query, conn);
+                cmd2.ExecuteNonQuery();
+                conn.Close();
+            };
         }
     }
 }

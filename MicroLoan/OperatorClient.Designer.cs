@@ -458,9 +458,9 @@
             this.lableFineDays.AutoSize = true;
             this.lableFineDays.Location = new System.Drawing.Point(451, 122);
             this.lableFineDays.Name = "lableFineDays";
-            this.lableFineDays.Size = new System.Drawing.Size(15, 18);
+            this.lableFineDays.Size = new System.Drawing.Size(12, 18);
             this.lableFineDays.TabIndex = 23;
-            this.lableFineDays.Text = "0";
+            this.lableFineDays.Text = "-";
             // 
             // labelDays
             // 
@@ -539,6 +539,7 @@
             this.buttonSendDecision.Text = "Отправить \r\nрешение";
             this.buttonSendDecision.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonSendDecision.UseVisualStyleBackColor = false;
+            this.buttonSendDecision.Click += new System.EventHandler(this.buttonSendDecision_Click);
             // 
             // labelStatus
             // 
@@ -743,8 +744,8 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1104, 569);
             this.Controls.Add(this.Menu);
-            this.Controls.Add(this.WorkSpaceClaim);
             this.Controls.Add(this.WorkSpaceTable);
+            this.Controls.Add(this.WorkSpaceClaim);
             this.MaximizeBox = false;
             this.Name = "OperatorClient";
             this.Text = " Панель Оператора -";

@@ -1,14 +1,11 @@
 ﻿using BaseData;
+using ClientOP;
 using ClientUser;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace MicroLoan
 {
@@ -30,7 +27,7 @@ namespace MicroLoan
                 dataGridView1.DataSource = table;
                 //MessageBox.Show(BaseDataLite.GetUserID("347389089"));
             }
-            else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; }
+            else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; WorkSpaceClaim.Enabled = false; WorkSpaceTable.Enabled = false; }
             listBoxSearchType.SetSelected(0, true);
             listBoxTypeVision.SetSelected(0, true);
             dataGridView1.AllowUserToAddRows = false;
@@ -96,7 +93,7 @@ namespace MicroLoan
 
         private void buttonShowNew_Click(object sender, EventArgs e)
         {
-            table = bd.GetLoanbyStatus(bd, "new");
+            table = bd.GetLoanbyStatus(bd,"открыто");
             dataGridView1.DataSource = table;
         }
         private void buttonFind_Click(object sender, EventArgs e)
@@ -209,7 +206,7 @@ namespace MicroLoan
                         labelStatus.Text = claim.status.ToLower();
                         labelPaidOUT.Text = $"{claim.PaidOut}/{claim.SumPaid}";
                         #endregion
-                        #region claimdata
+                        #region userdata
                         //GetDataFromBD
                         user.Id = Convert.ToInt32(loantb.Rows[0][5]);
                         user.Name = Convert.ToString(usertb.Rows[0][1]);
@@ -321,12 +318,41 @@ namespace MicroLoan
             try
             {
                 BaseDataLite.SetFine(Convert.ToInt32(textBoxFineDays.Text), Convert.ToInt32(labelLoanID.Text.Substring(1)));
-                MessageBox.Show("Штрафные дни увличены", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Штрафные дни увеличены", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
                 MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void buttonSendDecision_Click(object sender, EventArgs e)
+        {
+            DecideForm f = new DecideForm();
+            DialogResult result = f.ShowDialog();
+            try
+            {
+                if (result == DialogResult.Yes)
+                {
+                    BaseDataLite.SetNewStatus(Convert.ToInt32(labelLoanID.Text.Substring(1)), "принято");
+                    buttonSendDecision.Enabled = false;
+                    MessageBox.Show("Заявка принята", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    labelStatus.ForeColor = Color.FromArgb(44, 218, 65);
+                    labelStatus.Text = "принято";
+                }
+                else if (result == DialogResult.No)
+                {
+                    BaseDataLite.SetNewStatus(Convert.ToInt32(labelLoanID.Text.Substring(1)), "отклонено");
+                    buttonSendDecision.Enabled = false;
+                    MessageBox.Show("Заявка отклонена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    labelStatus.ForeColor = Color.FromArgb(180, 37, 23);
+                    labelStatus.Text = "отклонено";
+                }
+            }
+            catch (Exception)
+            {
+               MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

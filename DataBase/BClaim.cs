@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Net.Mail;
 using System.Net;
 using BaseData;
 
@@ -58,8 +55,8 @@ namespace ClientUser
         public int SumLoan { get { return sumLoan; } set { sumLoan = value; } }
         public DateTime FirstDate { get { return fdate; } set { fdate = value; } }
         public int Days{ get { return days; } set { days = value; } }
-        public int Fine { get { return days; } set { fineday = value; } }
-        public int PaidOut { get { return days; } set { paidout = value; } }
+        public int Fine { get { return fineday; } set { fineday = value; } }
+        public int PaidOut { get { return paidout; } set { paidout = value; } }
         #endregion
         #region Methods
         public static int GenerateID(int ln)
