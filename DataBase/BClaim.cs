@@ -71,11 +71,8 @@ namespace ClientUser
                 id += Convert.ToString(rnd.Next(0, 9));
             }
             return Convert.ToInt32(id);
-<<<<<<< HEAD:UserClient/BClaim.cs
-        }   //claim id.lenght = 6   user id.lenght = 4   doc id.Length = 5
-=======
+
         }   //claim id.lenght = 6   user id.lenght = 4 doc id.Length = 5
->>>>>>> UI:DataBase/BClaim.cs
         public static double DailyPaid(int s,double i,int n) // s – сумма кредита, i – ежедневная ставка, n – срок на который берется кредит.
         {
             double v = (((s / n) / 100) * n) * i + (s / n);

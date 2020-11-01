@@ -62,7 +62,7 @@
             this.labelBirthday = new System.Windows.Forms.Label();
             this.labelPass = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonSendDecision = new System.Windows.Forms.Button();
             this.labelStatus = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -218,6 +218,7 @@
             this.buttonDeleateOLD.TabIndex = 8;
             this.buttonDeleateOLD.Text = "Удалить";
             this.buttonDeleateOLD.UseVisualStyleBackColor = false;
+            this.buttonDeleateOLD.Click += new System.EventHandler(this.buttonDeleateOLD_Click);
             // 
             // buttonSendUpdate
             // 
@@ -233,6 +234,7 @@
             this.buttonSendUpdate.TabIndex = 5;
             this.buttonSendUpdate.Text = "Отправить и обновить";
             this.buttonSendUpdate.UseVisualStyleBackColor = false;
+            this.buttonSendUpdate.Click += new System.EventHandler(this.buttonSendUpdate_Click);
             // 
             // buttonShowNew
             // 
@@ -354,7 +356,7 @@
             this.groupBox1.Controls.Add(this.labelBirthday);
             this.groupBox1.Controls.Add(this.labelPass);
             this.groupBox1.Controls.Add(this.labelName);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.buttonSendDecision);
             this.groupBox1.Controls.Add(this.labelStatus);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
@@ -413,6 +415,7 @@
             this.buttonAddFine.TabIndex = 28;
             this.buttonAddFine.Text = "Добавить";
             this.buttonAddFine.UseVisualStyleBackColor = false;
+            this.buttonAddFine.Click += new System.EventHandler(this.buttonAddFine_Click);
             // 
             // label8
             // 
@@ -426,7 +429,7 @@
             // textBoxFineDays
             // 
             this.textBoxFineDays.Location = new System.Drawing.Point(135, 439);
-            this.textBoxFineDays.MaxLength = 1;
+            this.textBoxFineDays.MaxLength = 2;
             this.textBoxFineDays.Name = "textBoxFineDays";
             this.textBoxFineDays.Size = new System.Drawing.Size(100, 25);
             this.textBoxFineDays.TabIndex = 26;
@@ -435,7 +438,7 @@
             // labelType
             // 
             this.labelType.AutoSize = true;
-            this.labelType.Location = new System.Drawing.Point(420, 196);
+            this.labelType.Location = new System.Drawing.Point(420, 170);
             this.labelType.Name = "labelType";
             this.labelType.Size = new System.Drawing.Size(12, 18);
             this.labelType.TabIndex = 25;
@@ -444,7 +447,7 @@
             // labelCardNumber
             // 
             this.labelCardNumber.AutoSize = true;
-            this.labelCardNumber.Location = new System.Drawing.Point(413, 170);
+            this.labelCardNumber.Location = new System.Drawing.Point(420, 148);
             this.labelCardNumber.Name = "labelCardNumber";
             this.labelCardNumber.Size = new System.Drawing.Size(12, 18);
             this.labelCardNumber.TabIndex = 24;
@@ -453,7 +456,7 @@
             // lableFineDays
             // 
             this.lableFineDays.AutoSize = true;
-            this.lableFineDays.Location = new System.Drawing.Point(409, 136);
+            this.lableFineDays.Location = new System.Drawing.Point(451, 122);
             this.lableFineDays.Name = "lableFineDays";
             this.lableFineDays.Size = new System.Drawing.Size(15, 18);
             this.lableFineDays.TabIndex = 23;
@@ -462,7 +465,7 @@
             // labelDays
             // 
             this.labelDays.AutoSize = true;
-            this.labelDays.Location = new System.Drawing.Point(390, 116);
+            this.labelDays.Location = new System.Drawing.Point(370, 102);
             this.labelDays.Name = "labelDays";
             this.labelDays.Size = new System.Drawing.Size(12, 18);
             this.labelDays.TabIndex = 22;
@@ -471,7 +474,7 @@
             // lableLoanSum
             // 
             this.lableLoanSum.AutoSize = true;
-            this.lableLoanSum.Location = new System.Drawing.Point(420, 76);
+            this.lableLoanSum.Location = new System.Drawing.Point(479, 76);
             this.lableLoanSum.Name = "lableLoanSum";
             this.lableLoanSum.Size = new System.Drawing.Size(12, 18);
             this.lableLoanSum.TabIndex = 21;
@@ -522,27 +525,28 @@
             this.labelName.TabIndex = 16;
             this.labelName.Text = "-";
             // 
-            // button3
+            // buttonSendDecision
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(569, 432);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 40);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Отправить \r\nрешение";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonSendDecision.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.buttonSendDecision.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSendDecision.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSendDecision.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonSendDecision.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSendDecision.Location = new System.Drawing.Point(569, 432);
+            this.buttonSendDecision.Name = "buttonSendDecision";
+            this.buttonSendDecision.Size = new System.Drawing.Size(126, 40);
+            this.buttonSendDecision.TabIndex = 15;
+            this.buttonSendDecision.Text = "Отправить \r\nрешение";
+            this.buttonSendDecision.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonSendDecision.UseVisualStyleBackColor = false;
             // 
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(770, 21);
+            this.labelStatus.Font = new System.Drawing.Font("Arial Unicode MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelStatus.Location = new System.Drawing.Point(735, 21);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(50, 18);
+            this.labelStatus.Size = new System.Drawing.Size(67, 21);
             this.labelStatus.TabIndex = 14;
             this.labelStatus.Text = "Статус";
             // 
@@ -558,7 +562,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(328, 196);
+            this.label14.Location = new System.Drawing.Point(328, 170);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(90, 18);
             this.label14.TabIndex = 12;
@@ -567,7 +571,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(328, 170);
+            this.label13.Location = new System.Drawing.Point(328, 148);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 18);
             this.label13.TabIndex = 11;
@@ -576,16 +580,16 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(328, 136);
+            this.label12.Location = new System.Drawing.Point(328, 122);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 36);
+            this.label12.Size = new System.Drawing.Size(117, 18);
             this.label12.TabIndex = 10;
-            this.label12.Text = "Просрочено \r\nдней:";
+            this.label12.Text = "Просрочено дней:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(328, 116);
+            this.label11.Location = new System.Drawing.Point(328, 102);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 18);
             this.label11.TabIndex = 9;
@@ -596,9 +600,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(328, 76);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 36);
+            this.label10.Size = new System.Drawing.Size(145, 18);
             this.label10.TabIndex = 8;
-            this.label10.Text = "Запрошенная \r\nсуммма:";
+            this.label10.Text = "Запрошенная суммма:";
             // 
             // label9
             // 
@@ -657,7 +661,7 @@
             // labelLoanID
             // 
             this.labelLoanID.AutoSize = true;
-            this.labelLoanID.Location = new System.Drawing.Point(370, 48);
+            this.labelLoanID.Location = new System.Drawing.Point(380, 49);
             this.labelLoanID.Name = "labelLoanID";
             this.labelLoanID.Size = new System.Drawing.Size(12, 18);
             this.labelLoanID.TabIndex = 1;
@@ -739,8 +743,8 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1104, 569);
             this.Controls.Add(this.Menu);
-            this.Controls.Add(this.WorkSpaceTable);
             this.Controls.Add(this.WorkSpaceClaim);
+            this.Controls.Add(this.WorkSpaceTable);
             this.MaximizeBox = false;
             this.Name = "OperatorClient";
             this.Text = " Панель Оператора -";
@@ -791,7 +795,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonSendDecision;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

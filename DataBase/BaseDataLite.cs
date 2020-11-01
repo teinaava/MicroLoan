@@ -3,7 +3,6 @@ using System.Data.SQLite;
 using System.IO;
 using System.Text;
 using System.Data;
-using System.Text;
 using ClientUser;
 
 namespace BaseData
@@ -171,17 +170,29 @@ namespace BaseData
                 else { return false; }
             }
         }
-        public void DeleateOld() //УДАЛИТЬ СТАРЫЕ
+        public static void DeleateOld() //УДАЛИТЬ СТАРЫЕ
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
                 conn.Open();
-                string query = $"DELETE FROM Loan where (status = 'rejected')";
+                string query = $"DELETE FROM Loan where (status = 'отклонено')";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(dt); ;
+                conn.Close();
+            }
+        }
+        public static void UpdateBaseDate(DataTable tb,string table) //Обновить базу данных
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"SELECT * FROM {table}";
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query,conn);
+                SQLiteCommandBuilder scb = new SQLiteCommandBuilder(adapter);
+                adapter.Update(tb);
                 conn.Close();
             }
         }
@@ -248,12 +259,31 @@ namespace BaseData
                 conn.Close();
             }
         }
-
         //public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
         //{
-            
         //}
+        public static void SetFine(int days,int idclaim)
+        {
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connstr))
+                {
+                    conn.Open();
+                    string query = $"SELECT fineday FROM Loan where id = {idclaim}";
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    int res = Convert.ToInt32(cmd.ExecuteScalar());
+                    days += res;
+                    string query2 = $"UPDATE Loan SET fineday = {days} WHERE (id = {idclaim})";
+                    SQLiteCommand cmd2 = new SQLiteCommand(query2, conn);
+                    cmd2.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
 
+            }
+        }
     }
 }
 
