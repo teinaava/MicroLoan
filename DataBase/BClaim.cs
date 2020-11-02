@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Net.Mail;
 using System.Net;
 using BaseData;
 
@@ -13,19 +10,19 @@ namespace ClientUser
     //}
     //public enum Type
     //{
-    //    card,cash
+    //    card,cash //карта, наличка
     //}
     public class BClaim
     {//dd
         public BClaim()
         {
-            while (true)
-            {
+            //while (true)
+            //{
 
-                id = GenerateID(6);
-                if (!BaseDataLite.CheckLoanID(id)) { break; }
+            //    id = GenerateID(6);
+            //    if (!BaseDataLite.CheckLoanID(id)) { break; }
 
-            }
+            //}
         }
         BaseDataLite bd = new BaseDataLite();
         private int id; //id заявки
@@ -58,8 +55,8 @@ namespace ClientUser
         public int SumLoan { get { return sumLoan; } set { sumLoan = value; } }
         public DateTime FirstDate { get { return fdate; } set { fdate = value; } }
         public int Days{ get { return days; } set { days = value; } }
-        public int Fine { get { return days; } set { fineday = value; } }
-        public int PaidOut { get { return days; } set { paidout = value; } }
+        public int Fine { get { return fineday; } set { fineday = value; } }
+        public int PaidOut { get { return paidout; } set { paidout = value; } }
         #endregion
         #region Methods
         public static int GenerateID(int ln)
@@ -71,11 +68,8 @@ namespace ClientUser
                 id += Convert.ToString(rnd.Next(0, 9));
             }
             return Convert.ToInt32(id);
-<<<<<<< HEAD:UserClient/BClaim.cs
-        }   //claim id.lenght = 6   user id.lenght = 4   doc id.Length = 5
-=======
+
         }   //claim id.lenght = 6   user id.lenght = 4 doc id.Length = 5
->>>>>>> UI:DataBase/BClaim.cs
         public static double DailyPaid(int s,double i,int n) // s – сумма кредита, i – ежедневная ставка, n – срок на который берется кредит.
         {
             double v = (((s / n) / 100) * n) * i + (s / n);

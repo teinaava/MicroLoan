@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.IO;
-using System.Text;
 using System.Data;
-using System.Text;
 using ClientUser;
 
 namespace BaseData
@@ -84,7 +82,7 @@ namespace BaseData
         {
             try
             {
-                string query = $"SELECT * FROM Users where id = {status}";
+                string query = $"SELECT * FROM Loan where status = '{status}'";
                 command = new SQLiteCommand(query, bd.connection);
                 command.ExecuteNonQuery();
                 adapter = new SQLiteDataAdapter(query, connection);
@@ -137,7 +135,6 @@ namespace BaseData
             }
         }
         //for test 5518473851156466 cn
-
         public void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, int cardnumber, int sumpaid,
             int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
         {
@@ -171,17 +168,29 @@ namespace BaseData
                 else { return false; }
             }
         }
-        public void DeleateOld() //УДАЛИТЬ СТАРЫЕ
+        public static void DeleateOld() //УДАЛИТЬ СТАРЫЕ
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
                 conn.Open();
-                string query = $"DELETE FROM Loan where (status = 'rejected')";
+                string query = $"DELETE FROM Loan where (status = 'отклонено')";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(dt); ;
+                conn.Close();
+            }
+        }
+        public static void UpdateBaseDate(DataTable tb,string table) //Обновить базу данных
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"SELECT * FROM {table}";
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query,conn);
+                SQLiteCommandBuilder scb = new SQLiteCommandBuilder(adapter);
+                adapter.Update(tb);
                 conn.Close();
             }
         }
@@ -248,12 +257,58 @@ namespace BaseData
                 conn.Close();
             }
         }
-
         //public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
         //{
-            
         //}
+        public static void SetFine(int days,int idclaim)
+        {
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connstr))
+                {
+                    conn.Open();
+                    string query = $"SELECT fineday FROM Loan where id = {idclaim}";
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    int res = Convert.ToInt32(cmd.ExecuteScalar());
+                    days += res;
+                    string query2 = $"UPDATE Loan SET fineday = {days} WHERE (id = {idclaim})";
+                    SQLiteCommand cmd2 = new SQLiteCommand(query2, conn);
+                    cmd2.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
 
+            }
+            
+        }
+        public static void SetNewStatus(int idclaim, string status)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"UPDATE Loan SET status = '{status}' WHERE (id = {idclaim})";
+                SQLiteCommand cmd2 = new SQLiteCommand(query, conn);
+                cmd2.ExecuteNonQuery();
+                conn.Close();
+            };
+        }
+        public static BClaim FillClaim(int id,BaseDataLite bd)
+        {
+            DataTable loantb = bd.GetLoanbyID(bd, $"{id}");
+            BClaim claim = new BClaim();
+            claim.Id = id;
+            claim.SumLoan = Convert.ToInt32(loantb.Rows[0][2]);
+            claim.Days = Convert.ToInt32(loantb.Rows[0][3]);
+            claim.Fine = Convert.ToInt32(loantb.Rows[0][11]);
+            claim.CardNumber = Convert.ToInt32(loantb.Rows[0][7]);
+            claim.type = Convert.ToString(loantb.Rows[0][9]);
+            claim.status = Convert.ToString(loantb.Rows[0][8]);
+            claim.PaidOut = Convert.ToInt32(loantb.Rows[0][12]);
+            claim.SumPaid = Convert.ToInt32(loantb.Rows[0][10]);
+            return claim;
+        }
     }
 }
 
