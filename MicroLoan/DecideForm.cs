@@ -15,8 +15,6 @@ namespace ClientOP
         {
             InitializeComponent();
         }
-        private bool result;
-
         private void buttonApply_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Yes;

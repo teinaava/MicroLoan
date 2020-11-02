@@ -49,15 +49,24 @@ namespace MicroLoan
         {
             WorkSpaceClaim.Visible = false;
             WorkSpaceTable.Visible = true;
+            WorkSpaceHelp.Visible = false;
         }
 
         private void buttonClaim_Click(object sender, EventArgs e)
         {
             WorkSpaceClaim.Visible = true;
             WorkSpaceTable.Visible = false;
+            WorkSpaceHelp.Visible = false;
 
-            #endregion
+            
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WorkSpaceHelp.Visible = true;
+            WorkSpaceClaim.Visible = false;
+            WorkSpaceTable.Visible = false;
+        }
+        #endregion
 
         private void listBoxTypeVision_Click(object sender, EventArgs e)
         {
@@ -362,6 +371,7 @@ namespace MicroLoan
                     MessageBox.Show("Заявка отклонена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     labelStatus.ForeColor = Color.FromArgb(180, 37, 23);
                     labelStatus.Text = "отклонено";
+                    DataBase.GeneralMessages.SendEmailNewStatus(labelEmail.Text, "отклонено", labelName.Text, BaseDataLite.FillClaim(Convert.ToInt32(labelLoanID.Text.Substring(1)), bd));
                 }
             }
             catch (Exception)
@@ -383,9 +393,9 @@ namespace MicroLoan
                     MessageBox.Show("Заявка закрыта", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     labelStatus.ForeColor = Color.FromArgb(140, 140, 140);
                     labelStatus.Text = "закрыто";
+                    DataBase.GeneralMessages.SendEmailNewStatus(labelEmail.Text, "закрыто", labelName.Text, BaseDataLite.FillClaim(Convert.ToInt32(labelLoanID.Text.Substring(1)), bd));
                 } 
             }
-
         }
         private void SetTableName(DataGridView dataGrid)
         {
@@ -417,6 +427,8 @@ namespace MicroLoan
                 dataGrid.Columns[7].HeaderText = "Паспорт";
             }
         }
+
+        
     }
 }
 

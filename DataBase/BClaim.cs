@@ -10,7 +10,7 @@ namespace ClientUser
     //}
     //public enum Type
     //{
-    //    card,cash
+    //    card,cash //карта, наличка
     //}
     public class BClaim
     {//dd

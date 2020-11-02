@@ -43,6 +43,7 @@
             this.listBoxTypeVision = new System.Windows.Forms.ListBox();
             this.buttonShowAll = new System.Windows.Forms.Button();
             this.Menu = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonClaim = new System.Windows.Forms.Button();
             this.buttonTable = new System.Windows.Forms.Button();
             this.WorkSpaceClaim = new System.Windows.Forms.Panel();
@@ -84,12 +85,15 @@
             this.buttonOpenClaim = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxIDClaim = new System.Windows.Forms.TextBox();
+            this.WorkSpaceHelp = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.WorkSpaceTable.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Menu.SuspendLayout();
             this.WorkSpaceClaim.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.WorkSpaceHelp.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -286,6 +290,7 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Menu.Controls.Add(this.button1);
             this.Menu.Controls.Add(this.buttonClaim);
             this.Menu.Controls.Add(this.buttonTable);
             this.Menu.Location = new System.Drawing.Point(0, 0);
@@ -293,6 +298,22 @@
             this.Menu.Size = new System.Drawing.Size(196, 569);
             this.Menu.TabIndex = 2;
             this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Meunu_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(0, 245);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(196, 93);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Помощь";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonClaim
             // 
@@ -754,6 +775,26 @@
             this.textBoxIDClaim.TabIndex = 0;
             this.textBoxIDClaim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIDClaim_KeyPress);
             // 
+            // WorkSpaceHelp
+            // 
+            this.WorkSpaceHelp.BackColor = System.Drawing.SystemColors.Control;
+            this.WorkSpaceHelp.Controls.Add(this.label18);
+            this.WorkSpaceHelp.Location = new System.Drawing.Point(194, 0);
+            this.WorkSpaceHelp.Name = "WorkSpaceHelp";
+            this.WorkSpaceHelp.Size = new System.Drawing.Size(910, 569);
+            this.WorkSpaceHelp.TabIndex = 4;
+            this.WorkSpaceHelp.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Unicode MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(341, 240);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(234, 46);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "В разработке";
+            // 
             // OperatorClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -763,6 +804,7 @@
             this.Controls.Add(this.Menu);
             this.Controls.Add(this.WorkSpaceTable);
             this.Controls.Add(this.WorkSpaceClaim);
+            this.Controls.Add(this.WorkSpaceHelp);
             this.MaximizeBox = false;
             this.Name = "OperatorClient";
             this.Text = " Панель Оператора -";
@@ -778,6 +820,8 @@
             this.WorkSpaceClaim.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.WorkSpaceHelp.ResumeLayout(false);
+            this.WorkSpaceHelp.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -840,6 +884,9 @@
         private System.Windows.Forms.Label labelLoanID;
         private System.Windows.Forms.Label labelClientId;
         private System.Windows.Forms.Button buttonCloseClaim;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel WorkSpaceHelp;
+        private System.Windows.Forms.Label label18;
     }
 }
 
