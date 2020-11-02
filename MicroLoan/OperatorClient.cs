@@ -4,6 +4,7 @@ using ClientUser;
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -25,7 +26,7 @@ namespace MicroLoan
                 this.Text += " БАЗА ДАННЫХ ПОДКЛЮЧЕНА";
                 DataTable table = bd.ShowAll(bd, "Loan");
                 dataGridView1.DataSource = table;
-                //MessageBox.Show(BaseDataLite.GetUserID("347389089"));
+                SetTableName(dataGridView1);
             }
             else { this.Text += " БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА"; WorkSpaceClaim.Enabled = false; WorkSpaceTable.Enabled = false; }
             listBoxSearchType.SetSelected(0, true);
@@ -74,6 +75,7 @@ namespace MicroLoan
         }
         private void buttonShowAll_Click(object sender, EventArgs e)
         {
+            
             if (listBoxTypeVision.GetSelected(0))
             {
                 table = bd.ShowAll(bd, "Loan");
@@ -84,6 +86,7 @@ namespace MicroLoan
                 table = bd.ShowAll(bd, "Users");
                 dataGridView1.DataSource = table;
             }
+            SetTableName(dataGridView1);
         }
 
         private void OperatorClient_FormClosed(object sender, FormClosedEventArgs e)
@@ -93,11 +96,13 @@ namespace MicroLoan
 
         private void buttonShowNew_Click(object sender, EventArgs e)
         {
-            table = bd.GetLoanbyStatus(bd,"открыто");
+            table = bd.GetLoanbyStatus(bd, "открыто");
             dataGridView1.DataSource = table;
+            SetTableName(dataGridView1);
         }
         private void buttonFind_Click(object sender, EventArgs e)
         {
+            
             if (!String.IsNullOrEmpty(SearchtextBox.Text))
             {
                 if (listBoxSearchType.Enabled == true)
@@ -121,8 +126,9 @@ namespace MicroLoan
             }
             else
             {
-                MessageBox.Show("Строка поиска пуста!","Пустая строка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Строка поиска пуста!", "Пустая строка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            SetTableName(dataGridView1);
         }
 
         private void SearchtextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -187,15 +193,7 @@ namespace MicroLoan
                         groupBox1.Enabled = true;
                         #region claimdata
                         //GetDataFromBD
-                        claim.Id = Convert.ToInt32(textBoxIDClaim.Text);
-                        claim.SumLoan = Convert.ToInt32(loantb.Rows[0][2]);
-                        claim.Days = Convert.ToInt32(loantb.Rows[0][3]);
-                        claim.Fine = Convert.ToInt32(loantb.Rows[0][11]);
-                        claim.CardNumber = Convert.ToInt32(loantb.Rows[0][7]);
-                        claim.type = Convert.ToString(loantb.Rows[0][9]);
-                        claim.status = Convert.ToString(loantb.Rows[0][8]);
-                        claim.PaidOut = Convert.ToInt32(loantb.Rows[0][12]);
-                        claim.SumPaid = Convert.ToInt32(loantb.Rows[0][10]);
+                        claim = BaseDataLite.FillClaim(Convert.ToInt32(textBoxIDClaim.Text), bd);
                         //Write data to claim interface
                         labelLoanID.Text = $"№{claim.Id}";
                         lableLoanSum.Text = $"{claim.SumLoan}";
@@ -218,7 +216,7 @@ namespace MicroLoan
                         user.Email = Convert.ToString(usertb.Rows[0][6]);
                         //Write data to claim interface
                         labelClientId.Text = $"{user.Id}";
-                        labelName.Text = $"{user.Name} {user.SecoundName} {user.MiddleName}";
+                        labelName.Text = $"{user.SecoundName} {user.Name} {user.MiddleName}";
                         labelPass.Text = user.Passport;
                         labelBirthday.Text = user.BirthDay.ToString("d");
                         labelPhone.Text = user.Phone.ToString();
@@ -241,21 +239,25 @@ namespace MicroLoan
                             labelStatus.ForeColor = Color.FromArgb(236, 214, 22);
                             buttonSendDecision.Enabled = true;
                             buttonAddFine.Enabled = false;
+                            buttonCloseClaim.Enabled = false;
                             break;
                         case "принято":
                             labelStatus.ForeColor = Color.FromArgb(44, 218, 65);
                             buttonSendDecision.Enabled = false;
                             buttonAddFine.Enabled = true;
+                            buttonCloseClaim.Enabled = true;
                             break;
                         case "закрыто":
                             labelStatus.ForeColor = Color.FromArgb(140, 140, 140);
                             buttonSendDecision.Enabled = false;
-                            buttonAddFine.Enabled = true;
+                            buttonAddFine.Enabled = false;
+                            buttonCloseClaim.Enabled = false;
                             break;
                         case "отклонено":
                             labelStatus.ForeColor = Color.FromArgb(180, 37, 23);
                             buttonSendDecision.Enabled = false;
                             buttonAddFine.Enabled = true;
+                            buttonCloseClaim.Enabled = false;
                             break;
                         default:
                             break;
@@ -271,29 +273,41 @@ namespace MicroLoan
         } // Отрисовка заявки
         private void buttonSendUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы хотите сохранить изменения ?","Сохранить ?",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            if(dialogResult == DialogResult.Yes)
+            DialogResult dialogResult = MessageBox.Show("Вы хотите сохранить изменения ?", "Сохранить ?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
-                try
+                string tablename;
+                if (listBoxTypeVision.GetSelected(0))
                 {
-                    string tablename;
-                    if (listBoxTypeVision.GetSelected(0))
-                    {
-                        tablename = "Loan";
-                    }
-                    else
-                    {
-                        tablename = "Users";
-                    }
-                    table = (DataTable)dataGridView1.DataSource;
-                    BaseDataLite.UpdateBaseDate(table, tablename);
-                    MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tablename = "Loan";
                 }
-                catch (Exception)
+                else
                 {
+                    tablename = "Users";
+                }
+                table = (DataTable)dataGridView1.DataSource;
+                BaseDataLite.UpdateBaseDate(table, tablename);
+                MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //try
+                //{
+                //    string tablename;
+                //    if (listBoxTypeVision.GetSelected(0))
+                //    {
+                //        tablename = "Loan";
+                //    }
+                //    else
+                //    {
+                //        tablename = "Users";
+                //    }
+                //    table = (DataTable)dataGridView1.DataSource;
+                //    BaseDataLite.UpdateBaseDate(table, tablename);
+                //    MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //catch (Exception)
+                //{
 
-                    MessageBox.Show("Ой, что-то пошло не так ;(\nВозможно вы оставлили пустую строку.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //    MessageBox.Show("Ой, что-то пошло не так ;(\nВозможно вы оставлили пустую строку.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
         }
         private void buttonDeleateOLD_Click(object sender, EventArgs e) // Удалить все отклоненые заявки.
@@ -338,6 +352,8 @@ namespace MicroLoan
                     MessageBox.Show("Заявка принята", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     labelStatus.ForeColor = Color.FromArgb(44, 218, 65);
                     labelStatus.Text = "принято";
+                    DataBase.GeneralMessages.SendEmailNewStatus(labelEmail.Text, "принято", labelName.Text, BaseDataLite.FillClaim(Convert.ToInt32(labelLoanID.Text.Substring(1)), bd));
+
                 }
                 else if (result == DialogResult.No)
                 {
@@ -350,9 +366,58 @@ namespace MicroLoan
             }
             catch (Exception)
             {
-               MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+        }
+
+        private void buttonCloseClaim_Click(object sender, EventArgs e)
+        {
+            if (labelStatus.Text == "принято") 
+            {
+                buttonCloseClaim.Enabled = true;
+                DialogResult dialogResult = MessageBox.Show("Вы уверены что хотитие закрыть заявку ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.OK)
+                {
+                    BaseDataLite.SetNewStatus(Convert.ToInt32(labelLoanID.Text.Substring(1)), "закрыто");
+                    MessageBox.Show("Заявка закрыта", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    labelStatus.ForeColor = Color.FromArgb(140, 140, 140);
+                    labelStatus.Text = "закрыто";
+                } 
+            }
+
+        }
+        private void SetTableName(DataGridView dataGrid)
+        {
+            if (dataGrid.ColumnCount == 13)
+            {
+                dataGrid.Columns[0].HeaderText = "Номер заявки";
+                dataGrid.Columns[1].HeaderText = "Сумма заявки";
+                dataGrid.Columns[2].HeaderText = "Срок дней";
+                dataGrid.Columns[3].HeaderText = "Дата первой оплаты";
+                dataGrid.Columns[4].HeaderText = "Номер клиента";
+                dataGrid.Columns[5].HeaderText = "Номер документа";
+                dataGrid.Columns[6].HeaderText = "Дата первой оплаты";
+                dataGrid.Columns[7].HeaderText = "Номер карты";
+                dataGrid.Columns[8].HeaderText = "Статус";
+                dataGrid.Columns[9].HeaderText = "Тип выплаты";
+                dataGrid.Columns[10].HeaderText = "Сумма к оплате";
+                dataGrid.Columns[11].HeaderText = "Просроченно дней";
+                dataGrid.Columns[12].HeaderText = "Выплачено";
+            }
+            else 
+            {
+                dataGrid.Columns[0].HeaderText = "Номер клиента";
+                dataGrid.Columns[1].HeaderText = "Имя";
+                dataGrid.Columns[2].HeaderText = "Фамилия";
+                dataGrid.Columns[3].HeaderText = "Отчество";
+                dataGrid.Columns[4].HeaderText = "День рождения";
+                dataGrid.Columns[5].HeaderText = "Телефон";
+                dataGrid.Columns[6].HeaderText = "Email";
+                dataGrid.Columns[7].HeaderText = "Паспорт";
+            }
         }
     }
 }
+
+

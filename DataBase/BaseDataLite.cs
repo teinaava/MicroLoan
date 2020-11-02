@@ -2,6 +2,7 @@
 using System.Data.SQLite;
 using System.IO;
 using System.Data;
+using ClientUser;
 
 namespace BaseData
 {
@@ -292,6 +293,21 @@ namespace BaseData
                 cmd2.ExecuteNonQuery();
                 conn.Close();
             };
+        }
+        public static BClaim FillClaim(int id,BaseDataLite bd)
+        {
+            DataTable loantb = bd.GetLoanbyID(bd, $"{id}");
+            BClaim claim = new BClaim();
+            claim.Id = id;
+            claim.SumLoan = Convert.ToInt32(loantb.Rows[0][2]);
+            claim.Days = Convert.ToInt32(loantb.Rows[0][3]);
+            claim.Fine = Convert.ToInt32(loantb.Rows[0][11]);
+            claim.CardNumber = Convert.ToInt32(loantb.Rows[0][7]);
+            claim.type = Convert.ToString(loantb.Rows[0][9]);
+            claim.status = Convert.ToString(loantb.Rows[0][8]);
+            claim.PaidOut = Convert.ToInt32(loantb.Rows[0][12]);
+            claim.SumPaid = Convert.ToInt32(loantb.Rows[0][10]);
+            return claim;
         }
     }
 }

@@ -28,11 +28,11 @@ namespace ClientUser
         }
         public User()
         {
-            while (true)
-            {
-                id = BClaim.GenerateID(4);
-                if (BaseDataLite.CheckUsersID(id)) { break; }
-            }
+            //while (true)
+            //{
+            //    id = BClaim.GenerateID(4);
+            //    if (BaseDataLite.CheckUsersID(id)) { break; }
+            //}
         }
         public string Name{ get { return name; } set { name = value; } }
         public string SecoundName { get { return sname; } set { sname = value; } }

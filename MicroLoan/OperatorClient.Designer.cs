@@ -62,6 +62,7 @@
             this.labelBirthday = new System.Windows.Forms.Label();
             this.labelPass = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
+            this.buttonCloseClaim = new System.Windows.Forms.Button();
             this.buttonSendDecision = new System.Windows.Forms.Button();
             this.labelStatus = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -356,6 +357,7 @@
             this.groupBox1.Controls.Add(this.labelBirthday);
             this.groupBox1.Controls.Add(this.labelPass);
             this.groupBox1.Controls.Add(this.labelName);
+            this.groupBox1.Controls.Add(this.buttonCloseClaim);
             this.groupBox1.Controls.Add(this.buttonSendDecision);
             this.groupBox1.Controls.Add(this.labelStatus);
             this.groupBox1.Controls.Add(this.label15);
@@ -525,6 +527,21 @@
             this.labelName.TabIndex = 16;
             this.labelName.Text = "-";
             // 
+            // buttonCloseClaim
+            // 
+            this.buttonCloseClaim.BackColor = System.Drawing.Color.Brown;
+            this.buttonCloseClaim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCloseClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCloseClaim.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonCloseClaim.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCloseClaim.Location = new System.Drawing.Point(420, 432);
+            this.buttonCloseClaim.Name = "buttonCloseClaim";
+            this.buttonCloseClaim.Size = new System.Drawing.Size(126, 40);
+            this.buttonCloseClaim.TabIndex = 15;
+            this.buttonCloseClaim.Text = "Закрыть заявку";
+            this.buttonCloseClaim.UseVisualStyleBackColor = false;
+            this.buttonCloseClaim.Click += new System.EventHandler(this.buttonCloseClaim_Click);
+            // 
             // buttonSendDecision
             // 
             this.buttonSendDecision.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -532,7 +549,7 @@
             this.buttonSendDecision.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSendDecision.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonSendDecision.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSendDecision.Location = new System.Drawing.Point(569, 432);
+            this.buttonSendDecision.Location = new System.Drawing.Point(570, 432);
             this.buttonSendDecision.Name = "buttonSendDecision";
             this.buttonSendDecision.Size = new System.Drawing.Size(126, 40);
             this.buttonSendDecision.TabIndex = 15;
@@ -822,6 +839,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelLoanID;
         private System.Windows.Forms.Label labelClientId;
+        private System.Windows.Forms.Button buttonCloseClaim;
     }
 }
 
