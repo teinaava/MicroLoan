@@ -31,53 +31,53 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.textBoxDays = new System.Windows.Forms.TextBox();
+            this.textBoxSumLoan = new System.Windows.Forms.TextBox();
+            this.labelPaidSum = new System.Windows.Forms.Label();
+            this.hScrollBarDays = new System.Windows.Forms.HScrollBar();
+            this.hScrollBarSum = new System.Windows.Forms.HScrollBar();
             this.button2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(247, 3);
+            this.panel1.Location = new System.Drawing.Point(212, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(956, 647);
+            this.panel1.Size = new System.Drawing.Size(819, 518);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox1.Controls.Add(this.textBoxDays);
+            this.groupBox1.Controls.Add(this.textBoxSumLoan);
+            this.groupBox1.Controls.Add(this.labelPaidSum);
+            this.groupBox1.Controls.Add(this.hScrollBarDays);
+            this.groupBox1.Controls.Add(this.hScrollBarSum);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.hScrollBar2);
-            this.groupBox1.Controls.Add(this.hScrollBar1);
-            this.groupBox1.Controls.Add(this.linkLabel1);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label5);
@@ -85,58 +85,123 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(564, 135);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Location = new System.Drawing.Point(498, 32);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 456);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(308, 416);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
-            // hScrollBar2
+            // textBoxDays
             // 
-            this.hScrollBar2.Location = new System.Drawing.Point(35, 192);
-            this.hScrollBar2.Name = "hScrollBar2";
-            this.hScrollBar2.Size = new System.Drawing.Size(267, 17);
-            this.hScrollBar2.TabIndex = 4;
+            this.textBoxDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(64)))), ((int)(((byte)(74)))));
+            this.textBoxDays.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDays.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxDays.ForeColor = System.Drawing.SystemColors.Info;
+            this.textBoxDays.Location = new System.Drawing.Point(182, 271);
+            this.textBoxDays.Name = "textBoxDays";
+            this.textBoxDays.Size = new System.Drawing.Size(65, 18);
+            this.textBoxDays.TabIndex = 6;
+            this.textBoxDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // hScrollBar1
+            // textBoxSumLoan
             // 
-            this.hScrollBar1.Location = new System.Drawing.Point(35, 93);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(267, 17);
-            this.hScrollBar1.TabIndex = 4;
+            this.textBoxSumLoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(64)))), ((int)(((byte)(74)))));
+            this.textBoxSumLoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSumLoan.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxSumLoan.ForeColor = System.Drawing.SystemColors.Info;
+            this.textBoxSumLoan.Location = new System.Drawing.Point(182, 241);
+            this.textBoxSumLoan.MaxLength = 5;
+            this.textBoxSumLoan.Name = "textBoxSumLoan";
+            this.textBoxSumLoan.Size = new System.Drawing.Size(65, 18);
+            this.textBoxSumLoan.TabIndex = 6;
+            this.textBoxSumLoan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxSumLoan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSumLoan_KeyPress);
+            this.textBoxSumLoan.Leave += new System.EventHandler(this.textBoxSumLoan_Leave);
             // 
-            // linkLabel1
+            // labelPaidSum
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(16, 438);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(237, 15);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "А что если я не успеваю вернуть вовремя";
+            this.labelPaidSum.AutoSize = true;
+            this.labelPaidSum.BackColor = System.Drawing.Color.Transparent;
+            this.labelPaidSum.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelPaidSum.ForeColor = System.Drawing.Color.White;
+            this.labelPaidSum.Location = new System.Drawing.Point(226, 301);
+            this.labelPaidSum.Name = "labelPaidSum";
+            this.labelPaidSum.Size = new System.Drawing.Size(0, 15);
+            this.labelPaidSum.TabIndex = 5;
+            // 
+            // hScrollBarDays
+            // 
+            this.hScrollBarDays.Location = new System.Drawing.Point(8, 154);
+            this.hScrollBarDays.Maximum = 30;
+            this.hScrollBarDays.Minimum = 7;
+            this.hScrollBarDays.Name = "hScrollBarDays";
+            this.hScrollBarDays.Size = new System.Drawing.Size(285, 17);
+            this.hScrollBarDays.TabIndex = 4;
+            this.hScrollBarDays.Value = 7;
+            // 
+            // hScrollBarSum
+            // 
+            this.hScrollBarSum.Location = new System.Drawing.Point(8, 74);
+            this.hScrollBarSum.Maximum = 50;
+            this.hScrollBarSum.Minimum = 3;
+            this.hScrollBarSum.Name = "hScrollBarSum";
+            this.hScrollBarSum.Size = new System.Drawing.Size(285, 17);
+            this.hScrollBarSum.TabIndex = 4;
+            this.hScrollBarSum.Value = 3;
+            this.hScrollBarSum.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBarSum_Scroll);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.BackColor = System.Drawing.Color.Maroon;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(27, 249);
+            this.button2.Location = new System.Drawing.Point(23, 199);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(286, 42);
+            this.button2.Size = new System.Drawing.Size(245, 34);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Получить бесплатно";
+            this.button2.Text = "Получить займ";
             this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(253, 271);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 19);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "дней";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(253, 245);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 19);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "руб.";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(9, 306);
+            this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(8, 245);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 19);
+            this.label4.Size = new System.Drawing.Size(75, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Вы берёте";
             // 
@@ -144,11 +209,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(9, 376);
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(8, 301);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 19);
+            this.label1.Size = new System.Drawing.Size(120, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Вы возвращаете ";
             // 
@@ -156,34 +221,44 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(9, 339);
+            this.label5.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(8, 271);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 19);
+            this.label5.Size = new System.Drawing.Size(60, 19);
             this.label5.TabIndex = 1;
-            this.label5.Text = "До (включительно)";
+            this.label5.Text = "На срок";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(6, 117);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(5, 119);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 21);
+            this.label3.Size = new System.Drawing.Size(124, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Выберите срок";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(182, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 12);
+            this.label7.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(202, 32);
+            this.label6.Location = new System.Drawing.Point(173, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 15);
+            this.label6.Size = new System.Drawing.Size(0, 12);
             this.label6.TabIndex = 1;
             // 
             // label2
@@ -191,22 +266,12 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 32);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(6, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 21);
+            this.label2.Size = new System.Drawing.Size(137, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Выберите сумму";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 157);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -216,9 +281,10 @@
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button1);
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(1, 3);
+            this.panel2.Location = new System.Drawing.Point(1, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 647);
+            this.panel2.Size = new System.Drawing.Size(214, 518);
             this.panel2.TabIndex = 0;
             // 
             // button4
@@ -228,9 +294,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(0, 441);
+            this.button4.Location = new System.Drawing.Point(0, 353);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(242, 57);
+            this.button4.Size = new System.Drawing.Size(207, 46);
             this.button4.TabIndex = 0;
             this.button4.Text = "Как погасить";
             this.button4.UseVisualStyleBackColor = false;
@@ -242,9 +309,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1, 327);
+            this.button3.Location = new System.Drawing.Point(1, 262);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(241, 57);
+            this.button3.Size = new System.Drawing.Size(207, 46);
             this.button3.TabIndex = 0;
             this.button3.Text = "Как получить";
             this.button3.UseVisualStyleBackColor = false;
@@ -257,9 +325,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(-10, 216);
+            this.button5.Location = new System.Drawing.Point(-9, 173);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(261, 57);
+            this.button5.Size = new System.Drawing.Size(224, 46);
             this.button5.TabIndex = 0;
             this.button5.Text = "О нас";
             this.button5.UseVisualStyleBackColor = false;
@@ -272,74 +341,31 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 94);
+            this.button1.Location = new System.Drawing.Point(0, 75);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 57);
+            this.button1.Size = new System.Drawing.Size(214, 46);
             this.button1.TabIndex = 0;
             this.button1.Text = "Главная страница";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(212, 66);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 15);
-            this.label7.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(247, 143);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 15);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "label8";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(264, 306);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 15);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "label8";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(264, 339);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 15);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "label8";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(264, 376);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 15);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "label8";
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1202, 650);
+            this.ClientSize = new System.Drawing.Size(1030, 520);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Миуро займ";
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -353,7 +379,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
@@ -361,15 +386,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.HScrollBar hScrollBar2;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.HScrollBar hScrollBarDays;
+        private System.Windows.Forms.HScrollBar hScrollBarSum;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelPaidSum;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxSumLoan;
+        private System.Windows.Forms.TextBox textBoxDays;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
     }
 }
 
