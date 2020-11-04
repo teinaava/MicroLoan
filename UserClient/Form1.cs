@@ -68,7 +68,7 @@ namespace UserClient
             }
             else
             {
-                hScrollBarDays.Value = Convert.ToInt32(textBoxDays);
+                hScrollBarDays.Value = Convert.ToInt32(textBoxDays.Text);
                 hScrollBarDays.Update();
             }
         }
@@ -84,6 +84,23 @@ namespace UserClient
         private double CountDailyPaid(double sumpaid,double days)
         {
             return Math.Round((double)(sumpaid / days), 2);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            panel1.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel3.Visible = true;
         }
     }
 }

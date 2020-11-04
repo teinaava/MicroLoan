@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OperatorClient));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.WorkSpaceTable = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
@@ -805,6 +806,7 @@
             this.Controls.Add(this.WorkSpaceTable);
             this.Controls.Add(this.WorkSpaceClaim);
             this.Controls.Add(this.WorkSpaceHelp);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "OperatorClient";
             this.Text = " Панель Оператора -";

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxDays = new System.Windows.Forms.TextBox();
             this.textBoxSumLoan = new System.Windows.Forms.TextBox();
@@ -58,7 +59,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,12 +70,25 @@
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(212, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(819, 518);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(9, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 148);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -116,7 +132,7 @@
             this.textBoxDays.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDays.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxDays.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBoxDays.Location = new System.Drawing.Point(182, 272);
+            this.textBoxDays.Location = new System.Drawing.Point(182, 231);
             this.textBoxDays.MaxLength = 2;
             this.textBoxDays.Name = "textBoxDays";
             this.textBoxDays.Size = new System.Drawing.Size(65, 18);
@@ -132,7 +148,7 @@
             this.textBoxSumLoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSumLoan.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxSumLoan.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBoxSumLoan.Location = new System.Drawing.Point(186, 247);
+            this.textBoxSumLoan.Location = new System.Drawing.Point(186, 206);
             this.textBoxSumLoan.MaxLength = 5;
             this.textBoxSumLoan.Name = "textBoxSumLoan";
             this.textBoxSumLoan.Size = new System.Drawing.Size(65, 18);
@@ -148,7 +164,7 @@
             this.labelDailYPaid.BackColor = System.Drawing.Color.Transparent;
             this.labelDailYPaid.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDailYPaid.ForeColor = System.Drawing.Color.White;
-            this.labelDailYPaid.Location = new System.Drawing.Point(201, 333);
+            this.labelDailYPaid.Location = new System.Drawing.Point(201, 292);
             this.labelDailYPaid.Name = "labelDailYPaid";
             this.labelDailYPaid.Size = new System.Drawing.Size(46, 17);
             this.labelDailYPaid.TabIndex = 5;
@@ -161,7 +177,7 @@
             this.labelPaidSum.BackColor = System.Drawing.Color.Transparent;
             this.labelPaidSum.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPaidSum.ForeColor = System.Drawing.Color.White;
-            this.labelPaidSum.Location = new System.Drawing.Point(211, 301);
+            this.labelPaidSum.Location = new System.Drawing.Point(211, 260);
             this.labelPaidSum.Name = "labelPaidSum";
             this.labelPaidSum.Size = new System.Drawing.Size(36, 17);
             this.labelPaidSum.TabIndex = 5;
@@ -195,14 +211,15 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Maroon;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(23, 199);
+            this.button2.Location = new System.Drawing.Point(22, 334);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(245, 34);
+            this.button2.Size = new System.Drawing.Size(266, 34);
             this.button2.TabIndex = 2;
             this.button2.Text = "Получить займ";
             this.button2.UseVisualStyleBackColor = false;
@@ -213,7 +230,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(253, 271);
+            this.label9.Location = new System.Drawing.Point(253, 230);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 19);
             this.label9.TabIndex = 1;
@@ -261,7 +278,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(253, 333);
+            this.label16.Location = new System.Drawing.Point(253, 292);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 19);
             this.label16.TabIndex = 1;
@@ -285,7 +302,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(253, 301);
+            this.label14.Location = new System.Drawing.Point(253, 260);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(35, 19);
             this.label14.TabIndex = 1;
@@ -297,7 +314,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(253, 245);
+            this.label8.Location = new System.Drawing.Point(253, 204);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 19);
             this.label8.TabIndex = 1;
@@ -309,7 +326,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(8, 245);
+            this.label4.Location = new System.Drawing.Point(8, 204);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 19);
             this.label4.TabIndex = 1;
@@ -321,7 +338,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(6, 333);
+            this.label15.Location = new System.Drawing.Point(6, 292);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(105, 19);
             this.label15.TabIndex = 1;
@@ -333,7 +350,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 301);
+            this.label1.Location = new System.Drawing.Point(8, 260);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 19);
             this.label1.TabIndex = 1;
@@ -345,7 +362,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(8, 271);
+            this.label5.Location = new System.Drawing.Point(8, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 19);
             this.label5.TabIndex = 1;
@@ -411,6 +428,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -420,13 +438,14 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(218, 46);
             this.button3.TabIndex = 0;
-            this.button3.Text = "О займе";
+            this.button3.Text = "О нас";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -434,15 +453,16 @@
             this.button5.Location = new System.Drawing.Point(1, 173);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(214, 46);
+            this.button5.Size = new System.Drawing.Size(218, 46);
             this.button5.TabIndex = 0;
             this.button5.Text = "Проверить займ";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -450,10 +470,20 @@
             this.button1.Location = new System.Drawing.Point(1, 75);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 46);
+            this.button1.Size = new System.Drawing.Size(218, 46);
             this.button1.TabIndex = 0;
             this.button1.Text = "Главная страница";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(212, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(819, 518);
+            this.panel3.TabIndex = 1;
+            this.panel3.Visible = false;
             // 
             // Form1
             // 
@@ -463,13 +493,16 @@
             this.ClientSize = new System.Drawing.Size(1030, 520);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Миуро займ";
+            this.Text = "Микро займы MoneyMota";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -508,6 +541,8 @@
         private System.Windows.Forms.Label labelDailYPaid;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

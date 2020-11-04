@@ -121,10 +121,13 @@
   <data name="PyiWcHbEFJI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PyiWcHbEFJI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="егорка2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\егорка2;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="home-page" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home-page1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="егорка2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\егорка2;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="last22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\last22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

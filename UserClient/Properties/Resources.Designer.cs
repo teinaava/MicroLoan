@@ -73,6 +73,16 @@ namespace UserClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap last22 {
+            get {
+                object obj = ResourceManager.GetObject("last22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PyiWcHbEFJI {
             get {
                 object obj = ResourceManager.GetObject("PyiWcHbEFJI", resourceCulture);
