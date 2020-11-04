@@ -70,12 +70,18 @@ namespace ClientUser
             return Convert.ToInt32(id);
 
         }   //claim id.lenght = 6   user id.lenght = 4 doc id.Length = 5
-        public static double DailyPaid(int s,double i,int n) // s – сумма кредита, i – ежедневная ставка, n – срок на который берется кредит.
+        public static int DailyPaid(int s,int i,int n) // s – сумма кредита, i – ежедневная ставка, n – срок на который берется кредит.
         {
             double v = (((s / n) / 100) * n) * i + (s / n);
-            return Math.Round(v);
+            return (int)Math.Round(v,0);
         }
         // Сумму выплаты = DailyPaid() * кол-во дней
+        public static int SumPiad(int s,int i,int n)
+        {
+            i *= 100;
+            double v = s / i * n;
+            return Convert.ToInt32(Math.Round(v, 0)) + s;
+        }
         #endregion
 
     }
