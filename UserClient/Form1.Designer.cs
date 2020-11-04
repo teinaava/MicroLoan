@@ -60,14 +60,25 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.buttonFindClaim = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pictureBox1);
@@ -479,11 +490,100 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(212, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(819, 518);
             this.panel3.TabIndex = 1;
             this.panel3.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel4.Controls.Add(this.buttonFindClaim);
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.label21);
+            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Location = new System.Drawing.Point(9, 10);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(797, 496);
+            this.panel4.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(30, 41);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(88, 19);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Ваша сумма";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(30, 75);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(122, 19);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Сумма к выплате";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(30, 122);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(83, 19);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Ваш штраф";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label20.Location = new System.Drawing.Point(30, 157);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(82, 19);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Выплачено";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(476, 65);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(301, 23);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.Location = new System.Drawing.Point(371, 64);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(99, 19);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Номер заявки";
+            // 
+            // buttonFindClaim
+            // 
+            this.buttonFindClaim.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFindClaim.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.buttonFindClaim.Location = new System.Drawing.Point(557, 116);
+            this.buttonFindClaim.Name = "buttonFindClaim";
+            this.buttonFindClaim.Size = new System.Drawing.Size(75, 23);
+            this.buttonFindClaim.TabIndex = 2;
+            this.buttonFindClaim.Text = "Найти займ";
+            this.buttonFindClaim.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -506,6 +606,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -543,6 +646,14 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button buttonFindClaim;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
     }
 }
 
