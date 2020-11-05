@@ -29,8 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panelCheckClaim = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonFindClaim = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.labelClaimSumPaid = new System.Windows.Forms.Label();
+            this.labelClaimSumLoan = new System.Windows.Forms.Label();
+            this.labelClaimFineDays = new System.Windows.Forms.Label();
+            this.labelClaimStatus = new System.Windows.Forms.Label();
+            this.labelClaimPiadout = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxDays = new System.Windows.Forms.TextBox();
             this.textBoxSumLoan = new System.Windows.Forms.TextBox();
@@ -55,51 +72,299 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.buttonFindClaim = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panelCreateClaim = new System.Windows.Forms.Panel();
+            this.maskedUserPhone = new System.Windows.Forms.MaskedTextBox();
+            this.maskedUserBirthDay = new System.Windows.Forms.MaskedTextBox();
+            this.maskedCardNumber = new System.Windows.Forms.MaskedTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.buttonSendClaim = new System.Windows.Forms.Button();
+            this.groupBoxPayupType = new System.Windows.Forms.GroupBox();
+            this.radioButtonCash = new System.Windows.Forms.RadioButton();
+            this.radioButtonCard = new System.Windows.Forms.RadioButton();
+            this.textBoxUserMidName = new System.Windows.Forms.TextBox();
+            this.textBoxUserSecName = new System.Windows.Forms.TextBox();
+            this.maskedEmail = new System.Windows.Forms.TextBox();
+            this.textBoxUserPassport = new System.Windows.Forms.TextBox();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.labelCN = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.labelCreatePaidSum = new System.Windows.Forms.Label();
+            this.labelCreateSumLoan = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panelAbout = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.panelMenu.SuspendLayout();
+            this.panelCheckClaim.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMain.SuspendLayout();
+            this.panelCreateClaim.SuspendLayout();
+            this.groupBoxPayupType.SuspendLayout();
+            this.panelAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelMenu
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(212, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(819, 518);
-            this.panel1.TabIndex = 0;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(36)))), ((int)(((byte)(34)))), ((int)(((byte)(35)))));
+            this.panelMenu.Controls.Add(this.button3);
+            this.panelMenu.Controls.Add(this.button5);
+            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.ForeColor = System.Drawing.Color.Transparent;
+            this.panelMenu.Location = new System.Drawing.Point(-4, 2);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(219, 518);
+            this.panelMenu.TabIndex = 0;
             // 
-            // pictureBox1
+            // button3
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 148);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(1, 262);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(218, 70);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "О нас";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(0, 167);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(218, 70);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "Проверить займ";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1, 75);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 70);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Главная страница";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panelCheckClaim
+            // 
+            this.panelCheckClaim.BackColor = System.Drawing.Color.Transparent;
+            this.panelCheckClaim.Controls.Add(this.panel4);
+            this.panelCheckClaim.Location = new System.Drawing.Point(212, 2);
+            this.panelCheckClaim.Name = "panelCheckClaim";
+            this.panelCheckClaim.Size = new System.Drawing.Size(819, 518);
+            this.panelCheckClaim.TabIndex = 1;
+            this.panelCheckClaim.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel4.Controls.Add(this.buttonFindClaim);
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.label21);
+            this.panel4.Controls.Add(this.labelClaimSumPaid);
+            this.panel4.Controls.Add(this.labelClaimSumLoan);
+            this.panel4.Controls.Add(this.labelClaimFineDays);
+            this.panel4.Controls.Add(this.labelClaimStatus);
+            this.panel4.Controls.Add(this.labelClaimPiadout);
+            this.panel4.Controls.Add(this.label23);
+            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Location = new System.Drawing.Point(9, 10);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(797, 496);
+            this.panel4.TabIndex = 0;
+            // 
+            // buttonFindClaim
+            // 
+            this.buttonFindClaim.BackColor = System.Drawing.Color.DarkCyan;
+            this.buttonFindClaim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonFindClaim.FlatAppearance.BorderSize = 0;
+            this.buttonFindClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFindClaim.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonFindClaim.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.buttonFindClaim.Location = new System.Drawing.Point(638, 17);
+            this.buttonFindClaim.Name = "buttonFindClaim";
+            this.buttonFindClaim.Size = new System.Drawing.Size(107, 27);
+            this.buttonFindClaim.TabIndex = 2;
+            this.buttonFindClaim.Text = "Найти займ";
+            this.buttonFindClaim.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.DarkGray;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.textBox1.Location = new System.Drawing.Point(474, 23);
+            this.textBox1.MaxLength = 6;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(158, 16);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.Location = new System.Drawing.Point(371, 19);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(99, 19);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Номер заявки";
+            // 
+            // labelClaimSumPaid
+            // 
+            this.labelClaimSumPaid.AutoSize = true;
+            this.labelClaimSumPaid.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimSumPaid.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelClaimSumPaid.Location = new System.Drawing.Point(222, 125);
+            this.labelClaimSumPaid.Name = "labelClaimSumPaid";
+            this.labelClaimSumPaid.Size = new System.Drawing.Size(20, 28);
+            this.labelClaimSumPaid.TabIndex = 0;
+            this.labelClaimSumPaid.Text = "-";
+            this.labelClaimSumPaid.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelClaimSumLoan
+            // 
+            this.labelClaimSumLoan.AutoSize = true;
+            this.labelClaimSumLoan.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimSumLoan.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelClaimSumLoan.Location = new System.Drawing.Point(207, 85);
+            this.labelClaimSumLoan.Name = "labelClaimSumLoan";
+            this.labelClaimSumLoan.Size = new System.Drawing.Size(20, 28);
+            this.labelClaimSumLoan.TabIndex = 0;
+            this.labelClaimSumLoan.Text = "-";
+            this.labelClaimSumLoan.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelClaimFineDays
+            // 
+            this.labelClaimFineDays.AutoSize = true;
+            this.labelClaimFineDays.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimFineDays.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelClaimFineDays.Location = new System.Drawing.Point(161, 165);
+            this.labelClaimFineDays.Name = "labelClaimFineDays";
+            this.labelClaimFineDays.Size = new System.Drawing.Size(20, 28);
+            this.labelClaimFineDays.TabIndex = 0;
+            this.labelClaimFineDays.Text = "-";
+            this.labelClaimFineDays.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelClaimStatus
+            // 
+            this.labelClaimStatus.AutoSize = true;
+            this.labelClaimStatus.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimStatus.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelClaimStatus.Location = new System.Drawing.Point(122, 253);
+            this.labelClaimStatus.Name = "labelClaimStatus";
+            this.labelClaimStatus.Size = new System.Drawing.Size(20, 28);
+            this.labelClaimStatus.TabIndex = 0;
+            this.labelClaimStatus.Text = "-";
+            this.labelClaimStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelClaimPiadout
+            // 
+            this.labelClaimPiadout.AutoSize = true;
+            this.labelClaimPiadout.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimPiadout.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelClaimPiadout.Location = new System.Drawing.Point(161, 213);
+            this.labelClaimPiadout.Name = "labelClaimPiadout";
+            this.labelClaimPiadout.Size = new System.Drawing.Size(20, 28);
+            this.labelClaimPiadout.TabIndex = 0;
+            this.labelClaimPiadout.Text = "-";
+            this.labelClaimPiadout.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label23.Location = new System.Drawing.Point(36, 253);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(76, 28);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Статус:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label20.Location = new System.Drawing.Point(36, 208);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(124, 28);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Выплачено:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(35, 165);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(83, 28);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Штраф:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(35, 125);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(181, 28);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Сумма к выплате:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(36, 85);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(131, 28);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Ваша сумма:";
             // 
             // groupBox1
             // 
@@ -139,11 +404,11 @@
             // 
             // textBoxDays
             // 
-            this.textBoxDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(64)))), ((int)(((byte)(74)))));
+            this.textBoxDays.BackColor = System.Drawing.Color.DimGray;
             this.textBoxDays.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDays.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxDays.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBoxDays.Location = new System.Drawing.Point(182, 231);
+            this.textBoxDays.Location = new System.Drawing.Point(186, 231);
             this.textBoxDays.MaxLength = 2;
             this.textBoxDays.Name = "textBoxDays";
             this.textBoxDays.Size = new System.Drawing.Size(65, 18);
@@ -155,7 +420,7 @@
             // 
             // textBoxSumLoan
             // 
-            this.textBoxSumLoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(64)))), ((int)(((byte)(74)))));
+            this.textBoxSumLoan.BackColor = System.Drawing.Color.DimGray;
             this.textBoxSumLoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSumLoan.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxSumLoan.ForeColor = System.Drawing.SystemColors.Info;
@@ -221,19 +486,20 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Maroon;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(22, 334);
+            this.button2.Location = new System.Drawing.Point(22, 349);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(266, 34);
             this.button2.TabIndex = 2;
             this.button2.Text = "Получить займ";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label9
             // 
@@ -423,177 +689,442 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Выберите сумму";
             // 
-            // panel2
+            // pictureBox1
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(34)))), ((int)(((byte)(35)))));
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(-4, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(219, 518);
-            this.panel2.TabIndex = 0;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(29, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(207, 210);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
-            // button3
+            // panelMain
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1, 262);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(218, 46);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "О нас";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.panelMain.BackColor = System.Drawing.Color.Transparent;
+            this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMain.Controls.Add(this.label22);
+            this.panelMain.Controls.Add(this.pictureBox1);
+            this.panelMain.Controls.Add(this.groupBox1);
+            this.panelMain.Location = new System.Drawing.Point(212, 2);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(819, 518);
+            this.panelMain.TabIndex = 0;
             // 
-            // button5
+            // label22
             // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(1, 173);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(218, 46);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Проверить займ";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label22.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label22.Location = new System.Drawing.Point(29, 246);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(444, 222);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Сумма займа от 3к до 50к рублей\r\nСрок займа от 7 до 30 дней\r\nНизкий процент !\r\n1 " +
+    "% до 30к рублей\r\n2 % от 30к рублей\r\n ";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
+            // panelCreateClaim
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1, 75);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 46);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Главная страница";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panelCreateClaim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelCreateClaim.Controls.Add(this.maskedUserPhone);
+            this.panelCreateClaim.Controls.Add(this.maskedUserBirthDay);
+            this.panelCreateClaim.Controls.Add(this.maskedCardNumber);
+            this.panelCreateClaim.Controls.Add(this.checkBox1);
+            this.panelCreateClaim.Controls.Add(this.buttonSendClaim);
+            this.panelCreateClaim.Controls.Add(this.groupBoxPayupType);
+            this.panelCreateClaim.Controls.Add(this.textBoxUserMidName);
+            this.panelCreateClaim.Controls.Add(this.textBoxUserSecName);
+            this.panelCreateClaim.Controls.Add(this.maskedEmail);
+            this.panelCreateClaim.Controls.Add(this.textBoxUserPassport);
+            this.panelCreateClaim.Controls.Add(this.textBoxUserName);
+            this.panelCreateClaim.Controls.Add(this.label31);
+            this.panelCreateClaim.Controls.Add(this.label27);
+            this.panelCreateClaim.Controls.Add(this.label33);
+            this.panelCreateClaim.Controls.Add(this.label34);
+            this.panelCreateClaim.Controls.Add(this.labelCN);
+            this.panelCreateClaim.Controls.Add(this.label32);
+            this.panelCreateClaim.Controls.Add(this.label30);
+            this.panelCreateClaim.Controls.Add(this.label29);
+            this.panelCreateClaim.Controls.Add(this.label28);
+            this.panelCreateClaim.Controls.Add(this.label26);
+            this.panelCreateClaim.Controls.Add(this.labelCreatePaidSum);
+            this.panelCreateClaim.Controls.Add(this.labelCreateSumLoan);
+            this.panelCreateClaim.Controls.Add(this.label25);
+            this.panelCreateClaim.Controls.Add(this.label24);
+            this.panelCreateClaim.Location = new System.Drawing.Point(221, 12);
+            this.panelCreateClaim.Name = "panelCreateClaim";
+            this.panelCreateClaim.Size = new System.Drawing.Size(797, 496);
+            this.panelCreateClaim.TabIndex = 2;
+            this.panelCreateClaim.Visible = false;
             // 
-            // panel3
+            // maskedUserPhone
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(212, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(819, 518);
-            this.panel3.TabIndex = 1;
-            this.panel3.Visible = false;
+            this.maskedUserPhone.BackColor = System.Drawing.Color.DarkGray;
+            this.maskedUserPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maskedUserPhone.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.maskedUserPhone.ForeColor = System.Drawing.Color.White;
+            this.maskedUserPhone.Location = new System.Drawing.Point(507, 157);
+            this.maskedUserPhone.Name = "maskedUserPhone";
+            this.maskedUserPhone.Size = new System.Drawing.Size(140, 20);
+            this.maskedUserPhone.TabIndex = 5;
             // 
-            // panel4
+            // maskedUserBirthDay
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel4.Controls.Add(this.buttonFindClaim);
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Controls.Add(this.label21);
-            this.panel4.Controls.Add(this.label20);
-            this.panel4.Controls.Add(this.label19);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Location = new System.Drawing.Point(9, 10);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(797, 496);
-            this.panel4.TabIndex = 0;
+            this.maskedUserBirthDay.BackColor = System.Drawing.Color.DarkGray;
+            this.maskedUserBirthDay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maskedUserBirthDay.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.maskedUserBirthDay.ForeColor = System.Drawing.Color.White;
+            this.maskedUserBirthDay.Location = new System.Drawing.Point(300, 273);
+            this.maskedUserBirthDay.Mask = "00/00/0000";
+            this.maskedUserBirthDay.Name = "maskedUserBirthDay";
+            this.maskedUserBirthDay.Size = new System.Drawing.Size(137, 20);
+            this.maskedUserBirthDay.TabIndex = 5;
+            this.maskedUserBirthDay.Click += new System.EventHandler(this.maskedUserBirthDay_Click);
             // 
-            // label17
+            // maskedCardNumber
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(30, 41);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(88, 19);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Ваша сумма";
+            this.maskedCardNumber.BackColor = System.Drawing.Color.DarkGray;
+            this.maskedCardNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maskedCardNumber.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.maskedCardNumber.ForeColor = System.Drawing.Color.White;
+            this.maskedCardNumber.Location = new System.Drawing.Point(35, 279);
+            this.maskedCardNumber.Mask = "0000-0000-0000-0000";
+            this.maskedCardNumber.Name = "maskedCardNumber";
+            this.maskedCardNumber.Size = new System.Drawing.Size(160, 20);
+            this.maskedCardNumber.TabIndex = 5;
+            this.maskedCardNumber.Click += new System.EventHandler(this.maskedCardNumber_Click);
+            this.maskedCardNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedCardNumber_KeyDown);
             // 
-            // label18
+            // checkBox1
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(30, 75);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(122, 19);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Сумма к выплате";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.Location = new System.Drawing.Point(6, 461);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
             // 
-            // label19
+            // buttonSendClaim
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(30, 122);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(83, 19);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Ваш штраф";
+            this.buttonSendClaim.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.buttonSendClaim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSendClaim.Enabled = false;
+            this.buttonSendClaim.FlatAppearance.BorderSize = 0;
+            this.buttonSendClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSendClaim.Font = new System.Drawing.Font("Yu Gothic UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonSendClaim.Location = new System.Drawing.Point(586, 430);
+            this.buttonSendClaim.Name = "buttonSendClaim";
+            this.buttonSendClaim.Size = new System.Drawing.Size(196, 48);
+            this.buttonSendClaim.TabIndex = 3;
+            this.buttonSendClaim.Text = "Отправить";
+            this.buttonSendClaim.UseVisualStyleBackColor = false;
+            this.buttonSendClaim.Click += new System.EventHandler(this.buttonSendClaim_Click);
             // 
-            // label20
+            // groupBoxPayupType
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(30, 157);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(82, 19);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Выплачено";
+            this.groupBoxPayupType.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxPayupType.Controls.Add(this.radioButtonCash);
+            this.groupBoxPayupType.Controls.Add(this.radioButtonCard);
+            this.groupBoxPayupType.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxPayupType.ForeColor = System.Drawing.Color.White;
+            this.groupBoxPayupType.Location = new System.Drawing.Point(23, 171);
+            this.groupBoxPayupType.Name = "groupBoxPayupType";
+            this.groupBoxPayupType.Size = new System.Drawing.Size(185, 79);
+            this.groupBoxPayupType.TabIndex = 2;
+            this.groupBoxPayupType.TabStop = false;
+            this.groupBoxPayupType.Text = "Тип выплаты";
             // 
-            // textBox1
+            // radioButtonCash
             // 
-            this.textBox1.Location = new System.Drawing.Point(476, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(301, 23);
-            this.textBox1.TabIndex = 1;
+            this.radioButtonCash.AutoSize = true;
+            this.radioButtonCash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonCash.Location = new System.Drawing.Point(12, 51);
+            this.radioButtonCash.Name = "radioButtonCash";
+            this.radioButtonCash.Size = new System.Drawing.Size(88, 24);
+            this.radioButtonCash.TabIndex = 0;
+            this.radioButtonCash.TabStop = true;
+            this.radioButtonCash.Text = "Наличка";
+            this.radioButtonCash.UseVisualStyleBackColor = true;
+            this.radioButtonCash.Click += new System.EventHandler(this.radioButtonCash_Click);
             // 
-            // label21
+            // radioButtonCard
             // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(371, 64);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(99, 19);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Номер заявки";
+            this.radioButtonCard.AutoSize = true;
+            this.radioButtonCard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonCard.Location = new System.Drawing.Point(13, 20);
+            this.radioButtonCard.Name = "radioButtonCard";
+            this.radioButtonCard.Size = new System.Drawing.Size(67, 24);
+            this.radioButtonCard.TabIndex = 0;
+            this.radioButtonCard.TabStop = true;
+            this.radioButtonCard.Text = "Карта";
+            this.radioButtonCard.UseVisualStyleBackColor = true;
+            this.radioButtonCard.Click += new System.EventHandler(this.radioButtonCard_Click);
             // 
-            // buttonFindClaim
+            // textBoxUserMidName
             // 
-            this.buttonFindClaim.BackColor = System.Drawing.Color.Transparent;
-            this.buttonFindClaim.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.buttonFindClaim.Location = new System.Drawing.Point(557, 116);
-            this.buttonFindClaim.Name = "buttonFindClaim";
-            this.buttonFindClaim.Size = new System.Drawing.Size(75, 23);
-            this.buttonFindClaim.TabIndex = 2;
-            this.buttonFindClaim.Text = "Найти займ";
-            this.buttonFindClaim.UseVisualStyleBackColor = false;
+            this.textBoxUserMidName.BackColor = System.Drawing.Color.DarkGray;
+            this.textBoxUserMidName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUserMidName.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUserMidName.ForeColor = System.Drawing.Color.White;
+            this.textBoxUserMidName.Location = new System.Drawing.Point(300, 208);
+            this.textBoxUserMidName.Name = "textBoxUserMidName";
+            this.textBoxUserMidName.Size = new System.Drawing.Size(136, 20);
+            this.textBoxUserMidName.TabIndex = 1;
+            // 
+            // textBoxUserSecName
+            // 
+            this.textBoxUserSecName.BackColor = System.Drawing.Color.DarkGray;
+            this.textBoxUserSecName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUserSecName.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUserSecName.ForeColor = System.Drawing.Color.White;
+            this.textBoxUserSecName.Location = new System.Drawing.Point(300, 153);
+            this.textBoxUserSecName.Name = "textBoxUserSecName";
+            this.textBoxUserSecName.Size = new System.Drawing.Size(136, 20);
+            this.textBoxUserSecName.TabIndex = 1;
+            // 
+            // maskedEmail
+            // 
+            this.maskedEmail.BackColor = System.Drawing.Color.DarkGray;
+            this.maskedEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maskedEmail.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.maskedEmail.ForeColor = System.Drawing.Color.White;
+            this.maskedEmail.Location = new System.Drawing.Point(507, 208);
+            this.maskedEmail.MaxLength = 21;
+            this.maskedEmail.Name = "maskedEmail";
+            this.maskedEmail.Size = new System.Drawing.Size(136, 20);
+            this.maskedEmail.TabIndex = 1;
+            // 
+            // textBoxUserPassport
+            // 
+            this.textBoxUserPassport.BackColor = System.Drawing.Color.DarkGray;
+            this.textBoxUserPassport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUserPassport.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUserPassport.ForeColor = System.Drawing.Color.White;
+            this.textBoxUserPassport.Location = new System.Drawing.Point(511, 93);
+            this.textBoxUserPassport.Name = "textBoxUserPassport";
+            this.textBoxUserPassport.Size = new System.Drawing.Size(136, 20);
+            this.textBoxUserPassport.TabIndex = 1;
+            // 
+            // textBoxUserName
+            // 
+            this.textBoxUserName.BackColor = System.Drawing.Color.DarkGray;
+            this.textBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUserName.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUserName.ForeColor = System.Drawing.Color.White;
+            this.textBoxUserName.Location = new System.Drawing.Point(301, 96);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(136, 20);
+            this.textBoxUserName.TabIndex = 1;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.BackColor = System.Drawing.Color.Transparent;
+            this.label31.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label31.Location = new System.Drawing.Point(507, 185);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(50, 20);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Email:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label27.Location = new System.Drawing.Point(509, 132);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(74, 20);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Телефон:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.BackColor = System.Drawing.Color.Transparent;
+            this.label33.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label33.Location = new System.Drawing.Point(511, 74);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(72, 20);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Паспорт:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.Transparent;
+            this.label34.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label34.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label34.Location = new System.Drawing.Point(23, 458);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(511, 20);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Я согласен с условиями договора и обработкой персональных данных.";
+            this.label34.Click += new System.EventHandler(this.label34_Click);
+            // 
+            // labelCN
+            // 
+            this.labelCN.AutoSize = true;
+            this.labelCN.BackColor = System.Drawing.Color.Transparent;
+            this.labelCN.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCN.Location = new System.Drawing.Point(31, 259);
+            this.labelCN.Name = "labelCN";
+            this.labelCN.Size = new System.Drawing.Size(107, 20);
+            this.labelCN.TabIndex = 0;
+            this.labelCN.Text = "Номер карты:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.Transparent;
+            this.label32.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label32.Location = new System.Drawing.Point(300, 250);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(123, 20);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "Дата рождения:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.Color.Transparent;
+            this.label30.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label30.Location = new System.Drawing.Point(300, 185);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(77, 20);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Отчество:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label29.Location = new System.Drawing.Point(300, 132);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(78, 20);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Фамилия:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.Transparent;
+            this.label28.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label28.Location = new System.Drawing.Point(301, 74);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(44, 20);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Имя:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label26.Location = new System.Drawing.Point(23, 105);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(125, 20);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Сумма выплаты:";
+            // 
+            // labelCreatePaidSum
+            // 
+            this.labelCreatePaidSum.AutoSize = true;
+            this.labelCreatePaidSum.BackColor = System.Drawing.Color.Transparent;
+            this.labelCreatePaidSum.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCreatePaidSum.Location = new System.Drawing.Point(152, 105);
+            this.labelCreatePaidSum.Name = "labelCreatePaidSum";
+            this.labelCreatePaidSum.Size = new System.Drawing.Size(15, 20);
+            this.labelCreatePaidSum.TabIndex = 0;
+            this.labelCreatePaidSum.Text = "-";
+            // 
+            // labelCreateSumLoan
+            // 
+            this.labelCreateSumLoan.AutoSize = true;
+            this.labelCreateSumLoan.BackColor = System.Drawing.Color.Transparent;
+            this.labelCreateSumLoan.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCreateSumLoan.Location = new System.Drawing.Point(135, 65);
+            this.labelCreateSumLoan.Name = "labelCreateSumLoan";
+            this.labelCreateSumLoan.Size = new System.Drawing.Size(15, 20);
+            this.labelCreateSumLoan.TabIndex = 0;
+            this.labelCreateSumLoan.Text = "-";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label25.Location = new System.Drawing.Point(20, 65);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(107, 20);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Сумма займа:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label24.Location = new System.Drawing.Point(20, 17);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(302, 30);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Оформление заявки на займ";
+            // 
+            // panelAbout
+            // 
+            this.panelAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelAbout.Controls.Add(this.pictureBox2);
+            this.panelAbout.Controls.Add(this.label35);
+            this.panelAbout.Location = new System.Drawing.Point(221, 12);
+            this.panelAbout.Name = "panelAbout";
+            this.panelAbout.Size = new System.Drawing.Size(797, 496);
+            this.panelAbout.TabIndex = 3;
+            this.panelAbout.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(146, 146);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.BackColor = System.Drawing.Color.Transparent;
+            this.label35.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label35.Location = new System.Drawing.Point(384, 191);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(127, 25);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "В разработке";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 520);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelCreateClaim);
+            this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelCheckClaim);
+            this.Controls.Add(this.panelAbout);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -601,51 +1132,32 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Микро займы MoneyMota";
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.panelMenu.ResumeLayout(false);
+            this.panelCheckClaim.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
+            this.panelCreateClaim.ResumeLayout(false);
+            this.panelCreateClaim.PerformLayout();
+            this.groupBoxPayupType.ResumeLayout(false);
+            this.groupBoxPayupType.PerformLayout();
+            this.panelAbout.ResumeLayout(false);
+            this.panelAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.HScrollBar hScrollBarDays;
-        private System.Windows.Forms.HScrollBar hScrollBarSum;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelPaidSum;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxSumLoan;
-        private System.Windows.Forms.TextBox textBoxDays;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label labelDailYPaid;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelCheckClaim;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button buttonFindClaim;
         private System.Windows.Forms.TextBox textBox1;
@@ -654,6 +1166,70 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBoxDays;
+        private System.Windows.Forms.TextBox textBoxSumLoan;
+        private System.Windows.Forms.Label labelDailYPaid;
+        private System.Windows.Forms.Label labelPaidSum;
+        private System.Windows.Forms.HScrollBar hScrollBarDays;
+        private System.Windows.Forms.HScrollBar hScrollBarSum;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label labelClaimSumPaid;
+        private System.Windows.Forms.Label labelClaimSumLoan;
+        private System.Windows.Forms.Label labelClaimFineDays;
+        private System.Windows.Forms.Label labelClaimPiadout;
+        private System.Windows.Forms.Label labelClaimStatus;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panelCreateClaim;
+        private System.Windows.Forms.TextBox textBoxUserMidName;
+        private System.Windows.Forms.TextBox textBoxUserSecName;
+        private System.Windows.Forms.TextBox textBoxUserPassport;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label labelCreatePaidSum;
+        private System.Windows.Forms.Label labelCreateSumLoan;
+        private System.Windows.Forms.GroupBox groupBoxPayupType;
+        private System.Windows.Forms.RadioButton radioButtonCash;
+        private System.Windows.Forms.RadioButton radioButtonCard;
+        private System.Windows.Forms.Label labelCN;
+        private System.Windows.Forms.Button buttonSendClaim;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.MaskedTextBox maskedCardNumber;
+        private System.Windows.Forms.MaskedTextBox maskedUserPhone;
+        private System.Windows.Forms.MaskedTextBox maskedUserBirthDay;
+        private System.Windows.Forms.Panel panelAbout;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox maskedEmail;
     }
 }
 

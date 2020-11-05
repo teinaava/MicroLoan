@@ -803,9 +803,9 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1104, 569);
             this.Controls.Add(this.Menu);
-            this.Controls.Add(this.WorkSpaceTable);
             this.Controls.Add(this.WorkSpaceClaim);
             this.Controls.Add(this.WorkSpaceHelp);
+            this.Controls.Add(this.WorkSpaceTable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "OperatorClient";

@@ -178,7 +178,7 @@ namespace BaseData
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.SelectCommand = cmd;
-                adapter.Fill(dt); ;
+                adapter.Fill(dt);
                 conn.Close();
             }
         }
@@ -260,7 +260,7 @@ namespace BaseData
         //public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
         //{
         //}
-        public static void SetFine(int days,int idclaim)
+        public static void SetFine(int days,int idclaim,BClaim claim)
         {
             try
             {
@@ -271,7 +271,13 @@ namespace BaseData
                     SQLiteCommand cmd = new SQLiteCommand(query, conn);
                     int res = Convert.ToInt32(cmd.ExecuteScalar());
                     days += res;
-                    string query2 = $"UPDATE Loan SET fineday = {days} WHERE (id = {idclaim})";
+                    int proc = 1;
+                    if (claim.SumPaid > 35000)
+                    {
+                        proc = 2;
+                    }
+                    int newsum = claim.SumPaid * (proc / 100) * days;
+                    string query2 = $"UPDATE Loan SET fineday = {days}, WHERE (id = {idclaim})";
                     SQLiteCommand cmd2 = new SQLiteCommand(query2, conn);
                     cmd2.ExecuteNonQuery();
                     conn.Close();
@@ -302,7 +308,7 @@ namespace BaseData
             claim.SumLoan = Convert.ToInt32(loantb.Rows[0][2]);
             claim.Days = Convert.ToInt32(loantb.Rows[0][3]);
             claim.Fine = Convert.ToInt32(loantb.Rows[0][11]);
-            claim.CardNumber = Convert.ToInt32(loantb.Rows[0][7]);
+            claim.CardNumber = Convert.ToString(loantb.Rows[0][7]);
             claim.type = Convert.ToString(loantb.Rows[0][9]);
             claim.status = Convert.ToString(loantb.Rows[0][8]);
             claim.PaidOut = Convert.ToInt32(loantb.Rows[0][12]);

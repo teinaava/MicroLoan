@@ -285,38 +285,26 @@ namespace MicroLoan
             DialogResult dialogResult = MessageBox.Show("Вы хотите сохранить изменения ?", "Сохранить ?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
-                string tablename;
-                if (listBoxTypeVision.GetSelected(0))
+                try
                 {
-                    tablename = "Loan";
+                    string tablename;
+                    if (listBoxTypeVision.GetSelected(0))
+                    {
+                        tablename = "Loan";
+                    }
+                    else
+                    {
+                        tablename = "Users";
+                    }
+                    table = (DataTable)dataGridView1.DataSource;
+                    BaseDataLite.UpdateBaseDate(table, tablename);
+                    MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                catch (Exception)
                 {
-                    tablename = "Users";
-                }
-                table = (DataTable)dataGridView1.DataSource;
-                BaseDataLite.UpdateBaseDate(table, tablename);
-                MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //try
-                //{
-                //    string tablename;
-                //    if (listBoxTypeVision.GetSelected(0))
-                //    {
-                //        tablename = "Loan";
-                //    }
-                //    else
-                //    {
-                //        tablename = "Users";
-                //    }
-                //    table = (DataTable)dataGridView1.DataSource;
-                //    BaseDataLite.UpdateBaseDate(table, tablename);
-                //    MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //catch (Exception)
-                //{
 
-                //    MessageBox.Show("Ой, что-то пошло не так ;(\nВозможно вы оставлили пустую строку.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                    MessageBox.Show("Ой, что-то пошло не так ;(\nВозможно вы оставлили пустую строку.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void buttonDeleateOLD_Click(object sender, EventArgs e) // Удалить все отклоненые заявки.
@@ -340,7 +328,7 @@ namespace MicroLoan
         {
             try
             {
-                BaseDataLite.SetFine(Convert.ToInt32(textBoxFineDays.Text), Convert.ToInt32(labelLoanID.Text.Substring(1)));
+                BaseDataLite.SetFine(Convert.ToInt32(textBoxFineDays.Text), Convert.ToInt32(labelLoanID.Text.Substring(1)), claim);
                 MessageBox.Show("Штрафные дни увеличены", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)

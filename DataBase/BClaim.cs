@@ -29,7 +29,7 @@ namespace ClientUser
         private int sumLoan; //сумма заzвки
         private int days; // Days
         private DateTime fdate; //дата заявки.
-        private int cardnumber; //номер карты
+        private string cardnumber; //номер карты
         private int sumpaid; //сумма к выплате
         private DateTime ldate; //посл. дата выплаты
         private int fineday; // дней штрафа
@@ -51,7 +51,7 @@ namespace ClientUser
         }
         public DateTime LastDate { get { return ldate; } set { ldate = value; } }
         public int SumPaid { get { return sumpaid; } set { sumpaid = value; } }
-        public int CardNumber { get { return cardnumber; } set { cardnumber = value; } }
+        public string CardNumber { get { return cardnumber; } set { cardnumber = value; } }
         public int SumLoan { get { return sumLoan; } set { sumLoan = value; } }
         public DateTime FirstDate { get { return fdate; } set { fdate = value; } }
         public int Days{ get { return days; } set { days = value; } }
@@ -70,12 +70,6 @@ namespace ClientUser
             return Convert.ToInt32(id);
 
         }   //claim id.lenght = 6   user id.lenght = 4 doc id.Length = 5
-        public static int DailyPaid(int s,int i,int n) // s – сумма кредита, i – ежедневная ставка, n – срок на который берется кредит.
-        {
-            double v = (((s / n) / 100) * n) * i + (s / n);
-            return (int)Math.Round(v,0);
-        }
-        // Сумму выплаты = DailyPaid() * кол-во дней
         public static int SumPiad(int s,int i,int n)
         {
             i *= 100;
