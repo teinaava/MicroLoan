@@ -196,6 +196,7 @@ namespace MicroLoan
                 DataTable loantb = bd.GetLoanbyID(bd, $"{textBoxIDClaim.Text}");
                 if (loantb != null)
                 {
+
                     try
                     {
                         DataTable usertb = bd.GetUserbyID(bd, $"{Convert.ToInt32(loantb.Rows[0][5])}");
@@ -390,12 +391,12 @@ namespace MicroLoan
             if (dataGrid.ColumnCount == 13)
             {
                 dataGrid.Columns[0].HeaderText = "Номер заявки";
-                dataGrid.Columns[1].HeaderText = "Сумма заявки";
-                dataGrid.Columns[2].HeaderText = "Срок дней";
-                dataGrid.Columns[3].HeaderText = "Дата первой оплаты";
-                dataGrid.Columns[4].HeaderText = "Номер клиента";
-                dataGrid.Columns[5].HeaderText = "Номер документа";
-                dataGrid.Columns[6].HeaderText = "Дата первой оплаты";
+                dataGrid.Columns[1].HeaderText = "Оплата в день";
+                dataGrid.Columns[2].HeaderText = "Сумма кредита";
+                dataGrid.Columns[3].HeaderText = "Срок";
+                dataGrid.Columns[4].HeaderText = "Дата первой оплаты";
+                dataGrid.Columns[5].HeaderText = "Номер клиента";
+                dataGrid.Columns[6].HeaderText = "Номер документа";
                 dataGrid.Columns[7].HeaderText = "Номер карты";
                 dataGrid.Columns[8].HeaderText = "Статус";
                 dataGrid.Columns[9].HeaderText = "Тип выплаты";
@@ -419,5 +420,3 @@ namespace MicroLoan
         
     }
 }
-
-

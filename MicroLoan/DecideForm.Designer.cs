@@ -49,6 +49,7 @@
             // buttonApply
             // 
             this.buttonApply.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.buttonApply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonApply.FlatAppearance.BorderSize = 0;
             this.buttonApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonApply.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -64,6 +65,7 @@
             // buttonReject
             // 
             this.buttonReject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonReject.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonReject.FlatAppearance.BorderSize = 0;
             this.buttonReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReject.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -79,6 +81,7 @@
             // buttonCancle
             // 
             this.buttonCancle.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonCancle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancle.FlatAppearance.BorderSize = 0;
             this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancle.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);

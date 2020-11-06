@@ -66,10 +66,8 @@ namespace BaseData
             adapter.Fill(table);
             return table;
         }
-        
-        public DataTable GetUserbyID(BaseDataLite bd, string id)  //Получить все записи по id заявки
+        public DataTable GetUserbyID(BaseDataLite bd, string id)  //Получить всех пользователей по id заявки
         {
-
             string query = $"SELECT * FROM Users where id = '{id}'";
             command = new SQLiteCommand(query, bd.connection);
             command.ExecuteNonQuery();
@@ -135,7 +133,7 @@ namespace BaseData
             }
         }
         //for test 5518473851156466 cn
-        public void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, int cardnumber, int sumpaid,
+        public static void SendClaim(int id, int paid, int sumLoan, int days, DateTime fdate, int clientid, int docs, string cardnumber, int sumpaid,
             int fineday, int paidout, string type, string status) //ОТПРАВИТЬ ЗАЯВКУ НА ЗАЙМ + paid по(читать
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
@@ -143,7 +141,7 @@ namespace BaseData
                 string firstday = fdate.ToString("d");
                 conn.Open();
                 string query = $"INSERT INTO Loan(id,paid,sum_loan,days,fdate,clientid,docs,cardnumber,status,type,sum_paid,fineday,paidout)" +
-                    $" VALUES({id},{paid},{sumLoan},{days},{firstday},{clientid},{cardnumber},{status},{type},{sumpaid},{fineday},{paidout})";
+                    $" VALUES({id},{paid},{sumLoan},{days},'{firstday}',{clientid},{docs},'{cardnumber}','{status}','{type}',{sumpaid},{fineday},{paidout})";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -155,6 +153,25 @@ namespace BaseData
             {
                 conn.Open();
                 string query = $"SELECT * FROM Users where id = {id}";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(dt); ;
+                conn.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+        }
+        public static bool CheckDocID(int id)  //ПРОВЕРИТЬ id  юзера
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"SELECT * FROM Docs where id = {id}";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -199,7 +216,7 @@ namespace BaseData
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
                 conn.Open();
-                string query = $"SELECT * FROM Users where passport = {passport}";
+                string query = $"SELECT * FROM Users where passport = '{passport}'";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -213,14 +230,14 @@ namespace BaseData
                 else { return false; }
             }
         }
-        public static string GetUserID(string passport)  //Получить id пользователя по паспорту 
+        public static int GetUserID(string passport)  //Получить id пользователя по паспорту 
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
                 conn.Open();
-                string query = $"SELECT id FROM Users where passport = {passport}";
+                string query = $"SELECT id FROM Users where passport = '{passport}'";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                string res = cmd.ExecuteScalar().ToString();
+                int res = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                 conn.Close();
                 return res;
             }
@@ -233,7 +250,9 @@ namespace BaseData
                 using (SQLiteConnection conn = new SQLiteConnection(connstr))
                 {
                     conn.Open();
-                    string query = $"INSERT INTO Users(id,name,secound_name,middle_name,birthsday,phone,email,passport) VALUES({id},{name},{sname},{mname},{date_of_birth},{phone},{email},{passport})";
+                    string query = $"INSERT INTO Users(id,name,secound_name,middle_name,birthsday,phone,email,passport) VALUES({id},'{name}','{sname}','{mname}','{date_of_birth}','{phone}','{email}','{passport}')";
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    cmd.ExecuteNonQuery();
                     conn.Close();
                 }
             }
@@ -252,8 +271,8 @@ namespace BaseData
                     fs.Read(export, 0, export.Length);
                 }
                 cmd.Parameters.Add("@File", DbType.Binary).Value = export;
+                //cmd.ExecuteNonQuery();
                 cmd.ExecuteNonQuery();
-                cmd.ExecuteNonQueryAsync();
                 conn.Close();
             }
         }

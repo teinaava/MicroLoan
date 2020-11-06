@@ -76,6 +76,10 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.panelCreateClaim = new System.Windows.Forms.Panel();
+            this.ScreenLoading = new System.Windows.Forms.Label();
+            this.maskedTextBoxFirstDay = new System.Windows.Forms.MaskedTextBox();
+            this.buttonLoadFile = new System.Windows.Forms.Button();
+            this.textBoxUserPassport = new System.Windows.Forms.MaskedTextBox();
             this.maskedUserPhone = new System.Windows.Forms.MaskedTextBox();
             this.maskedUserBirthDay = new System.Windows.Forms.MaskedTextBox();
             this.maskedCardNumber = new System.Windows.Forms.MaskedTextBox();
@@ -87,13 +91,15 @@
             this.textBoxUserMidName = new System.Windows.Forms.TextBox();
             this.textBoxUserSecName = new System.Windows.Forms.TextBox();
             this.maskedEmail = new System.Windows.Forms.TextBox();
-            this.textBoxUserPassport = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.labelCN = new System.Windows.Forms.Label();
+            this.labelFileName = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -106,6 +112,7 @@
             this.panelAbout = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelMenu.SuspendLayout();
             this.panelCheckClaim.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -730,6 +737,10 @@
             // panelCreateClaim
             // 
             this.panelCreateClaim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelCreateClaim.Controls.Add(this.ScreenLoading);
+            this.panelCreateClaim.Controls.Add(this.maskedTextBoxFirstDay);
+            this.panelCreateClaim.Controls.Add(this.buttonLoadFile);
+            this.panelCreateClaim.Controls.Add(this.textBoxUserPassport);
             this.panelCreateClaim.Controls.Add(this.maskedUserPhone);
             this.panelCreateClaim.Controls.Add(this.maskedUserBirthDay);
             this.panelCreateClaim.Controls.Add(this.maskedCardNumber);
@@ -739,13 +750,15 @@
             this.panelCreateClaim.Controls.Add(this.textBoxUserMidName);
             this.panelCreateClaim.Controls.Add(this.textBoxUserSecName);
             this.panelCreateClaim.Controls.Add(this.maskedEmail);
-            this.panelCreateClaim.Controls.Add(this.textBoxUserPassport);
             this.panelCreateClaim.Controls.Add(this.textBoxUserName);
             this.panelCreateClaim.Controls.Add(this.label31);
             this.panelCreateClaim.Controls.Add(this.label27);
             this.panelCreateClaim.Controls.Add(this.label33);
             this.panelCreateClaim.Controls.Add(this.label34);
             this.panelCreateClaim.Controls.Add(this.labelCN);
+            this.panelCreateClaim.Controls.Add(this.labelFileName);
+            this.panelCreateClaim.Controls.Add(this.label36);
+            this.panelCreateClaim.Controls.Add(this.label37);
             this.panelCreateClaim.Controls.Add(this.label32);
             this.panelCreateClaim.Controls.Add(this.label30);
             this.panelCreateClaim.Controls.Add(this.label29);
@@ -761,6 +774,59 @@
             this.panelCreateClaim.TabIndex = 2;
             this.panelCreateClaim.Visible = false;
             // 
+            // ScreenLoading
+            // 
+            this.ScreenLoading.AutoSize = true;
+            this.ScreenLoading.Font = new System.Drawing.Font("Yu Gothic UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ScreenLoading.Location = new System.Drawing.Point(300, 371);
+            this.ScreenLoading.Name = "ScreenLoading";
+            this.ScreenLoading.Size = new System.Drawing.Size(183, 46);
+            this.ScreenLoading.TabIndex = 8;
+            this.ScreenLoading.Text = "Загрузка...";
+            this.ScreenLoading.Visible = false;
+            // 
+            // maskedTextBoxFirstDay
+            // 
+            this.maskedTextBoxFirstDay.BackColor = System.Drawing.Color.DarkGray;
+            this.maskedTextBoxFirstDay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maskedTextBoxFirstDay.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.maskedTextBoxFirstDay.ForeColor = System.Drawing.Color.White;
+            this.maskedTextBoxFirstDay.Location = new System.Drawing.Point(300, 329);
+            this.maskedTextBoxFirstDay.Mask = "00/00/0000";
+            this.maskedTextBoxFirstDay.Name = "maskedTextBoxFirstDay";
+            this.maskedTextBoxFirstDay.Size = new System.Drawing.Size(136, 20);
+            this.maskedTextBoxFirstDay.TabIndex = 7;
+            this.maskedTextBoxFirstDay.Click += new System.EventHandler(this.maskedTextBoxFirstDay_Click);
+            // 
+            // buttonLoadFile
+            // 
+            this.buttonLoadFile.BackColor = System.Drawing.Color.DarkOrchid;
+            this.buttonLoadFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLoadFile.FlatAppearance.BorderSize = 0;
+            this.buttonLoadFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLoadFile.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonLoadFile.Location = new System.Drawing.Point(511, 270);
+            this.buttonLoadFile.Name = "buttonLoadFile";
+            this.buttonLoadFile.Size = new System.Drawing.Size(108, 31);
+            this.buttonLoadFile.TabIndex = 6;
+            this.buttonLoadFile.Text = "Загрузить";
+            this.buttonLoadFile.UseVisualStyleBackColor = false;
+            this.buttonLoadFile.Click += new System.EventHandler(this.buttonLoadFile_Click);
+            // 
+            // textBoxUserPassport
+            // 
+            this.textBoxUserPassport.BackColor = System.Drawing.Color.DarkGray;
+            this.textBoxUserPassport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUserPassport.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUserPassport.ForeColor = System.Drawing.Color.White;
+            this.textBoxUserPassport.Location = new System.Drawing.Point(507, 96);
+            this.textBoxUserPassport.Mask = "00 00 000000";
+            this.textBoxUserPassport.Name = "textBoxUserPassport";
+            this.textBoxUserPassport.Size = new System.Drawing.Size(140, 20);
+            this.textBoxUserPassport.TabIndex = 5;
+            this.textBoxUserPassport.Click += new System.EventHandler(this.textBoxUserPassport_Click);
+            this.textBoxUserPassport.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUserPassport_KeyDown);
+            // 
             // maskedUserPhone
             // 
             this.maskedUserPhone.BackColor = System.Drawing.Color.DarkGray;
@@ -768,9 +834,12 @@
             this.maskedUserPhone.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.maskedUserPhone.ForeColor = System.Drawing.Color.White;
             this.maskedUserPhone.Location = new System.Drawing.Point(507, 157);
+            this.maskedUserPhone.Mask = "+0(000) 000-0000";
             this.maskedUserPhone.Name = "maskedUserPhone";
             this.maskedUserPhone.Size = new System.Drawing.Size(140, 20);
             this.maskedUserPhone.TabIndex = 5;
+            this.maskedUserPhone.Click += new System.EventHandler(this.maskedUserPhone_Click);
+            this.maskedUserPhone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedUserPhone_KeyDown);
             // 
             // maskedUserBirthDay
             // 
@@ -874,9 +943,11 @@
             this.textBoxUserMidName.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxUserMidName.ForeColor = System.Drawing.Color.White;
             this.textBoxUserMidName.Location = new System.Drawing.Point(300, 208);
+            this.textBoxUserMidName.MaxLength = 22;
             this.textBoxUserMidName.Name = "textBoxUserMidName";
             this.textBoxUserMidName.Size = new System.Drawing.Size(136, 20);
             this.textBoxUserMidName.TabIndex = 1;
+            this.textBoxUserMidName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserMidName_KeyPress);
             // 
             // textBoxUserSecName
             // 
@@ -885,9 +956,11 @@
             this.textBoxUserSecName.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxUserSecName.ForeColor = System.Drawing.Color.White;
             this.textBoxUserSecName.Location = new System.Drawing.Point(300, 153);
+            this.textBoxUserSecName.MaxLength = 22;
             this.textBoxUserSecName.Name = "textBoxUserSecName";
             this.textBoxUserSecName.Size = new System.Drawing.Size(136, 20);
             this.textBoxUserSecName.TabIndex = 1;
+            this.textBoxUserSecName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserSecName_KeyPress);
             // 
             // maskedEmail
             // 
@@ -901,17 +974,6 @@
             this.maskedEmail.Size = new System.Drawing.Size(136, 20);
             this.maskedEmail.TabIndex = 1;
             // 
-            // textBoxUserPassport
-            // 
-            this.textBoxUserPassport.BackColor = System.Drawing.Color.DarkGray;
-            this.textBoxUserPassport.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUserPassport.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxUserPassport.ForeColor = System.Drawing.Color.White;
-            this.textBoxUserPassport.Location = new System.Drawing.Point(511, 93);
-            this.textBoxUserPassport.Name = "textBoxUserPassport";
-            this.textBoxUserPassport.Size = new System.Drawing.Size(136, 20);
-            this.textBoxUserPassport.TabIndex = 1;
-            // 
             // textBoxUserName
             // 
             this.textBoxUserName.BackColor = System.Drawing.Color.DarkGray;
@@ -919,9 +981,11 @@
             this.textBoxUserName.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxUserName.ForeColor = System.Drawing.Color.White;
             this.textBoxUserName.Location = new System.Drawing.Point(301, 96);
+            this.textBoxUserName.MaxLength = 22;
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(136, 20);
             this.textBoxUserName.TabIndex = 1;
+            this.textBoxUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserName_KeyPress);
             // 
             // label31
             // 
@@ -979,6 +1043,39 @@
             this.labelCN.Size = new System.Drawing.Size(107, 20);
             this.labelCN.TabIndex = 0;
             this.labelCN.Text = "Номер карты:";
+            // 
+            // labelFileName
+            // 
+            this.labelFileName.AutoSize = true;
+            this.labelFileName.BackColor = System.Drawing.Color.Transparent;
+            this.labelFileName.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelFileName.Location = new System.Drawing.Point(511, 305);
+            this.labelFileName.Name = "labelFileName";
+            this.labelFileName.Size = new System.Drawing.Size(43, 17);
+            this.labelFileName.TabIndex = 0;
+            this.labelFileName.Text = "Файл:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.Transparent;
+            this.label36.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label36.Location = new System.Drawing.Point(509, 247);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(126, 20);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "Копия паспорта:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.BackColor = System.Drawing.Color.Transparent;
+            this.label37.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label37.Location = new System.Drawing.Point(300, 306);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(156, 20);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "День первой оплаты";
             // 
             // label32
             // 
@@ -1112,6 +1209,10 @@
             this.label35.TabIndex = 0;
             this.label35.Text = "В разработке";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1202,7 +1303,6 @@
         private System.Windows.Forms.Panel panelCreateClaim;
         private System.Windows.Forms.TextBox textBoxUserMidName;
         private System.Windows.Forms.TextBox textBoxUserSecName;
-        private System.Windows.Forms.TextBox textBoxUserPassport;
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label27;
@@ -1230,6 +1330,14 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox maskedEmail;
+        private System.Windows.Forms.MaskedTextBox textBoxUserPassport;
+        private System.Windows.Forms.Label labelFileName;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button buttonLoadFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxFirstDay;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label ScreenLoading;
     }
 }
 
