@@ -113,6 +113,25 @@ namespace BaseData
                 return null;
             }
         }
+        public static bool CheckSeveralLoan(int id)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"SELECT * FROM Loan where (status = 'открыто'or status = 'принято') and clientid = {id}";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(dt); ;
+                conn.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+        }
         public static bool CheckLoanID(int id)  //проверить существование id займа
         {
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
@@ -271,14 +290,49 @@ namespace BaseData
                     fs.Read(export, 0, export.Length);
                 }
                 cmd.Parameters.Add("@File", DbType.Binary).Value = export;
-                //cmd.ExecuteNonQuery();
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
         }
-        //public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
-        //{
-        //}
+        public static byte[] GetFile(int id)  // Получает файл из БД по id заявки
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query1 = $"Select docs FROM Loan where id = {id}";
+                SQLiteCommand command1 = new SQLiteCommand(query1, conn);
+                int docid = Convert.ToInt32(command1.ExecuteScalar());
+                string query = $"SELECT File FROM Docs where id = {docid}"; //получить номер документа
+                SQLiteCommand command = new SQLiteCommand(query, conn);
+                
+                byte[] imp = null;
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        imp = GetBytes(reader);
+                    }
+                }
+                conn.Close();
+                return imp;
+            }
+        }
+        static byte[] GetBytes(SQLiteDataReader reader)
+        {
+            const int CHUNK_SIZE = 2 * 1024;
+            byte[] buffer = new byte[CHUNK_SIZE];
+            long bytesRead;
+            long fieldOffset = 0;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                while ((bytesRead = reader.GetBytes(0, fieldOffset, buffer, 0, buffer.Length)) > 0)
+                {
+                    stream.Write(buffer, 0, (int)bytesRead);
+                    fieldOffset += bytesRead;
+                }
+                return stream.ToArray();
+            }
+        }
         public static void SetFine(int days,int idclaim,BClaim claim)
         {
             try

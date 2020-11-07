@@ -135,7 +135,7 @@
             this.panelMenu.Location = new System.Drawing.Point(-4, 2);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(219, 518);
+            this.panelMenu.Size = new System.Drawing.Size(219, 578);
             this.panelMenu.TabIndex = 0;
             // 
             // button3
@@ -195,7 +195,7 @@
             this.panelCheckClaim.Controls.Add(this.panel4);
             this.panelCheckClaim.Location = new System.Drawing.Point(212, 2);
             this.panelCheckClaim.Name = "panelCheckClaim";
-            this.panelCheckClaim.Size = new System.Drawing.Size(819, 518);
+            this.panelCheckClaim.Size = new System.Drawing.Size(916, 565);
             this.panelCheckClaim.TabIndex = 1;
             this.panelCheckClaim.Visible = false;
             // 
@@ -217,7 +217,7 @@
             this.panel4.Controls.Add(this.label17);
             this.panel4.Location = new System.Drawing.Point(9, 10);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(797, 496);
+            this.panel4.Size = new System.Drawing.Size(898, 545);
             this.panel4.TabIndex = 0;
             // 
             // buttonFindClaim
@@ -239,22 +239,22 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.DarkGray;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.textBox1.Location = new System.Drawing.Point(474, 23);
             this.textBox1.MaxLength = 6;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 16);
+            this.textBox1.Size = new System.Drawing.Size(158, 22);
             this.textBox1.TabIndex = 1;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(371, 19);
+            this.label21.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.Location = new System.Drawing.Point(350, 23);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(99, 19);
+            this.label21.Size = new System.Drawing.Size(118, 21);
             this.label21.TabIndex = 0;
             this.label21.Text = "Номер заявки";
             // 
@@ -401,7 +401,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Location = new System.Drawing.Point(498, 32);
+            this.groupBox1.Location = new System.Drawing.Point(572, 33);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -718,7 +718,7 @@
             this.panelMain.Location = new System.Drawing.Point(212, 2);
             this.panelMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(819, 518);
+            this.panelMain.Size = new System.Drawing.Size(916, 565);
             this.panelMain.TabIndex = 0;
             // 
             // label22
@@ -726,7 +726,7 @@
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label22.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(29, 246);
+            this.label22.Location = new System.Drawing.Point(60, 312);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(444, 222);
             this.label22.TabIndex = 3;
@@ -770,7 +770,7 @@
             this.panelCreateClaim.Controls.Add(this.label24);
             this.panelCreateClaim.Location = new System.Drawing.Point(221, 12);
             this.panelCreateClaim.Name = "panelCreateClaim";
-            this.panelCreateClaim.Size = new System.Drawing.Size(797, 496);
+            this.panelCreateClaim.Size = new System.Drawing.Size(898, 545);
             this.panelCreateClaim.TabIndex = 2;
             this.panelCreateClaim.Visible = false;
             // 
@@ -805,7 +805,7 @@
             this.buttonLoadFile.FlatAppearance.BorderSize = 0;
             this.buttonLoadFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLoadFile.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonLoadFile.Location = new System.Drawing.Point(511, 270);
+            this.buttonLoadFile.Location = new System.Drawing.Point(689, 371);
             this.buttonLoadFile.Name = "buttonLoadFile";
             this.buttonLoadFile.Size = new System.Drawing.Size(108, 31);
             this.buttonLoadFile.TabIndex = 6;
@@ -873,7 +873,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.Location = new System.Drawing.Point(6, 461);
+            this.checkBox1.Location = new System.Drawing.Point(36, 490);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 4;
@@ -888,11 +888,11 @@
             this.buttonSendClaim.FlatAppearance.BorderSize = 0;
             this.buttonSendClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSendClaim.Font = new System.Drawing.Font("Yu Gothic UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonSendClaim.Location = new System.Drawing.Point(586, 430);
+            this.buttonSendClaim.Location = new System.Drawing.Point(675, 476);
             this.buttonSendClaim.Name = "buttonSendClaim";
             this.buttonSendClaim.Size = new System.Drawing.Size(196, 48);
             this.buttonSendClaim.TabIndex = 3;
-            this.buttonSendClaim.Text = "Отправить";
+            this.buttonSendClaim.Text = "Отправить заявку";
             this.buttonSendClaim.UseVisualStyleBackColor = false;
             this.buttonSendClaim.Click += new System.EventHandler(this.buttonSendClaim_Click);
             // 
@@ -1026,7 +1026,7 @@
             this.label34.BackColor = System.Drawing.Color.Transparent;
             this.label34.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label34.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(23, 458);
+            this.label34.Location = new System.Drawing.Point(51, 486);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(511, 20);
             this.label34.TabIndex = 0;
@@ -1049,7 +1049,7 @@
             this.labelFileName.AutoSize = true;
             this.labelFileName.BackColor = System.Drawing.Color.Transparent;
             this.labelFileName.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelFileName.Location = new System.Drawing.Point(511, 305);
+            this.labelFileName.Location = new System.Drawing.Point(689, 408);
             this.labelFileName.Name = "labelFileName";
             this.labelFileName.Size = new System.Drawing.Size(43, 17);
             this.labelFileName.TabIndex = 0;
@@ -1060,7 +1060,7 @@
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.Transparent;
             this.label36.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label36.Location = new System.Drawing.Point(509, 247);
+            this.label36.Location = new System.Drawing.Point(557, 382);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(126, 20);
             this.label36.TabIndex = 0;
@@ -1183,7 +1183,7 @@
             this.panelAbout.Controls.Add(this.label35);
             this.panelAbout.Location = new System.Drawing.Point(221, 12);
             this.panelAbout.Name = "panelAbout";
-            this.panelAbout.Size = new System.Drawing.Size(797, 496);
+            this.panelAbout.Size = new System.Drawing.Size(898, 545);
             this.panelAbout.TabIndex = 3;
             this.panelAbout.Visible = false;
             // 
@@ -1220,12 +1220,12 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1030, 520);
+            this.ClientSize = new System.Drawing.Size(1140, 578);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelCreateClaim);
+            this.Controls.Add(this.panelAbout);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelCheckClaim);
-            this.Controls.Add(this.panelAbout);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

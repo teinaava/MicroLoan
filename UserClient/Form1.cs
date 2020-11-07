@@ -47,7 +47,6 @@ namespace UserClient
         {
             if (Convert.ToInt32(textBoxSumLoan.Text) > 50000 || Convert.ToInt32(textBoxSumLoan.Text) < 3000)
             {
-                //todo: message box !!!
                 textBoxSumLoan.Text = 50000.ToString();
             }
             else
@@ -67,7 +66,6 @@ namespace UserClient
         {
             if (Convert.ToInt32(textBoxDays.Text) > 30 || Convert.ToInt32(textBoxDays.Text) < 7)
             {
-                //todo: message box !!!
                 textBoxDays.Text = 30.ToString();
             }
             else
@@ -147,6 +145,8 @@ namespace UserClient
             panelMain.Visible = false;
             panelCheckClaim.Visible = false;
             panelCreateClaim.Visible = true;
+            labelCreateSumLoan.Text = textBoxSumLoan.Text;
+            labelCreatePaidSum.Text = labelPaidSum.Text;
 
         }
         private void radioButtonCard_Click(object sender, EventArgs e)
@@ -186,6 +186,10 @@ namespace UserClient
                 {
                     Error += "Дата рождения введена некорректно\n";
                 }
+                else
+                {
+                    if (DateTime.Now.Year - DateTime.Parse(maskedUserBirthDay.Text).Year < 18) { Error += "Вам менее 18 лет\n"; }
+                }
                 if (!DateTime.TryParse(maskedTextBoxFirstDay.Text, out dDate))
                 {
                     Error += "Дата первой оплаты введена некорректно\n";
@@ -193,10 +197,11 @@ namespace UserClient
                 else
                 {
                     DateTime dateTime = DateTime.Parse(maskedTextBoxFirstDay.Text);
-                    if (dateTime.Day > DateTime.Now.Day + 10)
+                    if (dateTime.Day >= DateTime.Now.Day + 10 && dateTime <= DateTime.Now)
                     {
-                        Error += "Дата первого платежа более 10 дней\n";
+                        Error += "Дата первого платежа более 10 дней. И не может быть раньше или сегодня.\n";
                     }
+                    
                 }
                 if (String.IsNullOrEmpty(FileAddres))
                 {
@@ -207,9 +212,9 @@ namespace UserClient
                     MessageBox.Show($"{Error}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-                //todo: Дата первого платежа не меньше даты сейчас
                 else
                 {
+
                     CreateClaim();
                 }
             }
@@ -375,7 +380,7 @@ namespace UserClient
             }
             else
             {
-                user.Id = BaseDataLite.GetUserID(textBoxUserPassport.Text);;
+                user.Id = BaseDataLite.GetUserID(textBoxUserPassport.Text);
             }
 
             #endregion
@@ -387,18 +392,34 @@ namespace UserClient
                 if (!BaseDataLite.CheckDocID(claim.Id)) { break; }
             }
             #endregion
-            LoadingScreen(true);
-            BaseDataLite.SendClaim(claim.Id, claim.SumPaid / claim.Days, claim.SumLoan, claim.Days, claim.FirstDate, user.Id, docid, claim.CardNumber, claim.SumPaid, claim.Fine, claim.PaidOut, claim.type, claim.status);
-            LoadingScreen(false);
+            if (!BaseDataLite.CheckSeveralLoan(user.Id))
+            {
+                try
+                {
+                    LoadingScreen(true);
+                    BaseDataLite.SendClaim(claim.Id, claim.SumPaid / claim.Days, claim.SumLoan, claim.Days, claim.FirstDate, user.Id, docid, claim.CardNumber, claim.SumPaid, claim.Fine, claim.PaidOut, claim.type, claim.status);
+                    BaseDataLite.SendFile(FileAddres, docid);
+                    LoadingScreen(false);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Похоже что у вас уже есть принятые или новые заявки.\nЗавершите предыдущий займ, для того чтобы взять новый.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         public void LoadingScreen(bool freez)
         {
             if (freez)
             {
                 this.Enabled = false;
-
+                ScreenLoading.BringToFront();
                 ScreenLoading.Visible = true;
-                
+
             }
             else
             {
@@ -407,5 +428,7 @@ namespace UserClient
             }
         }
 
-    }//todo: Запредить несколько займов одному человеку
+    }//todo При принятии заявки дата первого платежа в день принятия. 
+    //todo Реализовать загрузку файла;
+
 }

@@ -88,6 +88,7 @@
             this.textBoxIDClaim = new System.Windows.Forms.TextBox();
             this.WorkSpaceHelp = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
+            this.labelLoading = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.WorkSpaceTable.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -364,6 +365,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.labelLoading);
             this.groupBox1.Controls.Add(this.labelPaidOUT);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.buttonAddFine);
@@ -739,6 +741,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Скачать документ";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // buttonOpenClaim
             // 
@@ -795,6 +798,19 @@
             this.label18.Size = new System.Drawing.Size(234, 46);
             this.label18.TabIndex = 0;
             this.label18.Text = "В разработке";
+            // 
+            // labelLoading
+            // 
+            this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelLoading.Font = new System.Drawing.Font("Yu Gothic UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelLoading.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelLoading.Location = new System.Drawing.Point(342, 220);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(183, 46);
+            this.labelLoading.TabIndex = 8;
+            this.labelLoading.Text = "Загрузка...";
+            this.labelLoading.Visible = false;
             // 
             // OperatorClient
             // 
@@ -889,6 +905,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel WorkSpaceHelp;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label labelLoading;
     }
 }
 
