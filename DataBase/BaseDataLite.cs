@@ -280,18 +280,25 @@ namespace BaseData
         {                                                       //docs id генерируется для отправки в таблицы зайвок и документов
             using (SQLiteConnection conn = new SQLiteConnection(connstr))
             {
-                conn.Open();
-                string query = $"INSERT INTO Docs(id,File) VALUES({id},@File)";
-                SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                byte[] export;
-                using (FileStream fs = new FileStream(filename, FileMode.Open))
+                try
                 {
-                    export = new byte[fs.Length];
-                    fs.Read(export, 0, export.Length);
+                    conn.Open();
+                    string query = $"INSERT INTO Docs(id,File) VALUES({id},@File)";
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    byte[] export;
+                    using (FileStream fs = new FileStream(filename, FileMode.Open))
+                    {
+                        export = new byte[fs.Length];
+                        fs.Read(export, 0, export.Length);
+                    }
+                    cmd.Parameters.Add("@File", DbType.Binary).Value = export;
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
-                cmd.Parameters.Add("@File", DbType.Binary).Value = export;
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                catch (Exception)
+                {
+
+                }
             }
         }
         public static byte[] GetFile(int id)  // Получает файл из БД по id заявки

@@ -64,10 +64,10 @@ namespace ClientUser
             return Convert.ToInt32(id);
 
         }   //claim id.lenght = 6   user id.lenght = 4 doc id.Length = 5
-        public static int SumPiad(int s,int i,int n)
+        public static int SumPiad(int s,double i,int n)
         {
-            i *= 100;
-            double v = s / i * n;
+            i /= 100;
+            double v = s * i * n;
             return Convert.ToInt32(Math.Round(v, 0)) + s;
         }
         #endregion

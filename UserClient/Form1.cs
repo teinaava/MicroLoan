@@ -85,10 +85,10 @@ namespace UserClient
         }
         private int CountSumPiad(int sum, int days)
         {
-            int rate = 1;
+            double rate = 1;
             if (sum > 30000)
             {
-                rate = 2;
+                rate = 1.5;
             }
             return (int)BClaim.SumPiad(sum, rate, days);
         }
@@ -332,16 +332,25 @@ namespace UserClient
         string FileAddres = "";
         private void buttonLoadFile_Click(object sender, EventArgs e) //Загрузить файл.
         {
-            openFileDialog1.Filter = "PDF files(.pdf)|*.pdf";
-            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+            try
             {
-                return;
+                openFileDialog1.Filter = "PDF files(.pdf)|*.pdf";
+                if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                {
+                    return;
+                }
+                else
+                {
+                    FileAddres = openFileDialog1.FileName;
+                    labelFileName.Text = $"Файл: {Path.GetFileNameWithoutExtension(FileAddres)}";
+                }
             }
-            else
+            catch (Exception)
             {
-                FileAddres = openFileDialog1.FileName;
-                labelFileName.Text = $"Файл: {Path.GetFileNameWithoutExtension(FileAddres)}";
+
+                MessageBox.Show($"Ой, что то пошло не так.\nВозможно файл сейчас открыт,закройте его и загрузите ещё раз.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
         private void CreateClaim() // Создание заявки и отправка
         {
@@ -406,15 +415,35 @@ namespace UserClient
             #endregion
             if (!BaseDataLite.CheckSeveralLoan(user.Id))
             {
+
                 try
                 {
                     LoadingScreen(true);
                     BaseDataLite.SendClaim(claim.Id, claim.SumPaid / claim.Days, claim.SumLoan, claim.Days, claim.FirstDate, user.Id, docid, claim.CardNumber, claim.SumPaid, claim.Fine, claim.PaidOut, claim.type, claim.status);
                     BaseDataLite.SendFile(FileAddres, docid);
                     LoadingScreen(false);
+                    NotificationWindow f = new NotificationWindow($"{claim.Id}", claim.SumLoan, claim.Days, $"{claim.SumPaid}");
+                    DialogResult result = f.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        if (panelCreateClaim.Visible == true)
+                        {
+                            panelMain.Visible = false;
+                            panelCheckClaim.Visible = true;
+                            panelCreateClaim.Visible = false;
+                            panelAbout.Visible = false;
+                        }
+                        else
+                        {
+                            panelMain.Visible = false;
+                            panelCheckClaim.Visible = true;
+                            panelAbout.Visible = false;
+                        }
+                    }
                 }
                 catch (Exception)
                 {
+                    LoadingScreen(false);
                     MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -423,7 +452,6 @@ namespace UserClient
                 MessageBox.Show($"Похоже что у вас уже есть принятые или новые заявки.\nЗавершите предыдущий займ, для того чтобы взять новый.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public void LoadingScreen(bool freez)
         {
             if (freez)
@@ -445,6 +473,5 @@ namespace UserClient
             //todo: Страница просмотра и оплаты
         }
     }//todo При принятии заявки дата первого платежа в день принятия. 
-    //todo Информация при успешной отправки заявки
 
 }
