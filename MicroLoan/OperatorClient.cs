@@ -219,7 +219,7 @@ namespace MicroLoan
                             proc = 2.0;
                         }
                         double sumfine = (double)claim.SumLoan * (proc / 100.0) * (double)claim.Fine;
-                        labelPaidOUT.Text = $"{claim.PaidOut}/{claim.SumPaid} \nвключая штраф:{sumfine}({(sumfine/claim.SumLoan)*100}%)";
+                        labelPaidOUT.Text = $"{claim.PaidOut}/{claim.SumPaid} \nвключая штраф:{sumfine}руб.({(sumfine/claim.SumLoan)*100}%)";
                         #endregion
                         #region userdata
                         //GetDataFromBD
@@ -426,31 +426,22 @@ namespace MicroLoan
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF files(.pdf)|*.pdf";
-            saveFileDialog.FileName = $"Паспорт клиента {labelClientId.Text}";
-            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
-                return;
-            LoadingScreen(true);
-            File.WriteAllBytes(saveFileDialog.FileName, BaseDataLite.GetFile(Convert.ToInt32(labelLoanID.Text.Substring(1))));
-            LoadingScreen(false);
-            MessageBox.Show("Ваш файл был успешно загружен и сохранен", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //try
-            //{
-            //    SaveFileDialog saveFileDialog = new SaveFileDialog();
-            //    saveFileDialog.Filter = "PDF files(.pdf)|*.pdf";
-            //    if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
-            //        return;
-            //    LoadingScreen(true);
-            //    File.WriteAllBytes(saveFileDialog.FileName, BaseDataLite.GetFile(Convert.ToInt32(labelLoanID.Text)));
-            //    LoadingScreen(false);
-            //    MessageBox.Show("Ваш файл был успешно загружен и сохранен", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    LoadingScreen(false);
-            //}
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "PDF files(.pdf)|*.pdf";
+                if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                    return;
+                LoadingScreen(true);
+                File.WriteAllBytes(saveFileDialog.FileName, BaseDataLite.GetFile(Convert.ToInt32(labelLoanID.Text)));
+                LoadingScreen(false);
+                MessageBox.Show("Ваш файл был успешно загружен и сохранен", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadingScreen(false);
+            }
         }
         public void LoadingScreen(bool freez)
         {

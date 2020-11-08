@@ -35,9 +35,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panelCheckClaim = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonPay = new System.Windows.Forms.Button();
             this.buttonFindClaim = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.labelClaimFirstDate = new System.Windows.Forms.Label();
+            this.labelClaimDays = new System.Windows.Forms.Label();
             this.labelClaimSumPaid = new System.Windows.Forms.Label();
             this.labelClaimSumLoan = new System.Windows.Forms.Label();
             this.labelClaimFineDays = new System.Windows.Forms.Label();
@@ -45,6 +48,8 @@
             this.labelClaimPiadout = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -202,9 +207,12 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel4.Controls.Add(this.buttonPay);
             this.panel4.Controls.Add(this.buttonFindClaim);
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.label21);
+            this.panel4.Controls.Add(this.labelClaimFirstDate);
+            this.panel4.Controls.Add(this.labelClaimDays);
             this.panel4.Controls.Add(this.labelClaimSumPaid);
             this.panel4.Controls.Add(this.labelClaimSumLoan);
             this.panel4.Controls.Add(this.labelClaimFineDays);
@@ -212,6 +220,8 @@
             this.panel4.Controls.Add(this.labelClaimPiadout);
             this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.label39);
+            this.panel4.Controls.Add(this.label38);
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.label17);
@@ -220,17 +230,33 @@
             this.panel4.Size = new System.Drawing.Size(898, 545);
             this.panel4.TabIndex = 0;
             // 
+            // buttonPay
+            // 
+            this.buttonPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(100)))));
+            this.buttonPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPay.Enabled = false;
+            this.buttonPay.FlatAppearance.BorderSize = 0;
+            this.buttonPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPay.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonPay.Location = new System.Drawing.Point(688, 476);
+            this.buttonPay.Name = "buttonPay";
+            this.buttonPay.Size = new System.Drawing.Size(176, 44);
+            this.buttonPay.TabIndex = 3;
+            this.buttonPay.Text = "Оплатить";
+            this.buttonPay.UseVisualStyleBackColor = false;
+            this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
+            // 
             // buttonFindClaim
             // 
             this.buttonFindClaim.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonFindClaim.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonFindClaim.FlatAppearance.BorderSize = 0;
             this.buttonFindClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFindClaim.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonFindClaim.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonFindClaim.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonFindClaim.Location = new System.Drawing.Point(638, 17);
+            this.buttonFindClaim.Location = new System.Drawing.Point(638, 23);
             this.buttonFindClaim.Name = "buttonFindClaim";
-            this.buttonFindClaim.Size = new System.Drawing.Size(107, 29);
+            this.buttonFindClaim.Size = new System.Drawing.Size(107, 24);
             this.buttonFindClaim.TabIndex = 2;
             this.buttonFindClaim.Text = "Найти займ";
             this.buttonFindClaim.UseVisualStyleBackColor = false;
@@ -247,6 +273,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(158, 22);
             this.textBox1.TabIndex = 1;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label21
             // 
@@ -259,24 +286,47 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Номер заявки";
             // 
+            // labelClaimFirstDate
+            // 
+            this.labelClaimFirstDate.AutoSize = true;
+            this.labelClaimFirstDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimFirstDate.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelClaimFirstDate.Location = new System.Drawing.Point(557, 322);
+            this.labelClaimFirstDate.Name = "labelClaimFirstDate";
+            this.labelClaimFirstDate.Size = new System.Drawing.Size(20, 28);
+            this.labelClaimFirstDate.TabIndex = 0;
+            this.labelClaimFirstDate.Text = "-";
+            this.labelClaimFirstDate.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelClaimDays
+            // 
+            this.labelClaimDays.AutoSize = true;
+            this.labelClaimDays.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimDays.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelClaimDays.Location = new System.Drawing.Point(83, 322);
+            this.labelClaimDays.Name = "labelClaimDays";
+            this.labelClaimDays.Size = new System.Drawing.Size(20, 28);
+            this.labelClaimDays.TabIndex = 0;
+            this.labelClaimDays.Text = "-";
+            this.labelClaimDays.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // labelClaimSumPaid
             // 
             this.labelClaimSumPaid.AutoSize = true;
             this.labelClaimSumPaid.BackColor = System.Drawing.Color.Transparent;
             this.labelClaimSumPaid.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelClaimSumPaid.Location = new System.Drawing.Point(222, 125);
+            this.labelClaimSumPaid.Location = new System.Drawing.Point(31, 188);
             this.labelClaimSumPaid.Name = "labelClaimSumPaid";
             this.labelClaimSumPaid.Size = new System.Drawing.Size(20, 28);
             this.labelClaimSumPaid.TabIndex = 0;
             this.labelClaimSumPaid.Text = "-";
-            this.labelClaimSumPaid.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelClaimSumLoan
             // 
             this.labelClaimSumLoan.AutoSize = true;
             this.labelClaimSumLoan.BackColor = System.Drawing.Color.Transparent;
             this.labelClaimSumLoan.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelClaimSumLoan.Location = new System.Drawing.Point(207, 85);
+            this.labelClaimSumLoan.Location = new System.Drawing.Point(36, 113);
             this.labelClaimSumLoan.Name = "labelClaimSumLoan";
             this.labelClaimSumLoan.Size = new System.Drawing.Size(20, 28);
             this.labelClaimSumLoan.TabIndex = 0;
@@ -288,19 +338,20 @@
             this.labelClaimFineDays.AutoSize = true;
             this.labelClaimFineDays.BackColor = System.Drawing.Color.Transparent;
             this.labelClaimFineDays.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelClaimFineDays.Location = new System.Drawing.Point(161, 165);
+            this.labelClaimFineDays.Location = new System.Drawing.Point(340, 173);
             this.labelClaimFineDays.Name = "labelClaimFineDays";
             this.labelClaimFineDays.Size = new System.Drawing.Size(20, 28);
             this.labelClaimFineDays.TabIndex = 0;
             this.labelClaimFineDays.Text = "-";
-            this.labelClaimFineDays.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelClaimStatus
             // 
             this.labelClaimStatus.AutoSize = true;
             this.labelClaimStatus.BackColor = System.Drawing.Color.Transparent;
+            this.labelClaimStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelClaimStatus.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelClaimStatus.Location = new System.Drawing.Point(122, 253);
+            this.labelClaimStatus.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelClaimStatus.Location = new System.Drawing.Point(590, 107);
             this.labelClaimStatus.Name = "labelClaimStatus";
             this.labelClaimStatus.Size = new System.Drawing.Size(20, 28);
             this.labelClaimStatus.TabIndex = 0;
@@ -312,7 +363,7 @@
             this.labelClaimPiadout.AutoSize = true;
             this.labelClaimPiadout.BackColor = System.Drawing.Color.Transparent;
             this.labelClaimPiadout.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelClaimPiadout.Location = new System.Drawing.Point(161, 213);
+            this.labelClaimPiadout.Location = new System.Drawing.Point(340, 104);
             this.labelClaimPiadout.Name = "labelClaimPiadout";
             this.labelClaimPiadout.Size = new System.Drawing.Size(20, 28);
             this.labelClaimPiadout.TabIndex = 0;
@@ -324,7 +375,7 @@
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(36, 253);
+            this.label23.Location = new System.Drawing.Point(585, 76);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(76, 28);
             this.label23.TabIndex = 0;
@@ -335,18 +386,40 @@
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(36, 208);
+            this.label20.Location = new System.Drawing.Point(340, 79);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(124, 28);
             this.label20.TabIndex = 0;
             this.label20.Text = "Выплачено:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.BackColor = System.Drawing.Color.Transparent;
+            this.label39.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label39.Location = new System.Drawing.Point(337, 322);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(220, 28);
+            this.label39.TabIndex = 0;
+            this.label39.Text = "Первый день оплаты:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.BackColor = System.Drawing.Color.Transparent;
+            this.label38.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label38.Location = new System.Drawing.Point(27, 322);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(64, 28);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "Срок:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(35, 165);
+            this.label19.Location = new System.Drawing.Point(340, 145);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(83, 28);
             this.label19.TabIndex = 0;
@@ -357,7 +430,7 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(35, 125);
+            this.label18.Location = new System.Drawing.Point(27, 155);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(181, 28);
             this.label18.TabIndex = 0;
@@ -368,7 +441,7 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(36, 85);
+            this.label17.Location = new System.Drawing.Point(31, 85);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(131, 28);
             this.label17.TabIndex = 0;
@@ -1223,10 +1296,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1140, 578);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelCreateClaim);
             this.Controls.Add(this.panelCheckClaim);
             this.Controls.Add(this.panelAbout);
+            this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelCreateClaim);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1339,6 +1412,11 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxFirstDay;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label ScreenLoading;
+        private System.Windows.Forms.Button buttonPay;
+        private System.Windows.Forms.Label labelClaimDays;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label labelClaimFirstDate;
+        private System.Windows.Forms.Label label39;
     }
 }
 

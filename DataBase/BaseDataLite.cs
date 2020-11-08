@@ -99,6 +99,7 @@ namespace BaseData
             try
             {
                 string query = $"SELECT * FROM Loan where id ={id} ";
+                command = new SQLiteCommand(query,connection);
                 command.ExecuteNonQuery();
                 adapter = new SQLiteDataAdapter(query, connection);
                 table = new DataTable();
@@ -398,6 +399,8 @@ namespace BaseData
             claim.status = Convert.ToString(loantb.Rows[0][8]);
             claim.PaidOut = Convert.ToInt32(loantb.Rows[0][12]);
             claim.SumPaid = Convert.ToInt32(loantb.Rows[0][10]);
+            claim.FirstDate = DateTime.Parse(Convert.ToString(loantb.Rows[0][4]));
+            claim.LastDate = claim.FirstDate.AddDays(claim.Days);
             return claim;
         }
     }

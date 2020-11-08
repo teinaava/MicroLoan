@@ -467,11 +467,74 @@ namespace UserClient
                 this.Enabled = true;
             }
         }
-
+        #region Страница поиска заявки
         private void buttonFindClaim_Click(object sender, EventArgs e)
         {
-            //todo: Страница просмотра и оплаты
+            BaseDataLite bd = new BaseDataLite();
+            BClaim claim = new BClaim();
+            if (!String.IsNullOrEmpty(textBox1.Text))
+            {
+                DataTable loantb = bd.GetLoanbyID(bd, textBox1.Text);
+                if (loantb != null)
+                {
+                    claim = BaseDataLite.FillClaim(Convert.ToInt32(textBox1.Text), bd);
+                    labelClaimSumLoan.Text = $"{claim.SumLoan} руб.";
+                    double proc = 1.0;
+                    if (claim.SumLoan > 35000)
+                    {
+                        proc = 2.0;
+                    }
+                    double sumfine = (double)claim.SumLoan * (proc / 100.0) * (double)claim.Fine;
+                    labelClaimSumPaid.Text = $"{claim.SumPaid} руб.\nвключая штраф:{sumfine}руб.({(sumfine / claim.SumLoan) * 100}%)";
+                    labelClaimFineDays.Text = $"{claim.Fine} дня";
+                    labelClaimPiadout.Text = $"{claim.PaidOut} руб.";
+                    labelClaimStatus.Text = $"{claim.status}";
+                    labelClaimDays.Text = $"{claim.Days} дней до {claim.LastDate.ToString("d")}";
+                    labelClaimFirstDate.Text = $"{claim.FirstDate.ToString("d")}";
+                    switch (labelClaimStatus.Text.ToLower())
+                    {
+                        case "открыто":
+                            labelClaimStatus.ForeColor = Color.FromArgb(236, 214, 22);
+                            buttonPay.Enabled = false;
+                            break;
+                        case "принято":
+                            labelClaimStatus.ForeColor = Color.FromArgb(44, 218, 65);
+                            buttonPay.Enabled = true;
+                            break;
+                        case "закрыто":
+                            labelClaimStatus.ForeColor = Color.FromArgb(140, 140, 140);
+                            buttonPay.Enabled = false;
+                            break;
+                        case "отклонено":
+                            labelClaimStatus.ForeColor = Color.FromArgb(180, 37, 23);
+                            buttonPay.Enabled = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Займ не найден!", "Займ не найден", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
+            }
+            else
+            {
+                MessageBox.Show("Строка пуста!", "Пустая строка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-    }//todo При принятии заявки дата первого платежа в день принятия. 
 
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && e.KeyChar != 8) { e.Handled = true; }
+        }
+
+        private void buttonPay_Click(object sender, EventArgs e)
+        {
+            //todo:Сделать оплату
+        }
+    }//todo При принятии заявки дата первого платежа в день принятия. если первая дата оплаты прошла.
+    //todo:обновление данных пользователя
 }
+    #endregion
