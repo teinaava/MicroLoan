@@ -222,7 +222,7 @@
             // 
             // buttonFindClaim
             // 
-            this.buttonFindClaim.BackColor = System.Drawing.Color.DarkCyan;
+            this.buttonFindClaim.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonFindClaim.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonFindClaim.FlatAppearance.BorderSize = 0;
             this.buttonFindClaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -230,10 +230,11 @@
             this.buttonFindClaim.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.buttonFindClaim.Location = new System.Drawing.Point(638, 17);
             this.buttonFindClaim.Name = "buttonFindClaim";
-            this.buttonFindClaim.Size = new System.Drawing.Size(107, 27);
+            this.buttonFindClaim.Size = new System.Drawing.Size(107, 29);
             this.buttonFindClaim.TabIndex = 2;
             this.buttonFindClaim.Text = "Найти займ";
             this.buttonFindClaim.UseVisualStyleBackColor = false;
+            this.buttonFindClaim.Click += new System.EventHandler(this.buttonFindClaim_Click);
             // 
             // textBox1
             // 
@@ -431,7 +432,7 @@
             this.textBoxSumLoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSumLoan.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxSumLoan.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBoxSumLoan.Location = new System.Drawing.Point(186, 206);
+            this.textBoxSumLoan.Location = new System.Drawing.Point(186, 209);
             this.textBoxSumLoan.MaxLength = 5;
             this.textBoxSumLoan.Name = "textBoxSumLoan";
             this.textBoxSumLoan.Size = new System.Drawing.Size(65, 18);
@@ -873,7 +874,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.Location = new System.Drawing.Point(36, 490);
+            this.checkBox1.Location = new System.Drawing.Point(36, 508);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 4;
@@ -1026,7 +1027,7 @@
             this.label34.BackColor = System.Drawing.Color.Transparent;
             this.label34.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label34.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(51, 486);
+            this.label34.Location = new System.Drawing.Point(51, 504);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(511, 20);
             this.label34.TabIndex = 0;
@@ -1222,10 +1223,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1140, 578);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelCreateClaim);
-            this.Controls.Add(this.panelAbout);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelCreateClaim);
             this.Controls.Add(this.panelCheckClaim);
+            this.Controls.Add(this.panelAbout);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

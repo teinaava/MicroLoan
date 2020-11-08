@@ -39,20 +39,26 @@ namespace UserClient
         {
             char number = e.KeyChar;
             if (!Char.IsDigit(number) && e.KeyChar != 8) { e.Handled = true; }
-            labelPaidSum.Text = CountSumPiad(Convert.ToInt32(textBoxSumLoan.Text), Convert.ToInt32(textBoxDays.Text)).ToString();
-            labelDailYPaid.Text = CountDailyPaid(Convert.ToInt32(labelPaidSum.Text), Convert.ToInt32(textBoxDays.Text)).ToString();
+            if (!string.IsNullOrEmpty(textBoxSumLoan.Text) && !string.IsNullOrEmpty(textBoxDays.Text)) 
+            {
+                labelPaidSum.Text = CountSumPiad(Convert.ToInt32(textBoxSumLoan.Text), Convert.ToInt32(textBoxDays.Text)).ToString();
+                labelDailYPaid.Text = CountDailyPaid(Convert.ToInt32(labelPaidSum.Text), Convert.ToInt32(textBoxDays.Text)).ToString();
+            }
         }
 
         private void textBoxSumLoan_Leave(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(textBoxSumLoan.Text) > 50000 || Convert.ToInt32(textBoxSumLoan.Text) < 3000)
+            if (!string.IsNullOrEmpty(textBoxSumLoan.Text) && !string.IsNullOrEmpty(textBoxDays.Text))
             {
-                textBoxSumLoan.Text = 50000.ToString();
-            }
-            else
-            {
-                hScrollBarSum.Value = Convert.ToInt32(textBoxSumLoan.Text) / 1000;
-                hScrollBarSum.Update();
+                if (Convert.ToInt32(textBoxSumLoan.Text) > 50000 || Convert.ToInt32(textBoxSumLoan.Text) < 3000)
+                {
+                    textBoxSumLoan.Text = 50000.ToString();
+                }
+                else
+                {
+                    hScrollBarSum.Value = Convert.ToInt32(textBoxSumLoan.Text) / 1000;
+                    hScrollBarSum.Update();
+                }
             }
         }
 
@@ -64,14 +70,17 @@ namespace UserClient
 
         private void textBoxDays_Leave(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(textBoxDays.Text) > 30 || Convert.ToInt32(textBoxDays.Text) < 7)
+            if (!string.IsNullOrEmpty(textBoxSumLoan.Text) && !string.IsNullOrEmpty(textBoxDays.Text))
             {
-                textBoxDays.Text = 30.ToString();
-            }
-            else
-            {
-                hScrollBarDays.Value = Convert.ToInt32(textBoxDays.Text);
-                hScrollBarDays.Update();
+                if (Convert.ToInt32(textBoxDays.Text) > 30 || Convert.ToInt32(textBoxDays.Text) < 7)
+                {
+                    textBoxDays.Text = 30.ToString();
+                }
+                else
+                {
+                    hScrollBarDays.Value = Convert.ToInt32(textBoxDays.Text);
+                    hScrollBarDays.Update();
+                }
             }
         }
         private int CountSumPiad(int sum, int days)
@@ -142,6 +151,8 @@ namespace UserClient
         #endregion
         private void button2_Click(object sender, EventArgs e)//Создать новый займ
         {
+            textBoxSumLoan.Text = $"{hScrollBarSum.Value * 1000}";
+            textBoxDays.Text = hScrollBarDays.Value.ToString();
             panelMain.Visible = false;
             panelCheckClaim.Visible = false;
             panelCreateClaim.Visible = true;
@@ -265,19 +276,20 @@ namespace UserClient
         private void maskedCardNumber_Click(object sender, EventArgs e)
         {
 
-            maskedCardNumber.SelectionStart = 0;
+            maskedCardNumber.SelectionStart = maskedCardNumber.MaskedTextProvider.LastAssignedPosition + 1;
         }
         private void maskedUserBirthDay_Click(object sender, EventArgs e)
         {
-            maskedUserBirthDay.SelectionStart = 0;
+            maskedUserBirthDay.SelectionStart = maskedUserBirthDay.MaskedTextProvider.LastAssignedPosition + 1;
         }
         private void maskedTextBoxFirstDay_Click(object sender, EventArgs e)
         {
-            maskedTextBoxFirstDay.SelectionStart = maskedTextBoxFirstDay.SelectionLength;
+            maskedTextBoxFirstDay.SelectionStart = maskedTextBoxFirstDay.MaskedTextProvider.LastAssignedPosition + 1;
         }
         private void textBoxUserPassport_Click(object sender, EventArgs e)
         {
-            textBoxUserPassport.SelectionStart = 0;
+            // if (textBoxUserPassport.Mask.Length = ) { textBoxUserPassport.SelectionStart = 0; }
+            textBoxUserPassport.SelectionStart = textBoxUserPassport.MaskedTextProvider.LastAssignedPosition + 1;
         }
         private void textBoxUserPassport_KeyDown(object sender, KeyEventArgs e)
         {
@@ -289,7 +301,7 @@ namespace UserClient
         }
         private void maskedUserPhone_Click(object sender, EventArgs e)
         {
-            maskedUserPhone.SelectionStart = 0;
+            maskedUserPhone.SelectionStart = maskedUserPhone.MaskedTextProvider.LastAssignedPosition + 1;
         }
         private void maskedUserPhone_KeyDown(object sender, KeyEventArgs e)
         {
@@ -428,7 +440,11 @@ namespace UserClient
             }
         }
 
+        private void buttonFindClaim_Click(object sender, EventArgs e)
+        {
+            //todo: Страница просмотра и оплаты
+        }
     }//todo При принятии заявки дата первого платежа в день принятия. 
-    //todo Реализовать загрузку файла;
+    //todo Информация при успешной отправки заявки
 
 }

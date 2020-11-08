@@ -16,13 +16,7 @@ namespace ClientUser
     {//dd
         public BClaim()
         {
-            //while (true)
-            //{
 
-            //    id = GenerateID(6);
-            //    if (!BaseDataLite.CheckLoanID(id)) { break; }
-
-            //}
         }
         BaseDataLite bd = new BaseDataLite();
         private int id; //id заявки
