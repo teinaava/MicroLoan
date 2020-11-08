@@ -3,6 +3,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Data;
 using ClientUser;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BaseData
 {
@@ -343,21 +344,25 @@ namespace BaseData
         public static void SetFine(int days,int idclaim,BClaim claim)
         {
             try
-            {
+            {   
                 using (SQLiteConnection conn = new SQLiteConnection(connstr))
                 {
                     conn.Open();
-                    string query = $"SELECT fineday FROM Loan where id = {idclaim}";
+                    string query = $"SELECT fineday FROM Loan WHERE id = {idclaim}";
                     SQLiteCommand cmd = new SQLiteCommand(query, conn);
                     int res = Convert.ToInt32(cmd.ExecuteScalar());
                     days += res;
-                    int proc = 1;
-                    if (claim.SumPaid > 35000)
+                    double proc = 1.0;
+                    if (claim.SumLoan > 35000)
                     {
-                        proc = 2;
+                        proc = 2.0;
                     }
-                    int newsum = claim.SumPaid * (proc / 100) * days;
-                    string query2 = $"UPDATE Loan SET fineday = {days}, WHERE (id = {idclaim})";
+                    double sumfine = (double)claim.SumLoan * (proc / 100.0) * (double)days;
+                    if(sumfine > (claim.SumLoan * (0.2)))
+                    {
+                        sumfine = Math.Round(claim.SumLoan * (0.2),0);
+                    }
+                    string query2 = $"UPDATE Loan SET fineday = {days},sum_paid = {claim.SumPaid + sumfine} WHERE id = {idclaim}";
                     SQLiteCommand cmd2 = new SQLiteCommand(query2, conn);
                     cmd2.ExecuteNonQuery();
                     conn.Close();

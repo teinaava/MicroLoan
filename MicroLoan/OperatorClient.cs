@@ -213,7 +213,13 @@ namespace MicroLoan
                         labelCardNumber.Text = $"{claim.CardNumber}";
                         labelType.Text = claim.type.ToLower(); ;
                         labelStatus.Text = claim.status.ToLower();
-                        labelPaidOUT.Text = $"{claim.PaidOut}/{claim.SumPaid}";
+                        double proc = 1.0;
+                        if (claim.SumLoan > 35000)
+                        {
+                            proc = 2.0;
+                        }
+                        double sumfine = (double)claim.SumLoan * (proc / 100.0) * (double)claim.Fine;
+                        labelPaidOUT.Text = $"{claim.PaidOut}/{claim.SumPaid} \nвключая штраф:{sumfine}({(sumfine/claim.SumLoan)*100}%)";
                         #endregion
                         #region userdata
                         //GetDataFromBD
