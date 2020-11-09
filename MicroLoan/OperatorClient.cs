@@ -450,7 +450,6 @@ namespace MicroLoan
                 this.Enabled = false;
                 labelLoading.BringToFront();
                 labelLoading.Visible = true;
-
             }
             else
             {

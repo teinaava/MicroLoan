@@ -208,7 +208,7 @@ namespace UserClient
                 else
                 {
                     DateTime dateTime = DateTime.Parse(maskedTextBoxFirstDay.Text);
-                    if (dateTime.Day >= DateTime.Now.Day + 10 && dateTime <= DateTime.Now)
+                    if (dateTime >= DateTime.Today.AddDays(10) || dateTime <= DateTime.Today)
                     {
                         Error += "Дата первого платежа более 10 дней. И не может быть раньше или сегодня.\n";
                     }
@@ -402,6 +402,7 @@ namespace UserClient
             else
             {
                 user.Id = BaseDataLite.GetUserID(textBoxUserPassport.Text);
+                BaseDataLite.SendUserDataUpdate(user.Id, maskedEmail.Text, maskedUserPhone.Text);
             }
 
             #endregion
@@ -421,6 +422,7 @@ namespace UserClient
                     LoadingScreen(true);
                     BaseDataLite.SendClaim(claim.Id, claim.SumPaid / claim.Days, claim.SumLoan, claim.Days, claim.FirstDate, user.Id, docid, claim.CardNumber, claim.SumPaid, claim.Fine, claim.PaidOut, claim.type, claim.status);
                     BaseDataLite.SendFile(FileAddres, docid);
+                    GeneralMessages.SendEmailNewLoan(user.Email, $"{user.Name} {user.SecoundName} {user.MiddleName} ", claim);
                     LoadingScreen(false);
                     NotificationWindow f = new NotificationWindow($"{claim.Id}", claim.SumLoan, claim.Days, $"{claim.SumPaid}");
                     DialogResult result = f.ShowDialog();
@@ -532,9 +534,37 @@ namespace UserClient
 
         private void buttonPay_Click(object sender, EventArgs e)
         {
-            //todo:Сделать оплату
+            BaseDataLite bd = new BaseDataLite();
+            DataTable loantb = bd.GetLoanbyID(bd, textBox1.Text);
+            if (loantb != null)
+            {
+                BClaim claim = new BClaim();
+                claim = BaseDataLite.FillClaim(Convert.ToInt32(textBox1.Text), bd);
+                NotificationWindow window = new NotificationWindow($"{claim.Id}", claim.SumLoan, claim.Days, $"{claim.SumPaid}","Оплатить");
+                DialogResult result = window.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    try
+                    {
+                        if ((Convert.ToInt32(NotificationWindow.text) + claim.PaidOut) > claim.SumPaid)
+                        {
+                            MessageBox.Show("Сумма оплаты приведет к переплате по займу.\nВведите меньшую сумму", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            BaseDataLite.SendPayment(claim.Id, Convert.ToInt32(NotificationWindow.text));
+                            MessageBox.Show($"Ваша оплата принята в обработку\nP.s здесь должна быть оплата счета.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            BaseDataLite.AutoCloseClaim(claim.Id);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                
+            }
         }
     }//todo При принятии заявки дата первого платежа в день принятия. если первая дата оплаты прошла.
-    //todo:обновление данных пользователя
 }
     #endregion

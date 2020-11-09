@@ -4,6 +4,7 @@ using System.IO;
 using System.Data;
 using ClientUser;
 using System.Diagnostics.CodeAnalysis;
+using System.ComponentModel.DataAnnotations;
 
 namespace BaseData
 {
@@ -374,6 +375,56 @@ namespace BaseData
 
             }
             
+        }
+        public static void SendUserDataUpdate(int userid,string email,string phone)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"UPDATE Users SET email = '{email}', phone = '{phone}' WHERE id = {userid} ";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+        public static void SendPayment(int claimid,int sum)
+        {
+            using(SQLiteConnection conn = new SQLiteConnection(connstr))
+            {
+                conn.Open();
+                string query = $"UPDATE Loan SET paidout = (paidout + {sum}) WHERE id = {claimid}";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+        public static void AutoCloseClaim(int idclaim)
+        {
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connstr))
+                {
+                    conn.Open();
+                    string query1 = $"SELECT paidout FROM Loan WHERE id ={idclaim}";
+                    string query2 = $"SELECT sum_paid FROM Loan WHERE id ={idclaim}";
+                    string query3 = $"UPDATE Loan SET status = 'закрыто' WHERE (id = {idclaim})";
+                    SQLiteCommand cmd = new SQLiteCommand(query1, conn);
+                    SQLiteCommand cmd2 = new SQLiteCommand(query2, conn);
+                    SQLiteCommand cmd3 = new SQLiteCommand(query3, conn);
+                    int paidout = Convert.ToInt32(cmd.ExecuteScalar());
+                    int sumpaid = Convert.ToInt32(cmd2.ExecuteScalar());
+                    if (paidout == sumpaid)
+                    {
+                        cmd3.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
+
+                
+            }
         }
         public static void SetNewStatus(int idclaim, string status)
         {
