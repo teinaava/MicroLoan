@@ -430,10 +430,11 @@ namespace MicroLoan
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "PDF files(.pdf)|*.pdf";
+                saveFileDialog.FileName = $"Паспорт клиента {labelClientId.Text}";
                 if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
                     return;
                 LoadingScreen(true);
-                File.WriteAllBytes(saveFileDialog.FileName, BaseDataLite.GetFile(Convert.ToInt32(labelLoanID.Text)));
+                File.WriteAllBytes(saveFileDialog.FileName, BaseDataLite.GetFile(Convert.ToInt32(labelLoanID.Text.Substring(1))));
                 LoadingScreen(false);
                 MessageBox.Show("Ваш файл был успешно загружен и сохранен", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

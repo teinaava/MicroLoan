@@ -68,17 +68,18 @@
             // 
             this.labelText.AutoSize = true;
             this.labelText.BackColor = System.Drawing.Color.Transparent;
-            this.labelText.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelText.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelText.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelText.Location = new System.Drawing.Point(12, 82);
             this.labelText.Name = "labelText";
-            this.labelText.Size = new System.Drawing.Size(15, 20);
+            this.labelText.Size = new System.Drawing.Size(13, 17);
             this.labelText.TabIndex = 1;
             this.labelText.Text = "-";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;

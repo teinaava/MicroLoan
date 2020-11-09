@@ -542,7 +542,7 @@ namespace UserClient
                 claim = BaseDataLite.FillClaim(Convert.ToInt32(textBox1.Text), bd);
                 NotificationWindow window = new NotificationWindow($"{claim.Id}", claim.SumLoan, claim.Days, $"{claim.SumPaid}","Оплатить");
                 DialogResult result = window.ShowDialog();
-                if (result == DialogResult.OK)
+                if (result == DialogResult.Yes)
                 {
                     try
                     {
@@ -562,6 +562,7 @@ namespace UserClient
                         MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                
                 
             }
         }
