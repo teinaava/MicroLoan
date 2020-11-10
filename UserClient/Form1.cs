@@ -564,8 +564,6 @@ namespace UserClient
                         MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                
-                
             }
         }
 

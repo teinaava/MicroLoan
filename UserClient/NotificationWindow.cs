@@ -36,7 +36,7 @@ namespace UserClient
             labelsum.Visible = true;
             paidtextboxsum.Visible = true;
         }
-        private static bool wii;
+        private static bool wii = false;
         private void buttonOK_Click(object sender, EventArgs e)
         {
             if (wii)
@@ -53,9 +53,12 @@ namespace UserClient
                     this.DialogResult = DialogResult.Cancel;
                 }
             }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+            }
 
             
-                this.DialogResult = DialogResult.OK;
             
         }
         private void button1_Click(object sender, EventArgs e)
