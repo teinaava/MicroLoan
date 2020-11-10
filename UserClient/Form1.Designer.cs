@@ -1296,10 +1296,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1140, 578);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelCheckClaim);
-            this.Controls.Add(this.panelAbout);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelCreateClaim);
+            this.Controls.Add(this.panelCheckClaim);
+            this.Controls.Add(this.panelAbout);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -18,7 +18,9 @@ namespace UserClient
     {
         public Form1()
         {
+            
             InitializeComponent();
+            
             radioButtonCard.Select();
         }
 
@@ -566,6 +568,8 @@ namespace UserClient
                 
             }
         }
+
+        
     }//todo При принятии заявки дата первого платежа в день принятия. если первая дата оплаты прошла.
 }
     #endregion
