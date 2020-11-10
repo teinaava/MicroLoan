@@ -14,8 +14,6 @@ namespace ClientUser
         private string phone;
         private string email;
         private string passport;
-
-
         public int Id 
         { 
           

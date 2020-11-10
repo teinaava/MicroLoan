@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DecideForm));
             this.label1 = new System.Windows.Forms.Label();
             this.buttonApply = new System.Windows.Forms.Button();
             this.buttonReject = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@
             // buttonApply
             // 
             this.buttonApply.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.buttonApply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonApply.FlatAppearance.BorderSize = 0;
             this.buttonApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonApply.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -63,6 +65,7 @@
             // buttonReject
             // 
             this.buttonReject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonReject.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonReject.FlatAppearance.BorderSize = 0;
             this.buttonReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReject.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -78,6 +81,7 @@
             // buttonCancle
             // 
             this.buttonCancle.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonCancle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancle.FlatAppearance.BorderSize = 0;
             this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancle.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -100,6 +104,7 @@
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DecideForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Принять решение";

@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 namespace MicroLoan
 {
@@ -196,6 +197,7 @@ namespace MicroLoan
                 DataTable loantb = bd.GetLoanbyID(bd, $"{textBoxIDClaim.Text}");
                 if (loantb != null)
                 {
+
                     try
                     {
                         DataTable usertb = bd.GetUserbyID(bd, $"{Convert.ToInt32(loantb.Rows[0][5])}");
@@ -211,7 +213,13 @@ namespace MicroLoan
                         labelCardNumber.Text = $"{claim.CardNumber}";
                         labelType.Text = claim.type.ToLower(); ;
                         labelStatus.Text = claim.status.ToLower();
-                        labelPaidOUT.Text = $"{claim.PaidOut}/{claim.SumPaid}";
+                        double proc = 1.0;
+                        if (claim.SumLoan > 35000)
+                        {
+                            proc = 2.0;
+                        }
+                        double sumfine = (double)claim.SumLoan * (proc / 100.0) * (double)claim.Fine;
+                        labelPaidOUT.Text = $"{claim.PaidOut}/{claim.SumPaid} \nвключая штраф:{sumfine}руб.({(sumfine/claim.SumLoan)*100}%)";
                         #endregion
                         #region userdata
                         //GetDataFromBD
@@ -285,38 +293,26 @@ namespace MicroLoan
             DialogResult dialogResult = MessageBox.Show("Вы хотите сохранить изменения ?", "Сохранить ?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
-                string tablename;
-                if (listBoxTypeVision.GetSelected(0))
+                try
                 {
-                    tablename = "Loan";
+                    string tablename;
+                    if (listBoxTypeVision.GetSelected(0))
+                    {
+                        tablename = "Loan";
+                    }
+                    else
+                    {
+                        tablename = "Users";
+                    }
+                    table = (DataTable)dataGridView1.DataSource;
+                    BaseDataLite.UpdateBaseDate(table, tablename);
+                    MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                catch (Exception)
                 {
-                    tablename = "Users";
-                }
-                table = (DataTable)dataGridView1.DataSource;
-                BaseDataLite.UpdateBaseDate(table, tablename);
-                MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //try
-                //{
-                //    string tablename;
-                //    if (listBoxTypeVision.GetSelected(0))
-                //    {
-                //        tablename = "Loan";
-                //    }
-                //    else
-                //    {
-                //        tablename = "Users";
-                //    }
-                //    table = (DataTable)dataGridView1.DataSource;
-                //    BaseDataLite.UpdateBaseDate(table, tablename);
-                //    MessageBox.Show("Таблица успешно сохранена.", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //catch (Exception)
-                //{
 
-                //    MessageBox.Show("Ой, что-то пошло не так ;(\nВозможно вы оставлили пустую строку.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                    MessageBox.Show("Ой, что-то пошло не так ;(\nВозможно вы оставлили пустую строку.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void buttonDeleateOLD_Click(object sender, EventArgs e) // Удалить все отклоненые заявки.
@@ -340,7 +336,7 @@ namespace MicroLoan
         {
             try
             {
-                BaseDataLite.SetFine(Convert.ToInt32(textBoxFineDays.Text), Convert.ToInt32(labelLoanID.Text.Substring(1)));
+                BaseDataLite.SetFine(Convert.ToInt32(textBoxFineDays.Text), Convert.ToInt32(labelLoanID.Text.Substring(1)), claim);
                 MessageBox.Show("Штрафные дни увеличены", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
@@ -402,12 +398,12 @@ namespace MicroLoan
             if (dataGrid.ColumnCount == 13)
             {
                 dataGrid.Columns[0].HeaderText = "Номер заявки";
-                dataGrid.Columns[1].HeaderText = "Сумма заявки";
-                dataGrid.Columns[2].HeaderText = "Срок дней";
-                dataGrid.Columns[3].HeaderText = "Дата первой оплаты";
-                dataGrid.Columns[4].HeaderText = "Номер клиента";
-                dataGrid.Columns[5].HeaderText = "Номер документа";
-                dataGrid.Columns[6].HeaderText = "Дата первой оплаты";
+                dataGrid.Columns[1].HeaderText = "Оплата в день";
+                dataGrid.Columns[2].HeaderText = "Сумма кредита";
+                dataGrid.Columns[3].HeaderText = "Срок";
+                dataGrid.Columns[4].HeaderText = "Дата первой оплаты";
+                dataGrid.Columns[5].HeaderText = "Номер клиента";
+                dataGrid.Columns[6].HeaderText = "Номер документа";
                 dataGrid.Columns[7].HeaderText = "Номер карты";
                 dataGrid.Columns[8].HeaderText = "Статус";
                 dataGrid.Columns[9].HeaderText = "Тип выплаты";
@@ -428,8 +424,39 @@ namespace MicroLoan
             }
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "PDF files(.pdf)|*.pdf";
+                saveFileDialog.FileName = $"Паспорт клиента {labelClientId.Text}";
+                if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                    return;
+                LoadingScreen(true);
+                File.WriteAllBytes(saveFileDialog.FileName, BaseDataLite.GetFile(Convert.ToInt32(labelLoanID.Text.Substring(1))));
+                LoadingScreen(false);
+                MessageBox.Show("Ваш файл был успешно загружен и сохранен", "Сохранено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ой, что-то пошло не так ;(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadingScreen(false);
+            }
+        }
+        public void LoadingScreen(bool freez)
+        {
+            if (freez)
+            {
+                this.Enabled = false;
+                labelLoading.BringToFront();
+                labelLoading.Visible = true;
+            }
+            else
+            {
+                labelLoading.Visible = false;
+                this.Enabled = true;
+            }
+        }
     }
 }
-
-
