@@ -1324,7 +1324,6 @@
             this.panelAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
