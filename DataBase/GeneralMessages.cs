@@ -23,7 +23,7 @@ namespace DataBase
 
             m.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 25);
-            smtp.Credentials = new NetworkCredential("aurel1us.mar@yandex.ru", "qwrnvtxewxwdckco");
+            //smtp.Credentials = new NetworkCredential("----", "------");
             smtp.EnableSsl = true;
             smtp.Send(m);
         }
